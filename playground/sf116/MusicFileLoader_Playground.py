@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import tensorflow_io as tfio
 
-path = 'C:\\Users\\Admin\\Downloads\\Technology Lab\\Music\\Dee Yan-Key - minor melancholy.mp3'
+path = "C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Lounge Titel\\Dee Yan-Key - minor melancholy.mp3"
 
 audio = tfio.audio.AudioIOTensor(path)
 print(audio)
