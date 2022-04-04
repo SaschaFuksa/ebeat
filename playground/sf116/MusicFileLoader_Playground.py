@@ -2,16 +2,19 @@ import matplotlib.pyplot as plt
 import numpy
 import tensorflow as tf
 import tensorflow_io as tfio
+from IPython.display import Audio
 
 path = "C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Lounge Titel\\Dee Yan-Key - minor melancholy.mp3"
 
 audio = tfio.audio.AudioIOTensor(path)
 print('audio tensor:')
 print(audio)
+print(type(audio))
 
-audio_slice = audio[90000:100000]
+audio_slice = audio[100000:110000]
 print('audio slice:')
 print(audio_slice)
+Audio(audio_slice.numpy(), rate=audio.rate.numpy())
 
 tensor = tf.cast(audio_slice, tf.float32) / 32768.0
 tensor_numpy = tensor.numpy()
@@ -36,7 +39,7 @@ print('second dim:')
 print(second_dim)
 
 plt.plot(first_dim)
-plt.show()
+#plt.show()
 
 plt.plot(second_dim)
-plt.show()
+#plt.show()
