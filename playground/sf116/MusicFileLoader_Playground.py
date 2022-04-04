@@ -4,17 +4,18 @@ import tensorflow as tf
 import tensorflow_io as tfio
 from IPython.display import Audio
 
-path = "C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Lounge Titel\\Dee Yan-Key - minor melancholy.mp3"
+path = "C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Techno Titel\\Tea K Pea - nauticals.mp3"
 
 audio = tfio.audio.AudioIOTensor(path)
 print('audio tensor:')
 print(audio)
 print(type(audio))
 
-audio_slice = audio[100000:110000]
+audio_slice = audio[10000:50000]
 print('audio slice:')
 print(audio_slice)
-Audio(audio_slice.numpy(), rate=audio.rate.numpy())
+print(type(audio_slice))
+#Audio(audio_slice.numpy(), rate=audio.rate.numpy())
 
 tensor = tf.cast(audio_slice, tf.float32) / 32768.0
 tensor_numpy = tensor.numpy()
@@ -27,7 +28,7 @@ print(type(tensor_numpy))
 
 plt.figure()
 plt.plot(tensor_numpy)
-plt.show()
+#plt.show()
 
 first_dim = numpy.delete(tensor_numpy, 1)
 print('first dim:')
@@ -43,3 +44,8 @@ plt.plot(first_dim)
 
 plt.plot(second_dim)
 #plt.show()
+
+from scipy.io.wavfile import write
+
+#write('C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Techno Titel\\Test2.wav', 44100, tensor_numpy)
+write('C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Techno Titel\\Test2.wav', 44100, tensor_numpy)
