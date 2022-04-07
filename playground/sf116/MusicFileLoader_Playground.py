@@ -38,6 +38,7 @@ print(type(first_dim))
 second_dim = numpy.delete(tensor_numpy, 0)
 print('second dim:')
 print(second_dim)
+print(type(second_dim))
 
 plt.plot(first_dim)
 #plt.show()
@@ -46,6 +47,9 @@ plt.plot(second_dim)
 #plt.show()
 
 from scipy.io.wavfile import write
+import scipy.io.wavfile as wavfile
 
-#write('C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Techno Titel\\Test2.wav', 44100, tensor_numpy)
-write('C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Techno Titel\\Test2.wav', 44100, tensor_numpy)
+x = tf.audio.encode_wav(tensor_numpy, 44100)
+#write('C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Techno Titel\\Test2.wav', 44100, tensor)
+
+wavfile.write('C:\\Users\\Admin\\OneDrive\\Dokumente\\Studium\\Technology Lab\\Techno Titel\\Test2.wav', 44100, second_dim)
