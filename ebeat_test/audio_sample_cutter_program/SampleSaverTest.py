@@ -16,6 +16,7 @@ class MyTestCase(unittest.TestCase):
         for audio in audios:
             sample_saver.save_sample(audio)
         files = os.listdir(self.test_folder)
+        files.remove('.gitkeep')
         self.assertEqual(len(files), 3)
         i = 1
         for file in files:
@@ -24,6 +25,7 @@ class MyTestCase(unittest.TestCase):
 
     def tearDown(self):
         files = os.listdir(self.test_folder)
+        files.remove('.gitkeep')
         for file in files:
             os.remove(self.test_folder + '/' + file)
 
