@@ -6,7 +6,7 @@ from playground.sf116.RandomMusicFileCutter import RandomMusicFileCutter
 
 
 class MyTestCase(unittest.TestCase):
-    cutter:IMusicFileCutter
+    cutter: IMusicFileCutter
 
     def test_cut_in_equal(self):
         cutter = EqualMusicFileCutter()
