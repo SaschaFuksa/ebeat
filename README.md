@@ -82,6 +82,28 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 #### <h4><U> ebeat-Resampler </h4></U>
 ![ebeat - Resampler](https://github.com/SaschaFuksa/ebeat/blob/main/Use%20cases/ebeat-Resampler.PNG)
 
+**Name Use Case:** Choose input samples <br>
+**Akteur:** Lisa <br>
+**Ziel:** Auswählen mehrerer Samples, um diese harmonisiert zusammenzuführen. <br>
+**Vorbedingung:**  Es müssen mehrere Audiosamples in einem Pfad vorliegen. <br>
+**Nachbedingung:** Die fertige Audiodatei / Stream liegt im ausgewählten Directory zum Abspielen bereit. <br>
+**Standardablauf:** <br>1. Lisa öffnet den Resampler.<br> 2. Lisa gibt den Befehl in die Nutzeroberfläche ein, der es ermöglicht einen Input Pfad anzugeben.<br> 3. Lisa trägt den Input Pfad ein und drückt Eingabe (Enter).<br> 4. Lisa startet den Resampler und erstellt eine Audiodatei / Stream.<br> 
+
+
+**Name Use Case:** Generate music file <br>
+**Akteur:** Lisa<br> 
+**Ziel:** System kreiert anhand der zusammengeführten Samples eine Musik Datei.<br> 
+**Vorbedingung:**  Es müssen mehrere Samples im ausgewählten Input directory hinterlegt sein, damit diese nacheinander verkettet werden können. Das Trainingsmodell muss erstellt sein. <br>
+**Nachbedingung:** Aus den Samples wurde eine Musikdatei / Stream erstellt. <br>
+**Standardablauf:**<br> 1. Lisa öffnet den Resampler und lässt das ML-Modell die vorher ausgewählten Samples zu einem Musikstück komponieren/ aneinanderreihen.<br> 
+
+
+**Name Use Case:** Save music file <br>
+**Akteur:** Lisa<br>
+**Ziel:** Lisa legt das Musikstück in einem bestimmten Pfad ab. <br>
+**Vorbedingung:** Output Directory muss vorhanden sein. Audiodatei / Stream muss vorhanden sein. <br>
+**Nachbedingung:** Generiertes Musikstück wurde gespeichert. <br>
+**Standardablauf:**<br> 1. Lisa öffnet den Resampler. <br>2. Lisa gibt den Befehl in die Nutzeroberfläche ein, der es ermöglicht einen Output Pfad anzugeben.<br>3. Lisa trägt den Output Pfad ein und drückt Eingabe (Enter). <br>4. Daraufhin wird das Musikstück gespeichert und ist zum Abhören bereit. <br>
 ## <h2> Systemarchitektur</h2>
 ### <h3>Komponentendiagramm  </h3>
 ### <h3>Klassendiagramm  </h3>
