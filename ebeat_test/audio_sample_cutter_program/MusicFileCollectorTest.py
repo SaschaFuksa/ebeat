@@ -1,6 +1,6 @@
 import unittest
 
-from ebeat.audio_sample_cutter_program.MusicFileCollector import MusicFileCollector
+from ebeat.music_sample_cutter_program.MusicFileCollector import MusicFileCollector
 
 
 class MusicFileCollectorTest(unittest.TestCase):
