@@ -12,7 +12,7 @@ class MusicFileCollectorTest(unittest.TestCase):
         self.assertEqual(len(songs), 4)
 
     def test_list(self):
-        test_list = ["test_a.mp3", "test_b.mp3", "test_a.wav", "test_b.wav"]
+        test_list = ["test_a.mp3", "test_a.wav", "test_b.mp3", "test_b.wav"]
         finder = MusicFileCollector(self.path)
         songs = finder.find_songs()
         self.assertListEqual(test_list, songs, "Lists are equal")
