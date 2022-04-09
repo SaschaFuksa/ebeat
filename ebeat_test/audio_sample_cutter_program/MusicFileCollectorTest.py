@@ -4,7 +4,7 @@ from ebeat.music_sample_cutter_program.MusicFileCollector import MusicFileCollec
 
 
 class MusicFileCollectorTest(unittest.TestCase):
-    path = "test_data"
+    path = "collector_test_data"
 
     def test_find_songs(self):
         finder = MusicFileCollector(self.path)
