@@ -20,6 +20,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 ### <h3>Use Case   </h3> 
 
  <U><h4> ebeat – Samplecreator </h4></U>
+![ebeat-Samplecreator](/Use Cases/ebeat-samplecreator.PNG)
 
 **Name Use Case:** Choose input song<br>
 **Akteur:** Lisa<br>
@@ -43,8 +44,11 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 **Standardablauf:**<br> 1. Lisa öffnet die Nutzeroberfläche des Systems.<br> 2. Lisa gibt den Befehl in die Nutzeroberfläche ein, der es ermöglicht einen Output Pfad anzugeben.<br> 3. Lisa trägt den Output Pfad ein und drück Eingabe (Enter). 
 <br>
 <br>
-#### <h4><U> ebeat – ML Trainer </h4></U>
+
+<h4><U> ebeat – ML Trainer </h4></U>
+![ebeat-ML Trainer](/Use cases/ebeat - ML Trainer.PNG)
  
+
 **Name Use Case:** Check concatenation matching of samples<br>
 **Akteur:** Lisa <br>
 **Ziel:** Harmonie zwischen den einzelnen Samples überprüfen. <br>
@@ -77,6 +81,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 
 
 #### <h4><U> ebeat-Resampler </h4></U>
+![ebeat - Resampler](/Use cases/ebeat-Resampler.PNG)
 
 ## <h2> Systemarchitektur</h2>
 ### <h3>Komponentendiagramm  </h3>
