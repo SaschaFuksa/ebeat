@@ -1,5 +1,6 @@
 from ebeat.music_sample_cutter_program.EqualMusicSampleCutter import EqualMusicSampleCutter
 from ebeat.music_sample_cutter_program.MusicFileCollector import MusicFileCollector
+from ebeat.music_sample_cutter_program.MusicSampleCutter import MusicSampleCutter
 from ebeat.music_sample_cutter_program.SampleSaver import SampleSaver
 
 
