@@ -1,5 +1,6 @@
 from ebeat.music_sample_cutter_program.MusicSampleCreator import MusicSampleCreator
 
+
 # Run function to receive the user Inputs like Input directory / Output directory
 def run():
     print('Please insert your input directory (like: C:/Users/Admin/Downloads/input/).')

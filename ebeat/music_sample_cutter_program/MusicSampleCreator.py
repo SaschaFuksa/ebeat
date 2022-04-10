@@ -10,6 +10,7 @@ Samples sizes are based on the cutting method which is chosen, the original file
 part for traceability. 
 """
 
+
 class MusicSampleCreator:
     music_sample_cutter: MusicSampleCutter
 
@@ -45,7 +46,7 @@ class MusicSampleCreator:
         for song in songs:
             song_name = song.split('.')[0]
             postfix = song.split('.')[1]
-            samples = self.music_sample_cutter.cut_music_file(self.input_directory+song)
+            samples = self.music_sample_cutter.cut_music_file(self.input_directory + song)
             sample_saver = SampleSaver(self.output_directory, song_name, postfix, rate)
 
             for sample in samples:

@@ -6,6 +6,7 @@ from scipy.io.wavfile import write
 SampleSaver is used to save the samples which are either created by equal or stochastic approach.
 """
 
+
 class SampleSaver:
 
     # Init method which is called as soon as an object of a class is instantiated.

@@ -5,6 +5,7 @@ MusicSampleCutter is used as a signature of the method without implementing it.
 The abstract method will be overridden in the subclass EqualMusicSampleCutter or StochasticMusicSampleCutter.
 """
 
+
 class MusicSampleCutter(ABC):
 
     @abstractmethod

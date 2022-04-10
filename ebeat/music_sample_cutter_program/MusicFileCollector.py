@@ -5,6 +5,7 @@ MusicFileCollector finds songs in the directory which the user enters as an Inpu
 It can handle wav or mp3 files.
 """
 
+
 class MusicFileCollector:
 
     def __init__(self, directory: str):
