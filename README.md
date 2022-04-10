@@ -136,6 +136,114 @@ Die Compiler-Komponente dient zu Übersetzung der Musikformate. Darin sind die K
 - Audioeigenschaften (Amplitude -> Lautstärke, Wellenlänge -> Schnelligkeit, Phase -> Verschiebung) werden sinnvoll betrachtet und ggf. verwendet 
 - Speicherung der neuen Musikstücke 
 ## Theoretische Grundlagen
+Mit Hilfe eines neuronalen Netzwerks, ist es möglich einer Maschine etwas
+anzutrainieren. Dieses besteht aus zwei wesentlichen Bestandteilen:
+
+-   Neuron: Ein Knoten mit Gewichtung, Bias und Aktivierungsfunktion, mit der
+    berechnet wird, ob das Neuron “feuert”. Beispiele für Aktivierungsfunktionen
+    sind RELU, Sigmoid und Tanh
+
+-   Layer: Eine Sammlung von Neuron. Dabei unterscheidet man zwischen Input-,
+    Output, und Hiddenlayer. Verfügt das Netzwerk über mehr als ein Hiddenlayer,
+    spricht man von deep learning.
+
+Das Erstellen eines neuronalen Netzwerks kann beispielweise mit TensorFlow und
+Keras erfolgen. TensorFlow ist ein Framework und Keras die Bibliothek, die eine
+Schnittstelle bereitstellt.
+
+In der Dokumentation von TensorFlow gibt es bereits einen beschriebenen
+Anwendungsfall, bei dem versucht wird Musik zu erzeugen. Dafür wird ein RNN
+aufgebaut, mit dem ein Modell trainiert auf Basis von Piano MIDI Files.
+
+In einem zweiten Anwendungsfall wir mit der LSTM Architektur und einem RNN ein
+Modell trainiert, welches Musik generieren kann. Für das Training wird ein
+Datensatz von tausenden Irischen Volkslieder verwendet, das in der ABC Notation
+vorliegt.
+
+Pydub wurde im Verlauf der Entwicklung für das Zerstückeln ausgewählt, damit ein
+stochastischer Ansatz implementiert werden konnte. Hierbei wird anhand von
+leisen stellen (definierbar) ein Teilen der Audio Datei vorgenommen. Pydub
+ermöglicht weitere Audio manipulationen in Form von Faden, Lautsärkeänderung
+etc.
+
+Für das aufteilen in gleich große Stücke wurde die SciPy Bibliothek verwendet.
+Der User kann Anhand einer Eingabe die fixe größe der Samples auswählen. SciPy
+basiert auf NumPy und wandelt die Audio Daten in ein zahlenbasiertes Format.
+
+-   Die Verwaltung und Dokumentation der Arbeitsschritte finden über GitHub
+    statt.
+
+-   Für zusätzliche textuelle Beschreibungen werden Mark-Down-Files verwendet.
+
+-   Die Software Struktur wird mit Hilfe von Unified Modeling Language (UML)
+    dargestellt. Hierfür wurden Klassendiagramme, Use Case Diagramme sowie ein
+    Komponentendiagramm erstellt. Diese wurden mit der Software StarUML
+    erstellt. Die Modellierung der Diagramme stützt sich auf die Literatur von
+    Oestereich et al. (Analyse und Design mir der UML 2.5).
+
+Literaturverzeichnis:
+
+AudioAnalysis. (o. D.). <https://cs.marlboro.college>. Abgerufen am 5. April
+2022, von
+<https://cs.marlboro.college/cours/spring2018/jims_tutorials/computational_science/feb26.attachments/AudioAnalysis.html>
+
+Bullock, J. (2021, 13. Dezember). *Simple Audio Processing in Python With Pydub
+\- Better Programming*. Medium. Abgerufen am 3. April 2022, von
+<https://betterprogramming.pub/simple-audio-processing-in-python-with-pydub-c3a217dabf11>
+
+Chauhan, N. S. (o. D.). *Audio Data Analysis Using Deep Learning with Python
+(Part 1)*. KDnuggets. Abgerufen am 5. April 2022, von
+<https://www.kdnuggets.com/2020/02/audio-data-analysis-deep-learning-python-part-1.html>
+
+D. (2018). Deep Learning in Natural Language Processing (1st ed. 2018 Aufl.)
+[E-Book]. Springer.
+
+datacamp. (o. D.). Using TensorFlow 2.0 to Compose Music Tutorial. DataCamp
+Community. Abgerufen am 2. April 2022, von
+<https://www.datacamp.com/community/tutorials/using-tensorflow-to-compose-music>
+
+Frochte, J. (2020). Maschinelles Lernen: Grundlagen und Algorithmen in Python
+(3., überarbeitete und erweiterte Aufl.). Carl Hanser Verlag GmbH & Co. KG.
+
+Google Colaboratory - Introduction to Deep Learning. (o. D.).
+<Https://Colab.Research.Google.Com>. Abgerufen am 3. April 2022, von
+<https://colab.research.google.com/github/aamini/introtodeeplearning/blob/master/lab1/solutions/Part2_Music_Generation_Solution.ipynb>
+
+Kersting, K., Lampert, C. & Rothkopf, C. (2019). *Wie Maschinen lernen:
+Künstliche Intelligenz verständlich erklärt* (1. Aufl. 2019 Aufl.) [E-Book].
+Springer. Abgerufen am 24. März 2022, von
+<https://link.springer.com/chapter/10.1007/978-3-658-26763-6_3>
+
+Kleesiek, J., Kaissis, G., Strack, C., Murray, J. M. & Braren, R. (2019). *Wie
+funktioniert maschinelles Lernen?* Springer Medizin Verlag.
+<https://doi.org/10.1007/s00117-019-00616-x>
+
+Kofler, M. (2021, März). tensorflow-music-generator Public. GitHub. Abgerufen
+am 2. April 2022, von
+<https://github.com/burliEnterprises/tensorflow-music-generator>
+
+Oestereich, B., Scheithauer, A. & Bremer, S. (2013). *Analyse und Design mit der
+UML 2.5: Objektorientierte Softwareentwicklung* (11., umfassend überarbeitete
+und aktualisierte Aufl.). De Gruyter Oldenbourg.
+
+Russell, S. & Norvig, P. (2012). *Künstliche Intelligenz: Ein moderner Ansatz
+(Pearson Studium - IT)* (3., aktualisierte Aufl.) [E-Book]. Pearson Studium ein
+Imprint von Pearson Deutschland.
+
+TensorFlow. (o. D.-a). Generate music with an RNN \| TensorFlow Core.
+Abgerufen am 1. April 2022, von
+<https://www.tensorflow.org/tutorials/audio/music_generation>
+
+TensorFlow. (o. D.-b). Pitch Detection with SPICE \| TensorFlow Hub. Abgerufen
+am 3. April 2022, von <https://www.tensorflow.org/hub/tutorials/spice>
+
+TensorFlow. (o. D.-c). tfio.audio.decode_mp3 \| TensorFlow I/O. Abgerufen am
+1\. April 2022, von
+[https://www.tensorflow.org/io/api_docs/python/tfio/audio/decode_mp3\#args](https://www.tensorflow.org/io/api_docs/python/tfio/audio/decode_mp3#args)
+
+Tutorialink. (o. D.). Split audio files using silence detection – Python.
+Tutorialink.Com. Abgerufen am 6. April 2022, von
+<https://python.tutorialink.com/split-audio-files-using-silence-detection/>
 
 
 
