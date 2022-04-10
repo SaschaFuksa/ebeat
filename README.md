@@ -19,8 +19,8 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 
 ### <h3>Use Case   </h3> 
 
- <U><h4> ebeat – Samplecreator </h4></U>
-![ebeat-Samplecreator](https://github.com/SaschaFuksa/ebeat/blob/main/Use%20cases/ebeat-samplecreator.PNG)
+<U><h4> ebeat – Samplecreator </h4></U>
+![](Use cases/ebeat-samplecreator.png)
 
 **Name Use Case:** Choose input song<br>
 **Akteur:** Lisa<br>
@@ -46,7 +46,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 <br>
 
  #### <h4><U> ebeat – ML Trainer </h4></U>
-![ebeat-ML Trainer](https://github.com/SaschaFuksa/ebeat/blob/main/Use%20cases/ebeat_mltrainer.PNG)
+![](Use cases/ebeat_mltrainer.png)
 
 **Name Use Case:** Check concatenation matching of samples<br>
 **Akteur:** Lisa <br>
@@ -80,7 +80,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 
 
 #### <h4><U> ebeat-Resampler </h4></U>
-![ebeat - Resampler](https://github.com/SaschaFuksa/ebeat/blob/main/Use%20cases/ebeat-Resampler.PNG)
+![](Use cases/ebeat-resampler.png)
 
 **Name Use Case:** Choose input samples <br>
 **Akteur:** Lisa <br>
@@ -106,12 +106,16 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 **Standardablauf:**<br> 1. Lisa öffnet den Resampler. <br>2. Lisa gibt den Befehl in die Nutzeroberfläche ein, der es ermöglicht einen Output Pfad anzugeben.<br>3. Lisa trägt den Output Pfad ein und drückt Eingabe (Enter). <br>4. Daraufhin wird das Musikstück gespeichert und ist zum Abhören bereit. <br>
 ## <h2> Systemarchitektur</h2>
 ### <h3>Komponentendiagramm  </h3>
+![img.png](img.png)
 ### <h3>Klassendiagramm  </h3>
 #### <h4><U> Audio Component </h4></U>
+![img_1.png](img_1.png)
 #### <h4><U> ML-Component </h4></U>
+![img_2.png](img_2.png)
 #### <h4><U> Complier Component </h4></U>
-
+![img_3.png](img_3.png)
 ## <h2>Theoretische Grundlagen</h2>
 
 ## <h2> Systemspezifikation</h2>
+
 
