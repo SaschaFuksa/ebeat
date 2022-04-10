@@ -2,18 +2,54 @@
 ![](ebeat.png)
 Projektmanagement: [Trello Board](https://trello.com/b/HYG7tuaq/tech-lab) 
 
-<p>Patrick Treiber 42609</p>
-<p>Michael Henn 42595 </p>
-<p>Vanessa Hartmann 42580 </p>
-<p>Nicola Haller 42617 </p>
-<p>Sascha Fuksa 42590 </p>
-<p>Arline Carle 42582 </p>
+Patrick Treiber 42609<br>
+Michael Henn 42595<br>
+Vanessa Hartmann 42580<br>
+Nicola Haller 42617<br>
+Sascha Fuksa 42590<br>
+Arline Carle 42582<br>
 
 ##  Anforderunsganalyse 
 ###  Ziel der Anforderung: 
 Das Ziel der zu entwickelnden Maschine ist, dass sie automatisiert Musik zusammenstellt.
 
-###  Anwendungsbereich:  
+###Anforderungen
+
+A1: Das System soll das Erlernen von zueinander passenden Musik-Samples
+ermöglichen.
+
+A2: Es sind Musikstücke in geeignetem Format bereitzustellen.
+
+A3: Die Musikstücke müssen durch das Zielsystem nach einer wählbaren
+Strategie zerstückelt werden können. Dabei sind geeignete Namen für die
+Samples zu verwenden. Ggf. sind weitere Metadaten zu verwalten.
+
+A4: Die Samples werden hinsichtlich ihrer Audioeigenschaften geeignet
+analysiert. Der Audiostream muss als Zahlenstream aufgefasst werden können.
+
+A5: Eine Inferenz1-Komponente leitet aus den Samples geeignete Musikstücke
+ab, speichert diese und ermöglicht so die Erstellung neuer Tracks.
+
+A6: Für die Dokumentation von Software-Strukturen ist die Unified Modeling
+Language (UML) oder die deklarative Beschreibung mit User Stories zu
+verwenden.
+
+A7: Für die Inferenz im Allgemeinen ist Tensorflow zu verwenden.
+
+A8: Verwendete Programmiersprachen: Sofern eine PythonAPI der verwendeten
+Dienste und Komponenten verfügbar ist, sind diese zu nutzen. Hierzu muss
+innerhalb der Gruppe ein Konsens erzielt werden.
+
+A9: Falls erforderlich sind für die Integration (Nutzung und Bereitstellung)
+von Diensten Web Services nach dem REST-Ansatz zu nutzen.
+
+A10: Es wird den Teams überlassen, inwiefern Ansätze wie Reinforcement
+Learning einsetzen.
+
+A11: Für das Lernen sind Ansätze wie LSTM, Recurrent Neural Networks (RNN),
+Attention etc.in Betracht zu ziehen.
+
+###  Anwendungsbereich:
 
 Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig (automatisiert) Musikstücke zerlegt und wieder zu neuen Musikstücken zusammenstellt.  
 
@@ -21,7 +57,8 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 ### Use Case    
 
 <U> ebeat – Samplecreator </U>
-![](./use-cases/ebeat-samplecreator.png)
+
+![](use-cases/ebeat-samplecreator.png)
 
 **Name Use Case:** Choose input song<br>
 **Akteur:** Lisa<br>
