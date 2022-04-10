@@ -1,4 +1,5 @@
 import numpy
+from pydub import AudioSegment
 from scipy.io.wavfile import write
 
 
@@ -13,5 +14,8 @@ class SampleSaver:
 
     def save_sample(self, audio_data):
         target_name = self.directory + self.track_name + "_" + str(self.sample_counter) + "." + self.audio_type
-        write(target_name, self.rate, audio_data.astype(numpy.int16))
+        if isinstance(audio_data, AudioSegment):
+            audio_data.export(target_name, format=self.audio_type)
+        else:
+            write(target_name, self.rate, audio_data.astype(numpy.int16))
         self.sample_counter += 1
