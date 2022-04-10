@@ -21,7 +21,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 ### <h3>Use Case   </h3> 
 
 <U><h4> ebeat – Samplecreator </h4></U>
-![](./Use cases/ebeat-samplecreator.png)
+![](./use-cases/ebeat-samplecreator.png)
 
 **Name Use Case:** Choose input song<br>
 **Akteur:** Lisa<br>
@@ -47,7 +47,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 <br>
 
  #### <h4><U> ebeat – ML Trainer </h4></U>
-![](./Use cases/ebeat_mltrainer.png)
+![](./use-cases/ebeat_mltrainer.png)
 
 **Name Use Case:** Check concatenation matching of samples<br>
 **Akteur:** Lisa <br>
@@ -81,7 +81,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 
 
 #### <h4><U> ebeat-Resampler </h4></U>
-![](./Use cases/ebeat-resampler.png)
+![](./use-cases/ebeat-resampler.png)
 
 **Name Use Case:** Choose input samples <br>
 **Akteur:** Lisa <br>
