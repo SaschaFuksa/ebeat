@@ -1,4 +1,4 @@
-# <h1>ebeat project</h1>
+# ebeat project
 ![](ebeat.png)
 Projektmanagement: [Trello Board](https://trello.com/b/HYG7tuaq/tech-lab) 
 
@@ -6,21 +6,21 @@ Projektmanagement: [Trello Board](https://trello.com/b/HYG7tuaq/tech-lab)
 <p>Michael Henn 42595 </p>
 <p>Vanessa Hartmann 42580 </p>
 <p>Nicola Haller 42617 </p>
-<p>Sascha Fuska 42590 </p>
+<p>Sascha Fuksa 42590 </p>
 <p>Arline Carle 42582 </p>
 
-## <h2> Anforderunsganalyse </h2>
-### <h3> Ziel der Anforderung: </h3>
+##  Anforderunsganalyse 
+###  Ziel der Anforderung: 
 Das Ziel der zu entwickelnden Maschine ist, dass sie automatisiert Musik zusammenstellt.
 
-### <h3> Anwendungsbereich:  </h3>
+###  Anwendungsbereich:  
 
 Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig (automatisiert) Musikstücke zerlegt und wieder zu neuen Musikstücken zusammenstellt.  
 
 
-### <h3>Use Case   </h3> 
+### Use Case    
 
-<U><h4> ebeat – Samplecreator </h4></U>
+<U> ebeat – Samplecreator </U>
 ![](./use-cases/ebeat-samplecreator.png)
 
 **Name Use Case:** Choose input song<br>
@@ -46,7 +46,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 <br>
 <br>
 
- #### <h4><U> ebeat – ML Trainer </h4></U>
+ #### <U> ebeat – ML Trainer </U>
 ![](./use-cases/ebeat_mltrainer.png)
 
 **Name Use Case:** Check concatenation matching of samples<br>
@@ -80,7 +80,7 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 <br>
 
 
-#### <h4><U> ebeat-Resampler </h4></U>
+#### <U> ebeat-Resampler </U>
 ![](./use-cases/ebeat-resampler.png)
 
 **Name Use Case:** Choose input samples <br>
@@ -105,12 +105,12 @@ Der Anwendungsbereich einer zu entwickelnden KI ist, dass die KI selbstständig 
 **Vorbedingung:** Output Directory muss vorhanden sein. Audiodatei / Stream muss vorhanden sein. <br>
 **Nachbedingung:** Generiertes Musikstück wurde gespeichert. <br>
 **Standardablauf:**<br> 1. Lisa öffnet den Resampler. <br>2. Lisa gibt den Befehl in die Nutzeroberfläche ein, der es ermöglicht einen Output Pfad anzugeben.<br>3. Lisa trägt den Output Pfad ein und drückt Eingabe (Enter). <br>4. Daraufhin wird das Musikstück gespeichert und ist zum Abhören bereit. <br>
-## <h2> Systemspezifikation</h2>
-### <h3>Komponentendiagramm  </h3>
+##  Systemspezifikation
+### Komponentendiagramm  
 ![img.png](./diagrams/ComponentDiagram.png)
 Das Komponenten Diagramm dient zur übersichtlichen Darstellung der einzelnen Teilkomponenten des Gesamtsystems. Die Audiokomponente ist zuständig für die Verarbeitung von Musikformaten. Sie kann diese laden, speichern und verarbeiten. Der Compiler, welche über eine Schnittstelle mit der Audiokomponente verbunden ist, wandelt die Audiodateien in ein geeignetes Zahlenformat um. Die letzte Komponente unseres Gesamtsystem, die ML-Komponente, ist in der Lage ein Modell zu trainieren, welches Samples bewertet und Feedback an die Audiokomponente hinsichtlich ihrer Eignung der Konkatenation. 
-### <h3>Klassendiagramm  </h3>
-#### <h4><U> Audio Component </h4></U>
+### Klassendiagramm  
+#### <U> Audio Component </U>
 ![img_1.png](./diagrams/AudioComponent.png)
 Das Klassendiagramm ”Audio Component” bildet die Klassen MusicSampleCreator, MusicFileCollector, SampleSaver sowie die abstrakte Klasse MusicSampleCutter und ihre beiden erbenden Klassen StochasticMusicSampleCutter und EqualMusicSampleCutter ab. In der Klasse MusicSampleCreator werden die Samples erstellt, dafür ruft sie die jeweiligen Methoden der weiteren Klassen auf. Über die Klasse MusicFileCollector werden die Inputtracks geladen. Die Klasse SampleSaver speichert die Samples und die Metadaten. Die beiden erbenden Klassen der abstrakten Klasse MusicSampleCutter schneiden die Tracks in Samples. Die Zerschneidung der Tracks in Samples erfolgt entweder äquidistant oder nach stochastischem Ansatz.  
 - Laden der Audio-Files  
@@ -122,20 +122,20 @@ Das Klassendiagramm ”Audio Component” bildet die Klassen MusicSampleCreator,
 - Audioeigenschaften können analysiert werden -> Metadaten 
 - Erzeugung eines Streams/Audio-Files (Reihenfolge) anhand einzelner Samples  
 - Speichern der Audiofiles 
-#### <h4><U> ML-Component </h4></U>
+#### <U> ML-Component </U>
 ![img_2.png](./diagrams/MLComponent.png)
 Das ML-Komponente beinhaltet Klassen, die ein neuronales Netzwerk abbilden. Dazu gehören die Klassen NeuralLayer und Neuron. Die Klasse EbeatNeuralNetwork trainiert das neuronale Netz und entscheidet welche Samples zueinander passen. Trainiert wird das Trainingsmodell, das am Ende Grundlage für die Entscheidungsfindung ist. 
 - Samples werden in mathematischer Form = Zahlenformat konvertiert (Tabelle/Matrix) 
 - Übersetzt Samples anhand eines geeigneten Formates -> Tensor für ML-Komponente 
 - Leitet die übersetzten Formate an ML-Komponente weiter 
-#### <h4><U> Complier Component </h4></U>
+#### <U> Complier Component </U>
 ![img_3.png](./diagrams/CompilerComponent.png)
 Die Compiler-Komponente dient zu Übersetzung der Musikformate. Darin sind die Klassen SampleLoader, welcher die Samples aus einem bestimmten Pfad lädt. Die Klasse SampleCompiler nimmt die Übersetzung in ein nummerisches Format vor. 
 - Lernalogrythmus identifizieren und bewertet ob einzelne Samples harmonieren -> Notwendig für das Erstellen des Streams/Audio-Files, dies muss von Audio-Komponente rückgemeldet werden um die einzelnen Samples zusammenzuführen 
 - RNN / LSTM wird anhand Tensorflow Machine Learning Plattform umgesetzt 
 - Audioeigenschaften (Amplitude -> Lautstärke, Wellenlänge -> Schnelligkeit, Phase -> Verschiebung) werden sinnvoll betrachtet und ggf. verwendet 
 - Speicherung der neuen Musikstücke 
-## <h2>Theoretische Grundlagen</h2>
+## Theoretische Grundlagen
 
 
 

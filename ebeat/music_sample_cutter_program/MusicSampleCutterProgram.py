@@ -1,6 +1,6 @@
 from ebeat.music_sample_cutter_program.MusicSampleCreator import MusicSampleCreator
 
-
+# Run function to receive the user Inputs like Input directory / Output directory
 def run():
     print('Please insert your input directory (like: C:/Users/Admin/Downloads/input/).')
     input_directory = input()
@@ -8,6 +8,7 @@ def run():
     output_directory = input()
     print('Please insert your sample length in seconds. If you left 0, you can generate stochastic samples.')
     sample_length = int(input())
+    # Stochastic approach where the user needs to enter details for silence detection
     if sample_length == 0:
         print(
             'Please insert amount of samples you want to create. If you left 0, all stochastic samples will be saved.')
