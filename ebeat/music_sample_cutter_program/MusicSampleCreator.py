@@ -4,6 +4,12 @@ from ebeat.music_sample_cutter_program.MusicSampleCutter import MusicSampleCutte
 from ebeat.music_sample_cutter_program.SampleSaver import SampleSaver
 from ebeat.music_sample_cutter_program.StochasticMusicSampleCutter import StochasticMusicSampleCutter
 
+"""
+MusicSampleCreator creates samples either on equal or stochastic method.
+Samples sizes are based on the cutting method which is chosen, the original file name is used in each
+part for traceability. 
+"""
+
 
 class MusicSampleCreator:
     music_sample_cutter: MusicSampleCutter
@@ -40,7 +46,7 @@ class MusicSampleCreator:
         for song in songs:
             song_name = song.split('.')[0]
             postfix = song.split('.')[1]
-            samples = self.music_sample_cutter.cut_music_file(self.input_directory+song)
+            samples = self.music_sample_cutter.cut_music_file(self.input_directory + song)
             sample_saver = SampleSaver(self.output_directory, song_name, postfix, rate)
 
             for sample in samples:
