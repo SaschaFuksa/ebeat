@@ -2,12 +2,9 @@ import numpy
 from pydub import AudioSegment
 from scipy.io.wavfile import write
 
-"""
-SampleSaver is used to save the samples which are either created by equal or stochastic approach.
-"""
-
 
 class SampleSaver:
+    """SampleSaver is used to save the samples which are either created by equal or stochastic approach."""
 
     # Init method which is called as soon as an object of a class is instantiated.
     def __init__(self, directory: str, track_name: str, audio_type: str, rate: int):
