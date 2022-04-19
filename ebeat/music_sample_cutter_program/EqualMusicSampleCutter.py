@@ -2,12 +2,9 @@ import scipy.io.wavfile
 
 from ebeat.music_sample_cutter_program.MusicSampleCutter import MusicSampleCutter
 
-"""
-EqualMusicSampleCutter cuts a music file to equal-sized sample parts
-"""
-
 
 class EqualMusicSampleCutter(MusicSampleCutter):
+    """EqualMusicSampleCutter cuts a music file to equal-sized sample parts"""
 
     def __init__(self, sample_length: int):
         self.sample_length = sample_length

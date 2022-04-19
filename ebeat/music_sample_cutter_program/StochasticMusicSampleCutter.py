@@ -3,14 +3,11 @@ from pydub.silence import split_on_silence
 
 from ebeat.music_sample_cutter_program.MusicSampleCutter import MusicSampleCutter
 
-"""
-StochasticMusicSampleCutter cuts a music file to silence based sample parts.
-The silence parameters as silence_duration can be adjusted in milliseconds.
-The silence threshold is used to set a value on which decibel the silence detection should work.
-"""
-
 
 class StochasticMusicSampleCutter(MusicSampleCutter):
+    """StochasticMusicSampleCutter cuts a music file to silence based sample parts.
+The silence parameters as silence_duration can be adjusted in milliseconds.
+The silence threshold is used to set a value on which decibel the silence detection should work."""
 
     # Init method which is called as soon as an object of a class is instantiated.
     def __init__(self, amount_of_samples: int, min_silence_length: int, silence_threshold: int):

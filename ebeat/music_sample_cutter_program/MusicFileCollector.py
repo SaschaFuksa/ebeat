@@ -1,12 +1,9 @@
 import os
 
-"""
-MusicFileCollector finds songs in the directory which the user enters as an Input directory.
-It can handle wav or mp3 files.
-"""
-
 
 class MusicFileCollector:
+    """MusicFileCollector finds songs in the directory which the user enters as an Input directory.
+It can handle wav or mp3 files."""
 
     def __init__(self, directory: str):
         self.directory = directory
