@@ -1,5 +1,5 @@
 # ebeat project
-![](ebeat.png)
+![](Pictures/ebeat.png)
 Projektmanagement: [Trello Board](https://trello.com/b/HYG7tuaq/tech-lab) 
 
 Patrick Treiber 42609<br>
@@ -217,6 +217,48 @@ basiert auf NumPy und wandelt die Audio Daten in ein zahlenbasiertes Format.
     Komponentendiagramm erstellt. Diese wurden mit der Software StarUML
     erstellt. Die Modellierung der Diagramme stützt sich auf die Literatur von
     Oestereich et al. (Analyse und Design mir der UML 2.5).
+
+
+**Tensoren** :
+
+Tensoren sind die Datenstruktur, die von maschinellen Lernsystemen verwendet wird. Sie wird als eine Art Container von numerischen Daten angesehen. Ein Tensor hat drei typische **Eigenschaften** : range (Bereich), shape (Form), dtype (Datentyp).
+
+Die Form eines Tensors bezieht sich auf die Anzahl der Dimensionen entlang jeder Achse. Der Datentyp des Tensors ist durch die enthaltenen Datentypen definiert Bsp.: (float32, float64, uint8, int32, int64)
+
+![](Pictures/Tensoren.png)
+
+Aufbau eines Tensors:
+
+tensor.shape(3,4) -> enthält 3 Zeilen mit je 4 Werten
+
+([[2, 10, 20, 22],<br>
+ [8, 16, 32, 64],<br>
+ [5, 10, 15, 20]])
+
+Algorithmen für maschinelles Lernen verarbeiten jeweils eine Teilmenge von Daten (Charge). Bei der Verwendung eines Datensatzes ist die erste Achse des Tensors für die Größe des Loses (Anzahl der Stichproben) reserviert.
+
+Quellen:
+
+[Introduction to Tensors | TensorFlow Core](https://www.tensorflow.org/guide/tensor)
+
+[Easy TensorFlow - 2- Tensor Types (easy-tensorflow.com)](https://www.easy-tensorflow.com/tf-tutorials/basics/tensor-types)
+
+[TensorFlow Basics: Tensor, Shape, Type, Sessions &amp; Operators (guru99.com)](https://www.guru99.com/tensor-tensorflow.html#:~:text=A%20tensor%20is%20a%20vector,the%20result%20of%20a%20computation.)
+
+**Model:**
+
+**Normalization:**
+
+Quellen:
+
+[Different Types of Normalization in Tensorflow | by Vardan Agarwal | Towards Data Science](https://towardsdatascience.com/different-types-of-normalization-in-tensorflow-dac60396efb0)
+
+**Input Datentypen Tensorflow:**
+
+
+
+
+
 
 Literaturverzeichnis:
 
