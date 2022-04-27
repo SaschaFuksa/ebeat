@@ -1,0 +1,6 @@
+OUT_DIRECTORY = 'C:/Users/Admin/Downloads/Technology Lab/sampling/out/'
+IN_DIRECTORY = 'C:/Users/Admin/Downloads/Technology Lab/sampling/in/'
+IN_SINGLE_SAMPLE_DIRECTORY = 'C:/Users/Admin/Downloads/Technology Lab/sampling/single/'
+IN_SINGLE_FILE_NAME = 'Tea K Pea - nauticals_12.wav'
+IN_CLASSIFICATION = 'C:/Users/Admin/Downloads/Technology Lab/sampling/classification/'
+IN_TRAINING = 'C:/Users/Admin/Downloads/Technology Lab/sampling/trainings_data/'
