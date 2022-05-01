@@ -12,8 +12,9 @@ test_audio, _ = tf.audio.decode_wav(contents=test_file)
 # Another example to expand dims
 # test_audio = tf.expand_dims(test_audio, axis=2)
 test_audio = test_audio.reshape(-1, 441000, 2)
-
 # https://datascience.stackexchange.com/questions/15056/how-to-use-lists-in-tensorflow
+# https://apfalz.github.io/rnn/rnn_demo.htmlhttps://apfalz.github.io/rnn/rnn_demo.html
+
 model = models.Sequential()
 model.add(Input(tensor=test_audio))
 model.add(layers.Conv1D(filters=2, kernel_size=2, activation='sigmoid', padding='valid', input_shape=(441000, 2)))
