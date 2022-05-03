@@ -17,6 +17,11 @@ for sample_name in training:
         samples = song.get_array_of_samples()
         training_tensors.append(samples[:100])
 
+# full_sample = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+# start = full_sample[:3]
+# ende = full_sample[-3:]
+# [start, ende] -> [[10, 10, 10], [10, 10, 10]]
+
 # training = tf.concat(training_tensors, axis=0)
 
 # validation_tensors = training_tensors[1:]

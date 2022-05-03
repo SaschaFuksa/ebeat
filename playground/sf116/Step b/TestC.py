@@ -1,3 +1,4 @@
+# Beispiel mit tensor aber ohne Verwendungszweck bisher, da nur 1 tensor und keine Liste an Tensoren
 import tensorflow as tf
 from keras import models, layers, Input
 from tensorflow.python.ops.numpy_ops import np_config

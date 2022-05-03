@@ -1,3 +1,4 @@
+### Prüfe ob alle Samples sich in Klassen (4) aufteilen lassen und predict eines spectograms
 import os
 import wave
 from pathlib import Path
@@ -89,6 +90,9 @@ def use_with_classification_action_calm_etc():
     )
 
     # Train model for 10 epochs, capture the history
-    history = model.fit(train_dataset, epochs=2, validation_data=validation_dataset)
+    history = model.fit(train_dataset, epochs=3, validation_data=validation_dataset)
 
     print(model.predict(image))
+
+
+use_with_classification_action_calm_etc()
