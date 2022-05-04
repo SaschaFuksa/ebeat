@@ -257,7 +257,52 @@ Quellen:
 
 
 
+### Layer in einem künstlichen neuronalen Netzwerk (KNN):
 
+Verschiedene Layer führen unterschiedliche Transformationen an ihren Eingaben durch und einige Layer sind für bestimmte Aufgaben besser geeignet als andere. 
+So wird beispielsweise ein convolutional in der Regel in Modellen verwendet, die mit Bilddaten arbeiten. Recurrent Layer werden in Modellen verwendet, die mit Zeitreihendaten arbeiten und fully connected Layer verbinden jede Eingabe vollständig mit jeder Ausgabe innerhalb ihres Layers.
+
+Beispiel für ein Artificial Neural Network: 
+
+![](Pictures/ANN.png)
+
+Hier sieht man, dass der erste Layer, der Input Layer aus drei Knoten (auch Neuronen genannt) besteht. Daraus ergibt sich, dass das Sample aus unserem Datensatz aus drei Dimensionen besteht. Jeder der drei Neuronen in diesem Layer repräsentiert ein einzelnes Feature aus einem bestimmten Sample unseres Datensatzes.  
+Jeder der drei Input-Neuronen ist mit jedem Neuron im nächsten Layer verbunden. Jede Verbindung zwischen dem ersten Layer und dem zweiten Layer überträgt die Ausgabe des vorherigen Neurons an den Eingang des empfangenden Neurons (von links nach rechts). Die beiden Layer in der Mitte mit jeweils vier Neuronen sind Hidden Layer, weil sie zwischen dem Input und Output Layer angeordnet sind. 
+Die Information wird also durch die Input-Neuronen aufgenommen und durch die Output-Neuronen ausgegeben. Die Hidden-Neuronen liegen dazwischen und bilden innere Informationsmuster ab. Die Neuronen sind miteinander über sogenannte Kanten verbunden. Je stärker die Verbindung ist, desto größer die Einflussnahme auf das andere Neuron. 
+
+Input Layer: Der Input layer versorgt das neuronale Netz mit den notwendigen Informationen. Die Input-Neuronen verarbeiten die eingegebenen Daten und führen diese gewichtet an die nächste Schicht weiter.   
+
+Hidden Layer: Der Hidden Layer befindet sich wie bereits erwähnt zwischen dem Input Layer und dem Output Layer. Während der Input Layer und Output Layer lediglich aus einer Ebene bestehen, können beliebig viele Ebenen an Neuronen im Hidden Layer vorhanden sein. Hier werden die empfangenen Informationen erneut gewichtet und von Neuron zu Neuron bis zum Output Layer weitergereicht. Die Gewichtung findet in jeder Ebene des Hidden Layers statt. Die genaue Prozessierung der Informationen ist jedoch nicht sichtbar. Daher stammt auch der Name, Hidden Layer. Während im Input und Output Layer die eingehenden und ausgehenden Daten sichtbar sind, ist der innere Bereich des Neuronalen Netzes im Prinzip eine Black Box. 
+
+Output Layer: Der Output Layer ist der letzte Layer und schließt unmittelbar an die letzte Ebene des verborgenen Layer an. Die Output-Neuronen beinhalten die resultierende Entscheidung, die als Informationsfluss hervorgeht. 
+
+Wie funktioniert ein KNN? 
+
+Deep Learning ist eine Hauptfunktion eines KNN und funktioniert wie folgt: Bei einer vorhandenen Netzstruktur bekommt jedes Neuron ein zufälliges Anfangsgewicht zugeteilt. Dann werden die Eingangsdaten in das Netz gegeben und von jedem Neuron mit seinem individuellen Gewicht gewichtet. 
+Das Ergebnis dieser Berechnung wird an die nächsten Neuronen des nächsten Layer weitergegeben, man spricht auch von einer „Aktivierung der Neuronen“. Eine Berechnung des Gesamtergebnisses geschieht am Output Layer. 
+Natürlich sind, wie bei jeder maschinellen Lern-Methode, nicht alle Ergebnisse (Outputs) richtig und es kommt zu Fehlern. Diese Fehler sind berechenbar, ebenso wie der Anteil, den ein einzelnes Neuron an dem Fehler hatte. So wird im nächsten Lern-Durchlauf das Gewicht jedes Neurons so verändert, dass man den Fehler minimiert. 
+Anschließend kommt der nächste Durchlauf, indem eine neue Messung des Fehlers nebst Anpassung geschieht. Auf diese Weise „lernt“ das neuronale Netz mit jedem Mal besser, von den Inputdaten auf bekannte Outputdaten zu schließen. 
+
+ 
+
+Convolutional Neural Networks (CNN) 
+
+Convolutional Neural Networks (CNN), sind Künstliche Neuronale Netzwerke, die besonders effizient mit 2D- oder 3D-Eingabedaten arbeiten können. Für die Objektdetektion in Bildern verwendet man insbesondere CNNs. 
+Der große Unterschied zu den klassischen Neuronalen Netzen besteht in der Architektur von CNNs und damit kann auch der Name „Convolution“ oder „Faltung“ erklärt werden. Der Hidden Layer basiert bei CNNs auf einer Abfolge von Convolution- und Poolingoperationen. Bei der Convolution wird ein so genanntes Kernel über die Daten geschoben und währenddessen eine Faltung gerechnet, was vergleichbar mit einer Multiplikation ist. Die Neuronen werden aktualisiert. Die anschließende Einführung eines Poolinglayers sorgt dafür, dass die Ergebnisse vereinfacht werden. Nur die wichtigen Informationen bleiben anschließend erhalten. Dies sorgt zudem dafür, dass die 2D- oder 3D-Eingangsdaten kleiner werden. Wird dies immer weiter fortgeführt, ergibt sich am Ende in der Ausgabeschicht ein Vektor, der „fully connected layer“. Dieser hat vor allem in der Klassifikation eine besondere Bedeutung, da er so viele Neuronen wie Klassen enthält und die entsprechende Zuordnung über eine Wahrscheinlichkeit bewertet. 
+
+ 
+
+Recurrent Neural Networks (RNN) 
+Recurrent Neural Networks (RNN) fügen den KNN wiederkehrende Zellen hinzu, wodurch neuronale Netze ein Gedächtnis erhalten. Es ist eine Art von künstlichem neuronalem Netz, das sequentielle Daten oder Zeitreihendaten verwendet. Diese Art von Neuronal Networks wird insbesondere dann verwendet, wenn der Kontext wichtig ist. Denn dann beeinflussen Entscheidungen aus vergangenen Iterationen oder Proben maßgeblich die aktuellen. Mithilfe der Verschaltungen ist es möglich, aus einer Menge von Ausgangsdaten zeitlich codierte Informationen zu gewinnen. Da Recurrent Neural Networks jedoch den entscheidenden Nachteil haben, dass sie über die Zeit instabil werden, ist es inzwischen gang und gäbe so genannte Long Short-Term Memory Units (LSTMs) zu verwenden. Diese stabilisieren das RNN auch für Abhängigkeiten, die über einen längeren Zeitraum bestehen. 
+
+
+Quellen:
+
+D. (o. D.). Layers in a Neural Network explained. Deeplizard. Abgerufen am 4. Mai 2022, von https://deeplizard.com/learn/video/FK77zZxaBoI
+
+Ognjanovski, G. (2021, 7. Dezember). Everything you need to know about Neural Networks and Backpropagation — Machine Learning Easy and Fun. Medium. Abgerufen am 4. Mai 2022, von https://towardsdatascience.com/everything-you-need-to-know-about-neural-networks-and-backpropagation-machine-learning-made-easy-e5285bc2be3a
+
+Wuttke, L. (2022, 23. März). Künstliche Neuronale Netzwerke: Definition, Einführung, Arten und Funktion. datasolut GmbH. Abgerufen am 4. Mai 2022, von https://datasolut.com/neuronale-netzwerke-einfuehrung/
 
 
 Literaturverzeichnis:
