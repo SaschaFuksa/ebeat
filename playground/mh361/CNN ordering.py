@@ -7,20 +7,19 @@ from keras.models import Sequential
 import torch
 
 training = os.listdir(Paths.IN_DIRECTORY)
-list = []
-tensor = torch.tensor([])
+training_tensors = []
+# tensor = torch.tensor([])
 for sample_name in training:
     if 'wav' in sample_name:
         file_path = os.path.join(Paths.IN_DIRECTORY, sample_name)
         # test_file = tf.io.read_file(file_path)
         # test_audio, _ = tf.audio.decode_wav(contents=test_file)
         # training_tensors.append(test_audio)
-        song = tf.audio.decode_wav(file_path)
-        tf.squeeze(song, axis=-1)
-        tensor.add(song)
-        # samples = song.get_array_of_samples()
-        # list.append(samples[:100])
-
+        song = AudioSegment.from_wav(file_path)
+        samples = song.get_array_of_samples()
+        training_tensors.append(samples[:100])
+#print(training_tensors)
+tensor = torch.FloatTensor(training_tensors)
 
 '''
 training_tensors = torch.stack(list)
