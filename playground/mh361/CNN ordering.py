@@ -19,8 +19,9 @@ for sample_name in training:
         samples = song.get_array_of_samples()
         training_tensors.append(samples[:100])
 #print(training_tensors)
-tensor = torch.FloatTensor(training_tensors)
-
+#tensor = torch.FloatTensor(training_tensors)
+tensor = tf.convert_to_tensor(training_tensors, dtype=float, dtype_hint=None, name=None)
+print(tensor)
 '''
 training_tensors = torch.stack(list)
 print(training_tensors.size())
