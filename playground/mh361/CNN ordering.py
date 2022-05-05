@@ -20,21 +20,19 @@ for sample_name in training:
         training_tensors.append(samples[:100])
 #print(training_tensors)
 #tensor = torch.FloatTensor(training_tensors)
-tensor = tf.convert_to_tensor(training_tensors, dtype=float, dtype_hint=None, name=None)
-print(tensor)
-'''
-training_tensors = torch.stack(list)
-print(training_tensors.size())
+Input_tensor = tf.convert_to_tensor(training_tensors, dtype=float, dtype_hint=None, name=None)
+#print(Input_tensor)
 
-print(training_tensors[1:])
-nRows, nCols, nDims = training_tensors[1:]
-train_data = training_tensors.reshape(training_tensors.shape[0], nRows, nCols, nDims)
-test_data = training_tensors.reshape(training_tensors.shape[0], nRows, nCols, nDims)
+
+print(Input_tensor[1:])
+nRows, nCols, nDims = Input_tensor[1:]
+train_data = Input_tensor.reshape(Input_tensor.shape[0], nRows, nCols, nDims)
+test_data = Input_tensor.reshape(Input_tensor.shape[0], nRows, nCols, nDims)
 input_shape = (nRows, nCols, nDims)
 
 train_data = train_data.astype('float32')
 test_data = test_data.astype('float32')
-
+'''
 
 def decode_audio(audio_binary):
   audio, _ = tf.audio.decode_wav(audio_binary)
