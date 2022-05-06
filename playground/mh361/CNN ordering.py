@@ -21,9 +21,9 @@ for sample_name in training:
 #print(training_tensors)
 #tensor = torch.FloatTensor(training_tensors)
 Input_tensor = tf.convert_to_tensor(training_tensors, dtype=float, dtype_hint=None, name=None)
-#print(Input_tensor)
+print(training_tensors)
 
-
+'''
 print(Input_tensor[1:])
 nRows, nCols, nDims = Input_tensor[1:]
 train_data = Input_tensor.reshape(Input_tensor.shape[0], nRows, nCols, nDims)
@@ -32,7 +32,7 @@ input_shape = (nRows, nCols, nDims)
 
 train_data = train_data.astype('float32')
 test_data = test_data.astype('float32')
-'''
+
 
 def decode_audio(audio_binary):
   audio, _ = tf.audio.decode_wav(audio_binary)
