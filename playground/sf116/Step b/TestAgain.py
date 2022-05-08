@@ -15,6 +15,7 @@ def load_sample_edges(path: str):
     end_samples = []
     files = os.listdir(path)
     files = sorted(files, key=lambda x: int(x.split('_')[-1].split(".")[0]))
+    print(files[:11])
     i = 0
     sampleModel = []
     for file_name in files:
@@ -71,7 +72,7 @@ from keras.models import Model
 
 batch_size = 2  # Batch size for training.
 epochs = 250  # Number of epochs to train for.
-latent_dim = 10000  # Latent dimensionality of the encoding space.
+latent_dim = 1000  # Latent dimensionality of the encoding space.
 # num_samples = 10000  # Number of samples to train on.
 
 source_samples = []
@@ -175,7 +176,7 @@ model.fit([encoder_input_data, decoder_input_data], decoder_target_data,
           validation_split=0.2)
 # Save model
 model.save('s2s_2.h5')
-# model = tensorflow.keras.models.load_model('s2s_2.h5')
+# model = tensorflow.keras.models.load_model('s2s_2_2.h5')
 
 # Define sampling models
 encoder_model = Model(encoder_inputs, encoder_states)
@@ -251,7 +252,7 @@ for seq_index in range(3):
     plt.plot(decoded_sentence)  # plotting by columns
     plt.show()
 
-max_length = len(source_samples)
+max_length = len(source_samples)-1
 
 
 def predict_next_sample(index, actual):
