@@ -1,6 +1,6 @@
-## Erläuterung Vorgehensweise CHALLENGE 2
+# Erläuterung Vorgehensweise CHALLENGE 2
 
-**Theoretische Grundlagen:**
+##Theoretische Grundlagen:
 
 Mit Hilfe eines neuronalen Netzwerks, ist es möglich, einer Maschine etwas
 anzutrainieren. Dieses besteht aus zwei wesentlichen Bestandteilen:
@@ -48,7 +48,7 @@ basiert auf NumPy und wandelt die Audio Daten in ein zahlenbasiertes Format.
     Oestereich et al. (Analyse und Design mir der UML 2.5).
 
 
-**Tensoren** :
+###Tensoren :
 
 Tensoren sind die Datenstruktur, die von maschinellen Lernsystemen verwendet wird. Sie wird als eine Art Container von numerischen Daten angesehen. Ein Tensor hat drei typische **Eigenschaften** : range (Bereich), shape (Form), dtype (Datentyp).
 
@@ -133,7 +133,7 @@ https://towardsdatascience.com/everything-you-need-to-know-about-neural-networks
 https://datasolut.com/neuronale-netzwerke-einfuehrung/
 
 
-**Spektrogramme:**
+###Spektrogramme
 
 Bei der ausführlichen Recherche zu CNN sind wir sehr oft auf das Klassifizieren von Audio Daten mithilfe von Spektrogrammen gestoßen. Diesen Ansatz verfolgten wir schließlich für einige Zeit.  
 
@@ -163,7 +163,7 @@ https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectr
 
 https://medium.com/x8-the-ai-community/audio-classification-using-cnn-coding-example-f9cbd272269e 
 
-**Encoder-Decoder Modelle (LSTM):**
+###Encoder-Decoder Modelle (LSTM)
 
 RNN (Recurrent Neural Networks), wie das LSTM (Long-Short-Time Memory) sind speziell für die Verarbeitung von Eingabedatenfolgen konzipiert worden. 
 
@@ -237,7 +237,7 @@ Schließlich wird der Verlust anhand der vorhergesagten Ausgänge aus jedem Zeit
 
 5. Bei jedem Zeitschritt wird die vorhergesagte Ausgabe als Eingabe für den nächsten Zeitschritt verwendet. 
 
-6. Wir unterbrechen die Schleife, wenn der Decoder das END-Token vorhersagt. 
+6. Wir unterbrechen die Schleife, wenn der Decoder das END-Token vorhersagt.
 
 Quellen:
 
@@ -261,3 +261,70 @@ https://kuldeepsangwan.medium.com/journey-through-sequence-to-sequence-models-at
 
 
 
+###Training-, Test- und Validierungsdaten
+Der Datensatz wird mit der load() oder get() function hineingeladen.<br> <br>
+Die Herausforderung bei der Entwicklung eines maschinellen Lernmodells liegt darin das Overfitting zu verhindern. Damit dies verhindert werden kann, sollten zwei wichtige Techniken berücksichtigt werden. Zum einem ein Resampling Verfahren zur Schätzung der Modellgenauigkeit und zum anderem das Bereithalten eines Validierungsdatensatzes. 
+
+Testdaten, eine zufällige Partition des ursprünglichen Datensatz, welche nicht für das Training benutzt wurden, kommen zum Einsatz, um zu evaluieren wie sich das Model verhält. Trainingsdaten werden benutzt um das Model zu trainieren. Validierungsdaten hingegen werden eingesetzt, wenn mit verschiedenen Konfigurationen des Modells experimentiert werden  beispielsweise dem Optimieren der Verlustfunktion (Hyperparameter-Tuning). 
+Der Unterschied zwischen Validierungs- und Testdaten liegt darin, dass beim Ausprobieren von verschiedenen Modellkonfigurationen, um die optimale Validierungsmetriken zu erhalten, wird das Model gewissermaßen an den Validierungsdatensatz angepasst und die leistungsstärkste Parameterkombination aus diesen Datensatz ausgewählt. Außerdem werden Validierungssets oftmals während dem Training verwendet, um die Leistung zu einer bestimmten Epoche zu validieren. Dies wirkt sich auf den Trainingsprozess aus. 
+ 
+
+**Splitgröße** 
+
+Bei der Splitgröße, dem Aufteilen des Datensatzes ist es gängig, die Validierungsmenge von ähnlicher Größe wie die Testmenge oder etwas kleiner zu haben. 80/10/10, 75/15/10, 70/20/10. 
+Beispiel: 
+
+def get_dataset_partitions_tf(ds, ds_size, train_split=0.8, val_split=0.1, test_split=0.1, shuffle=True, shuffle_size=10000): 
+
+
+Quellen:<br>
+https://towardsdatascience.com/how-to-split-a-tensorflow-dataset-into-train-validation-and-test-sets-526c8dd29438 <br>
+
+https://stackabuse.com/split-train-test-and-validation-sets-with-tensorflow-datasets-tfds/ 
+
+###Training in Deep Learning 
+
+**Training Loss** 
+
+Unter Training Loss versteht man eine Metrik, welche bewertet, wie gut ein Deep Learning Modell zu den Trainingsdaten passt. Rechnerisch wird der Trainingsverlust durch die Summe der Fehler für jedes Beispiel im Trainingssatz berechnet. Nach jedem Batch wird der Trainingsverlust berechnet. Dieser Verlust kann durch plotting veranschaulicht werden. 
+
+**Validation Loss** 
+
+Der Validierungsverlust ist eine Metrik, welche verwendet wird, um die Leistung eines Deep-Learning-Modells in der Validierungsmenge zu bewerten. Der Validierungssatz ist ein Teil des Datensatzes, der zur Validierung der Leistung des Modells beiseite gelegt wird. Der Validierungsverlust wird nach jeder Epoche gemessen und gibt Aufschluss darüber, ob das Modell weiterhin optimiert werden muss. 
+
+**Overfitting vs. Underfitting** 
+
+Unter Overfitting versteht man ein Modell, welches genau auf die Trainingsdaten passt. Wenn dies der Fall ist, kann der Algorithmus keine genauen Ergebnisse für unbekannte Daten liefern.  Bei der Entwicklung von Algorithmen für maschinelles Lernen wird ein Beispieldatensatz verwendet, um das Modell zu trainieren. Wenn das Modell jedoch zu lange auf Beispieldaten trainiert oder zu komplex ist, kann es beginnen, das "Rauschen" (noise) oder irrelevante Informationen im Datensatz zu lernen. Wenn sich das Modell das Rauschen merkt und sich zu sehr an den Trainingssatz anpasst, wird das Modell "überangepasst" und kann nicht effektiv auf neue Daten verallgemeinert werden. Wenn dies der Fall ist, ist das Model nicht in der Lage, die Klassifizierungs- oder Vorhersageaufgaben zu erfüllen, für die es gedacht war. 
+
+Beim Overfitting verringert sich der Train Loss, jedoch steigt der Validation loss. 
+
+ ![](Pictures/overfitting.png)
+
+Beim Underfitting hingegen hat das Modell “nicht genug” aus den Trainingsdaten gelernt. Was zu einer geringen Generalisierung und unzuverlässigen Vorhersagen führt. 
+
+ 
+
+Als Faustregel gilt: 
+
+If validation loss >> training loss you can call it overfitting.<br> 
+If validation loss  > training loss you can call it some overfitting.<br> 
+If validation loss  < training loss you can call it some underfitting. <br>
+If validation loss << training loss you can call it underfitting. <br>
+<br>
+ 
+
+**Das perfekte Fitting** 
+
+loss == validation loss 
+
+Wenn beide Werte in etwa gleich sind und konvergieren (Darstellung des Verlusts über die Zeit), dann sind die Chancen sehr hoch, dass das Model richtig läuft. 
+
+ 
+
+Quellen: 
+
+https://stackoverflow.com/questions/48226086/training-loss-and-validation-loss-in-deep-learning 
+
+https://www.ibm.com/cloud/learn/overfitting 
+
+https://towardsdatascience.com/dont-overfit-how-to-prevent-overfitting-in-your-deep-learning-models-63274e552323 
