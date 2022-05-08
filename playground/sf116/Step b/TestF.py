@@ -18,9 +18,7 @@ def load_test_data():
     data_dir = keras.utils.get_file(origin=url, extract=True, archive_format="zip")
     data_dir = data_dir.rstrip(".zip")
 
-    route_distances = pd.read_csv(
-        os.path.join(data_dir, "W_228.csv"), header=None
-    ).to_numpy()
+    route_distances = pd.read_csv(os.path.join(data_dir, "W_228.csv"), header=None).to_numpy()
     speeds_array = pd.read_csv(os.path.join(data_dir, "V_228.csv"), header=None).to_numpy()
 
     print(f"route_distances shape={route_distances.shape}")
@@ -140,16 +138,17 @@ class GraphInfo:
         self.edges = edges
         self.num_nodes = num_nodes
 
+
 class GraphConv(layers.Layer):
     def __init__(
-        self,
-        in_feat,
-        out_feat,
-        graph_info: GraphInfo,
-        aggregation_type="mean",
-        combination_type="concat",
-        activation: typing.Optional[str] = None,
-        **kwargs,
+            self,
+            in_feat,
+            out_feat,
+            graph_info: GraphInfo,
+            aggregation_type="mean",
+            combination_type="concat",
+            activation: typing.Optional[str] = None,
+            **kwargs,
     ):
         super().__init__(**kwargs)
         self.in_feat = in_feat
