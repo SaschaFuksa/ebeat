@@ -3,9 +3,9 @@ from ebeat.music_sample_cutter_program.MusicSampleCreator import MusicSampleCrea
 
 # Run function to receive the user Inputs like Input directory / Output directory
 def run():
-    print('Please insert your input directory (like: C:/Users/Admin/Downloads/input/).')
+    print('Please insert your input directory (like: C:/Users/Admin/Downloads/input/: With / at the end).')
     input_directory = input()
-    print('Please insert your output directory (like: C:/Users/Admin/Downloads/output/).')
+    print('Please insert your output directory (like: C:/Users/Admin/Downloads/output: without / at the end).')
     output_directory = input()
     print('Please insert your sample length in seconds. If you left 0, you can generate stochastic samples.')
     sample_length = int(input())
