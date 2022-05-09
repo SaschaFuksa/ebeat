@@ -1,6 +1,6 @@
 # Erläuterung Vorgehensweise CHALLENGE 2
 
-##Theoretische Grundlagen:
+## Theoretische Grundlagen:
 
 Mit Hilfe eines neuronalen Netzwerks, ist es möglich, einer Maschine etwas
 anzutrainieren. Dieses besteht aus zwei wesentlichen Bestandteilen:
@@ -48,7 +48,7 @@ basiert auf NumPy und wandelt die Audio Daten in ein zahlenbasiertes Format.
     Oestereich et al. (Analyse und Design mir der UML 2.5).
 
 
-###Tensoren :
+### Tensoren :
 
 Tensoren sind die Datenstruktur, die von maschinellen Lernsystemen verwendet wird. Sie wird als eine Art Container von numerischen Daten angesehen. Ein Tensor hat drei typische **Eigenschaften** : range (Bereich), shape (Form), dtype (Datentyp).
 
@@ -133,7 +133,7 @@ https://towardsdatascience.com/everything-you-need-to-know-about-neural-networks
 https://datasolut.com/neuronale-netzwerke-einfuehrung/
 
 
-###Spektrogramme
+### Spektrogramme
 
 Bei der ausführlichen Recherche zu CNN sind wir sehr oft auf das Klassifizieren von Audio Daten mithilfe von Spektrogrammen gestoßen. Diesen Ansatz verfolgten wir schließlich für einige Zeit.  
 
@@ -163,7 +163,7 @@ https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectr
 
 https://medium.com/x8-the-ai-community/audio-classification-using-cnn-coding-example-f9cbd272269e 
 
-###Encoder-Decoder Modelle (LSTM)
+### Encoder-Decoder Modelle (LSTM)
 
 RNN (Recurrent Neural Networks), wie das LSTM (Long-Short-Time Memory) sind speziell für die Verarbeitung von Eingabedatenfolgen konzipiert worden. 
 
@@ -214,14 +214,14 @@ LSTM liest die Daten in 't' Zeitschritten. X1 = Eingabesequenz zum Zeitschritt 1
 
 **Decoder:**
 
-Der Decoder ist ebenfalls ein LSTM, er initialisiert die Eingangszustände des Encoder-LSTM´s mit seinen Anfangszuständen. Im Detail wird der Kontextvektor der letzten Zelle des Encoders in die erste Zelle des Decoder Netzwerkes eingetragen. Mit diesen Anfangszuständen startet der Decoder mit der Generierung der Ausgabensequenz. Die Ausgaben werden wiederum für zukünftige Ausgaben betrachtet. Ein Stapel aus mehreren LSTM Einheiten sagt zu jedem Zeitschritt t eine Ausgabe (y1, y2..) vorher. Jede vorherige Einheit wird durch eine rekurrente Einheit adaptiert und erzeugt eine Ausgabe sowie ihren eigenen versteckten Zustand. Softmax wird verwendet, um einen Wahrscheinlichkeitsvektor zu erstellen, der uns hilft, die endgültige Ausgabe zu bestimmen. 
+Der Decoder ist ebenfalls ein LSTM, er initialisiert die Eingangszustände des Encoder-LSTM´s mit seinen Anfangszuständen. Im Detail wird der Kontextvektor der letzten Zelle des Encoders in die erste Zelle des Decoder Netzwerkes eingetragen. Mit diesen Anfangszuständen startet der Decoder mit der Generierung der Ausgabensequenz. Die Ausgaben werden wiederum für zukünftige Ausgaben betrachtet. Ein Stapel aus mehreren LSTM Einheiten sagt zu jedem Zeitschritt t eine Ausgabe (y1, y2..) vorher. Jede vorherige Einheit wird durch eine rekurrente Einheit adaptiert und erzeugt eine Ausgabe sowie ihren eigenen versteckten Zustand. Softmax wird verwendet, um einen Wahrscheinlichkeitsvektor zu erstellen, der uns hilft, die endgültige Ausgabe zu bestimmen. <br>
 ![](Pictures/Decoder.png)
 
 Beispiel: 
 
-"START_ John ist hart arbeitend _END". 
+<br>"START_ John ist hart arbeitend _END".<br>
 
- Der wichtigste Punkt ist, dass die Anfangszustände (h0, c0) des Decoders auf die Endzustände des Encoders gesetzt werden. Dies bedeutet intuitiv, dass der Decoder darauf trainiert wird, die Ausgabesequenz in Abhängigkeit von den vom Encoder kodierten Informationen zu erzeugen. 
+Der wichtigste Punkt ist, dass die Anfangszustände (h0, c0) des Decoders auf die Endzustände des Encoders gesetzt werden. Dies bedeutet intuitiv, dass der Decoder darauf trainiert wird, die Ausgabesequenz in Abhängigkeit von den vom Encoder kodierten Informationen zu erzeugen. 
 
 Schließlich wird der Verlust anhand der vorhergesagten Ausgänge aus jedem Zeitschritt berechnet, und die Fehler werden durch die Zeit zurückverfolgt, um die Parameter des Netzes zu aktualisieren. Das Training des Netzes über einen längeren Zeitraum mit einer ausreichend großen Datenmenge kann zu guten Vorhersagen führen. 
 
@@ -237,7 +237,18 @@ Schließlich wird der Verlust anhand der vorhergesagten Ausgänge aus jedem Zeit
 
 5. Bei jedem Zeitschritt wird die vorhergesagte Ausgabe als Eingabe für den nächsten Zeitschritt verwendet. 
 
-6. Wir unterbrechen die Schleife, wenn der Decoder das END-Token vorhersagt.
+6. Wir unterbrechen die Schleife, wenn der Decoder das END-Token vorhersagt.<br>
+<br>
+
+**Lösungsansatz**
+
+Um die Chllenge 2 zu lösen, wurde der Encoder/Decoder Ansatz weiterverfolgt.<br>
+Hierbei wurde der Anfang sowie das Ende des Songsamples genommen und durch den Encoder, welcher hier ein RNN Layer darstellt, enkodiert. Hier wird die Eingabe verarbeitet und der eigene internen Zustand zurückgegeben.<br>
+Die Ausgaben de Encoder-RNN werden daraufhin verworfen und nur der Zustand wiederhergestellt wird. Beachten Sie, dass wir die Ausgaben des Encoder-RNN verwerfen und nur den Zustandswert wiederherstellen. Dieser Zustandswert dient als "Kontext" oder "Konditionierung" für den Decoder.<br>
+Eine weitere RNN Schicht dient als Decoder. Diese Schicht wurde darauf trainiert die darauffolgenden Samples (Zielsequenzen) wiederzugeben, wenn die vorherigen Zeichen der Zielsequenz gegeben sind. Hierbei geht es primär darum, die Zielsequenzen in dieselbe Sequenzumzuwandeln, welche jedoch um einen Zeit Schritt in die Zkunft verschoben wurde. Diesen Trainingsprozess bezeichnet man auch als "teacher forcing". Der Encoder benutzt als Ausgangszustand die generierten Zustandsvektoren, wodurch der Decoder Informationen über den Erzeugungswert erhält.<br>
+Der Dekoder lernt also, Ziele[t+1...] bei gegebenen Zielen[...t] zu erzeugen, abhängig von der Eingabesequenz.
+
+
 
 Quellen:
 
@@ -298,9 +309,10 @@ Unter Overfitting versteht man ein Modell, welches genau auf die Trainingsdaten 
 
 Beim Overfitting verringert sich der Train Loss, jedoch steigt der Validation loss. 
 
- ![](Pictures/overfitting.png)
+ ![](Pictures/overfitting.png)<br>
 
-Beim Underfitting hingegen hat das Modell “nicht genug” aus den Trainingsdaten gelernt. Was zu einer geringen Generalisierung und unzuverlässigen Vorhersagen führt. 
+Beim Underfitting hingegen hat das Modell “nicht genug” aus den Trainingsdaten gelernt. 
+Was zu einer geringen Generalisierung und unzuverlässigen Vorhersagen führt. 
 
  
 
