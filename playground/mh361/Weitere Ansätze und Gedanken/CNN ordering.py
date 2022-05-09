@@ -2,9 +2,6 @@ import os
 import tensorflow as tf
 from pydub import AudioSegment
 import Paths
-from keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Flatten
-from keras.models import Sequential
-import torch
 
 training = os.listdir(Paths.IN_DIRECTORY)
 training_tensors = []

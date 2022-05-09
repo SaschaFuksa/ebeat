@@ -1,22 +1,11 @@
-
-from keras.utils import np_utils
-from keras.callbacks import ModelCheckpoint
-import wave
 import numpy as np
-from music21 import converter, instrument, note, chord
-import glob
 import os
 import Paths
-from pydub import AudioSegment
-from keras.models import Sequential
-from keras.layers import Dense, LSTM, MaxPooling1D, Dropout, Conv1D
 import librosa
 import tensorflow as tf
-from keras.layers import LeakyReLU
 from keras import models, layers
-from StatefulModel import StatefulModel
-import sys, time
-import matplotlib.pyplot as plt
+import time
+
 
 def define_model(len_ts,
                  hidden_neurons = 10,
