@@ -1,0 +1,8 @@
+OUT_DIRECTORY = '/Users/vanessahartmann/TechLab/Input/'
+IN_DIRECTORY = '/Users/vanessahartmann/TechLab/Output/'
+IN_SINGLE_SAMPLE_DIRECTORY = '/Users/vanessahartmann/TechLab/single/'
+IN_SINGLE_FILE_NAME = 'Tea K Pea - nauticals_12.wav'
+IN_SINGLE_PIC_FILE_NAME = 'Tea K Pea - nauticals_12.png'
+IN_CLASSIFICATION = '/Users/vanessahartmann/TechLab/classification/'
+IN_TRAINING = '/Users/vanessahartmann/TechLab/trainings_data/'
+IN_VALIDATION = '/Users/vanessahartmann/TechLab/compare_next_data/'
