@@ -4,6 +4,7 @@ import os
 from keras.callbacks import ModelCheckpoint
 from matplotlib import pyplot as plt
 from pydub import AudioSegment
+from tensorflow import keras
 
 import SamplingConstants
 from SampleModel import SampleModel
@@ -171,7 +172,7 @@ model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
 
 # Run training
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-filepath = "blub/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
+filepath = "model/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
 checkpoint = ModelCheckpoint(
     filepath, monitor='loss',
     verbose=0,
@@ -179,17 +180,17 @@ checkpoint = ModelCheckpoint(
     mode='min'
 )
 callbacks_list = [checkpoint]
-model.fit([encoder_input_data, decoder_input_data], decoder_target_data,
+'''model.fit([encoder_input_data, decoder_input_data], decoder_target_data,
           batch_size=batch_size,
           epochs=epochs,
           validation_split=0.2,
-          callbacks=callbacks_list)
+          callbacks=callbacks_list)'''
 # Save model
-model.save('s2s_2.h5')
-model.save_weights('s2s_2_weights.h5')
+#model.save('model/ebeat_model-new.h5')
+#model.save_weights('model/ebeat_weights-new.h5')
 
-# model = keras.models.load_model('s2s_2.h5')
-# model.load_weights('s2s_2_weights.h5')
+#model = keras.models.load_model('model/weights-improvement-215-0.0084-bigger.hdf5')
+model.load_weights('model/weights-improvement-215-0.0084-bigger.hdf5')
 
 # model = tensorflow.keras.models.load_model('s2s_2_2.h5')
 
@@ -252,7 +253,7 @@ def decode_sequence(input_seq):
     return decoded_sentence
 
 
-for seq_index in range(3):
+for seq_index in [0, 53]:
     # Take one sequence (part of the training test)
     # for trying out decoding.
     input_seq = encoder_input_data[seq_index: seq_index + 1]
@@ -271,6 +272,7 @@ max_length = len(source_samples) - 1
 
 already_used = set()
 already_used.add(sampleModel[0].name)
+already_used.add(sampleModel[53].name)
 
 
 def predict_next_sample(index, actual):
@@ -289,12 +291,14 @@ def predict_next_sample(index, actual):
     print('predicted sample: ' + name + ' with ratio ' + str(ratio))
     already_used.add(name)
     actual += 1
-    if actual < max_length:
+    if ratio is 0.0:
+        print('No further sample found after ' + str(len(already_used)) + ' samples.')
+    elif actual < max_length:
         new_index = end_samples.index(next_end)
         predict_next_sample(new_index, actual)
 
 
 print('start with : ' + sampleModel[0].name)
-predict_next_sample(0, 0)
+predict_next_sample(1, 0)
 
 # 0.0174
