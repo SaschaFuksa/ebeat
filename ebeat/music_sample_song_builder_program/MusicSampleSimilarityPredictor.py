@@ -18,17 +18,18 @@ class MusicSampleSimilarityPredictor:
         ratio = 0.0
         name = ''
         next_end = []
-        for sample in self.sampleModel:
+        for sample in self.sample_model:
             sm = difflib.SequenceMatcher(None, sample.start.tolist(), decoded_sentence)
             new_ratio = sm.ratio()
             if (new_ratio > ratio) and (sample.name not in self.already_used_samples):
                 ratio = new_ratio
                 name = sample.name
                 next_end = sample.end
-        print('predicted sample: ' + name + ' with ratio ' + str(ratio))
-        self.already_used_samples.add(name)
         self.counter += 1
-        if ratio is 0.0:
+        if name != '':
+            print('predicted sample: ' + name + ' with ratio ' + str(ratio))
+            self.already_used_samples.add(name)
+        if ratio == 0.0:
             print('No further sample found after ' + str(len(self.already_used_samples)) + ' samples.')
         elif self.counter < self.max_length:
             new_index = self.end_samples.index(next_end)
