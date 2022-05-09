@@ -111,27 +111,39 @@ Das Ergebnis dieser Berechnung wird an die nächsten Neuronen des nächsten Laye
 Natürlich sind, wie bei jeder maschinellen Lern-Methode, nicht alle Ergebnisse (Outputs) richtig und es kommt zu Fehlern. Diese Fehler sind berechenbar, ebenso wie der Anteil, den ein einzelnes Neuron an dem Fehler hatte. So wird im nächsten Lern-Durchlauf das Gewicht jedes Neurons so verändert, dass man den Fehler minimiert. 
 Anschließend kommt der nächste Durchlauf, indem eine neue Messung des Fehlers nebst Anpassung geschieht. Auf diese Weise „lernt“ das neuronale Netz mit jedem Mal besser, von den Inputdaten auf bekannte Outputdaten zu schließen. 
 
- 
+**Recurrent Neural Networks (RNN):** 
+
+Recurrent Neural Networks (RNN) fügen den KNN wiederkehrende Zellen hinzu, wodurch neuronale Netze ein Gedächtnis erhalten. Es ist eine Art von künstlichem neuronalem Netz, das sequentielle Daten oder Zeitreihendaten verwendet. Diese Art von Neuronal Networks wird insbesondere dann verwendet, wenn der Kontext wichtig ist. Denn dann beeinflussen Entscheidungen aus vergangenen Iterationen oder Proben maßgeblich die aktuellen. Mithilfe der Verschaltungen ist es möglich, aus einer Menge von Ausgangsdaten zeitlich codierte Informationen zu gewinnen. Da Recurrent Neural Networks jedoch den entscheidenden Nachteil haben, dass sie über die Zeit instabil werden, ist es inzwischen gang und gäbe so genannte Long Short-Term Memory Units (LSTMs) zu verwenden. Diese stabilisieren das RNN auch für Abhängigkeiten, die über einen längeren Zeitraum bestehen. 
+
 
 **Convolutional Neural Networks (CNN):**
 
 Convolutional Neural Networks (CNN), sind Künstliche Neuronale Netzwerke, die besonders effizient mit 2D- oder 3D-Eingabedaten arbeiten können. Für die Objektdetektion in Bildern verwendet man insbesondere CNNs. 
 Der große Unterschied zu den klassischen Neuronalen Netzen besteht in der Architektur von CNNs und damit kann auch der Name „Convolution“ oder „Faltung“ erklärt werden. Der Hidden Layer basiert bei CNNs auf einer Abfolge von Convolution- und Poolingoperationen. Bei der Convolution wird ein so genanntes Kernel über die Daten geschoben und währenddessen eine Faltung gerechnet, was vergleichbar mit einer Multiplikation ist. Die Neuronen werden aktualisiert. Die anschließende Einführung eines Poolinglayers sorgt dafür, dass die Ergebnisse vereinfacht werden. Nur die wichtigen Informationen bleiben anschließend erhalten. Dies sorgt zudem dafür, dass die 2D- oder 3D-Eingangsdaten kleiner werden. Wird dies immer weiter fortgeführt, ergibt sich am Ende in der Ausgabeschicht ein Vektor, der „fully connected layer“. Dieser hat vor allem in der Klassifikation eine besondere Bedeutung, da er so viele Neuronen wie Klassen enthält und die entsprechende Zuordnung über eine Wahrscheinlichkeit bewertet. 
 
+Eine übliche Architektur für ein CNN besteht aus einem Stack von Convolutional- und Pooling-Schichten, gefolgt von Dense Layern. CNNs (Convolutional Neural Nets) sind eine Art von Deep-Learning-Algorithmus, der sich besonders gut zum Lernen von Bildern eignet. Mit Hilfe eines CNNs können große Mengen an Eingabedaten, die beispielsweise bei der Bilderkennung anfallen verarbeitet werden. Das Netzwerk erkennt Bildverzerrungen und andere optische Veränderungen und berücksichtigt diese bei der Verarbeitung. Durch die Pooling-Schichten werden Informationen zu den gescannten Features verdichtet. Somit werden jeweils die stärksten Features herausgefiltert und die schwachen verworfen.  
 
-**Recurrent Neural Networks (RNN):** 
+Kann ein CNN auch für die Verarbeitung von Audio Daten verwenden werden? 
 
-Recurrent Neural Networks (RNN) fügen den KNN wiederkehrende Zellen hinzu, wodurch neuronale Netze ein Gedächtnis erhalten. Es ist eine Art von künstlichem neuronalem Netz, das sequentielle Daten oder Zeitreihendaten verwendet. Diese Art von Neuronal Networks wird insbesondere dann verwendet, wenn der Kontext wichtig ist. Denn dann beeinflussen Entscheidungen aus vergangenen Iterationen oder Proben maßgeblich die aktuellen. Mithilfe der Verschaltungen ist es möglich, aus einer Menge von Ausgangsdaten zeitlich codierte Informationen zu gewinnen. Da Recurrent Neural Networks jedoch den entscheidenden Nachteil haben, dass sie über die Zeit instabil werden, ist es inzwischen gang und gäbe so genannte Long Short-Term Memory Units (LSTMs) zu verwenden. Diese stabilisieren das RNN auch für Abhängigkeiten, die über einen längeren Zeitraum bestehen. 
+Auch bei der Verarbeitung von Audio Dateien (Samples) liegt eine große Datenmenge vor. Nach der Generierung der Samples in Challenge 1 sollte die Datenmenge deshalb durch ein CNN verdichtet werden. Das CNN soll dabei die Datenmenge reduzieren, damit die weitere Verarbeitung dadurch schneller vonstattengeht. Die Pooling-Schicht, auch Subsampling-Schicht genannt, verdichtet und reduziert die Auflösung der erkannten Merkmale. Hierfür verwendet die Schicht Methoden wie das Maximal-Pooling oder Mittelwert-Pooling. Das Pooling verwirft überflüssige Informationen und reduziert die Datenmenge. Dies war der erste Ansatz, der im Rahmen des Machine-Learnings verfolgt wurde und führte uns zum Ansatz der Klassifizierung mit Hilfe von Spektogrammen. Die Idee war deshalb, dass man die Features der Musikdaten extrahiert, diese in eine bildhafte Form bringt, und sie so zu transformieren, dass man sie in ein CNN einspeisen kann. Librosa liefert mehrere Anleitungen zum Extrahieren von Features wie z.B. Mel-Spektrogramm (MFCCs), spektrale Bandbreite, Spektrales Zentroid, Chromagramm (Chroma stft), Kurzzeit-Fourier-Transformation (stft). Durch die Faltung können die Speicheranforderungen drastisch reduziert werden. Außerdem wird somit die Trainingszeit des Modells verkürzt.  
 
+Quellen: 
 
-Quellen:
+https://towardsdatascience.com/cnn-lstm-predicting-daily-hotel-cancellations-e1c75697f124 
+
+https://keras.io/api/layers/pooling_layers/max_pooling1d/  
+
+https://mindsquare.de/knowhow/convolutional-neural-network/ 
+
+https://towardsdatascience.com/cnns-for-audio-classification-6244954665ab 
+
+https://www.bigdata-insider.de/was-ist-ein-convolutional-neural-network-a-801246/#:~:text=Convolutional%20Neural%20Network%20bedeutet%20im,Bild%2D%20oder%20Audiodaten%20vorgesehen%20ist. 
 
 https://deeplizard.com/learn/video/FK77zZxaBoI
 
 https://towardsdatascience.com/everything-you-need-to-know-about-neural-networks-and-backpropagation-machine-learning-made-easy-e5285bc2be3a
 
 https://datasolut.com/neuronale-netzwerke-einfuehrung/
-
 
 ### Spektrogramme
 
