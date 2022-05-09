@@ -5,6 +5,8 @@ import os
 
 from pydub import AudioSegment
 
+from ebeat.music_sample_song_builder_program.MusicSampleModel import MusicSampleModel
+
 
 class MusicSampleLoader:
     EDGE_SIZE = 70
