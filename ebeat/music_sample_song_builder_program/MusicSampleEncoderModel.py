@@ -6,7 +6,7 @@ from keras import Input
 from keras.layers import LSTM
 
 
-class MusicSampleEncoder:
+class MusicSampleEncoderModel:
 
     def __init__(self, source_values_sorted, end_samples):
         self.num_encoder_tokens = len(source_values_sorted)

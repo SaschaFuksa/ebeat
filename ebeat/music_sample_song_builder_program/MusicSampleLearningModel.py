@@ -2,11 +2,13 @@
 Build LSTM model etc.
 '''
 from keras.callbacks import ModelCheckpoint
+from keras.models import Model
 
 from ebeat.music_sample_song_builder_program.MusicSampleDecoder import MusicSampleDecoder
-from ebeat.music_sample_song_builder_program.MusicSampleEncoder import MusicSampleEncoder
+from ebeat.music_sample_song_builder_program.MusicSampleDecoderModel import MusicSampleDecoderModel
+from ebeat.music_sample_song_builder_program.MusicSampleEncoderModel import MusicSampleEncoderModel
 from ebeat.music_sample_song_builder_program.MusicSampleModel import MusicSampleModel
-from keras.models import Model
+from ebeat.music_sample_song_builder_program.MusicSampleSimilarityPredictor import MusicSampleSimilarityPredictor
 
 
 class MusicSampleLearningModel:
@@ -32,38 +34,38 @@ class MusicSampleLearningModel:
         target_token_index = dict(
             [(float32, i) for i, float32 in enumerate(target_values_sorted)])
 
-        encoder = MusicSampleEncoder(source_values_sorted, self.end_samples)
-        decoder = MusicSampleDecoder(target_values_sorted, self.end_samples)
+        encoder_model_builder = MusicSampleEncoderModel(source_values_sorted, self.end_samples)
+        decoder_model_builder = MusicSampleDecoderModel(target_values_sorted, self.end_samples)
 
         for i, (source_sample, out_sample) in enumerate(zip(self.end_samples, self.start_samples)):
             for t, float32 in enumerate(source_sample):
-                encoder.encoder_input_data[i, t, input_token_index[float32]] = 1.
+                encoder_model_builder.encoder_input_data[i, t, input_token_index[float32]] = 1.
             for t, float32 in enumerate(out_sample):
-                decoder.decoder_input_data[i, t, target_token_index[float32]] = 1.
+                decoder_model_builder.decoder_input_data[i, t, target_token_index[float32]] = 1.
                 if t > 0:
-                    decoder.decoder_target_data[i, t - 1, target_token_index[float32]] = 1.
+                    decoder_model_builder.decoder_target_data[i, t - 1, target_token_index[float32]] = 1.
 
-        encoder_inputs, encoder_states = encoder.get_encoder_data(self.latent_dim)
-        decoder_inputs, decoder_outputs = decoder.get_decoder_data(self.latent_dim, encoder_states)
+        encoder_inputs, encoder_states = encoder_model_builder.get_encoder_data(self.latent_dim)
+        decoder_inputs, decoder_outputs = decoder_model_builder.get_decoder_data(self.latent_dim, encoder_states)
 
         model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
         model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
 
         callbacks_list = self.__get_callbacks()
-        model.fit([encoder.encoder_input_data, decoder.decoder_input_data], decoder.decoder_target_data,
+        model.fit([encoder_model_builder.encoder_input_data, decoder_model_builder.decoder_input_data],
+                  decoder_model_builder.decoder_target_data,
                   batch_size=self.batch_size,
                   epochs=self.epochs,
                   validation_split=0.2,
                   callbacks=callbacks_list)
 
         encoder_model = Model(encoder_inputs, encoder_states)
-        decoder_model = decoder.build_decoder_model(self.latent_dim)
+        decoder_model = decoder_model_builder.build_decoder_model(self.latent_dim, decoder_inputs)
 
-        reverse_input_char_index = dict(
-            (i, float32) for float32, i in input_token_index.items())
-        reverse_target_char_index = dict(
-            (i, float32) for float32, i in target_token_index.items())
-
+        decoder = MusicSampleDecoder(encoder_model, decoder_model, decoder_model_builder, target_token_index)
+        similarity_predictor = MusicSampleSimilarityPredictor(decoder, sample_model, self.end_samples,
+                                                              encoder_model_builder.encoder_input_data)
+        result = similarity_predictor.predict_next_samples_recursive(0)
         return result
 
     @staticmethod
