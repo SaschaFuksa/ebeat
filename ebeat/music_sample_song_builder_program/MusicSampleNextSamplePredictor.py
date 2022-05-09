@@ -18,6 +18,5 @@ class MusicSampleNextSamplePredictor():
         end_samples, start_samples, sample_model = loader.load_samples()
         learning_model = MusicSampleLearningModel(end_samples, start_samples)
         sample_order = learning_model.predict_sample_order(sample_model)
-        song_builder = MusicSampleSongBuilder(self.output_directory)
+        song_builder = MusicSampleSongBuilder(self.input_directory, self.output_directory)
         song_builder.save_song(sample_order)
-

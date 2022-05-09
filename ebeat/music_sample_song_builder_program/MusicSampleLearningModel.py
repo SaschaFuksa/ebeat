@@ -22,7 +22,6 @@ class MusicSampleLearningModel:
 
     @staticmethod
     def predict_sample_order(self, sample_model: MusicSampleModel):
-        result = []
         source_values = self.__get_values_set(self.start_samples)
         target_values = self.__get_values_set(self.end_samples)
 
@@ -65,8 +64,8 @@ class MusicSampleLearningModel:
         decoder = MusicSampleDecoder(encoder_model, decoder_model, decoder_model_builder, target_token_index)
         similarity_predictor = MusicSampleSimilarityPredictor(decoder, sample_model, self.end_samples,
                                                               encoder_model_builder.encoder_input_data)
-        result = similarity_predictor.predict_next_samples_recursive(0)
-        return result
+        similarity_predictor.predict_next_samples_recursive(0)
+        return similarity_predictor.already_used_samples
 
     @staticmethod
     def __get_values_set(samples):
