@@ -13,13 +13,13 @@ from ebeat.music_sample_song_builder_program.MusicSampleSimilarityPredictor impo
 class MusicSampleLearningModel:
     batch_size = 2
     epochs = 250
-    latent_dim = 500
+    latent_dim = 1000
 
     def __init__(self, end_samples, start_samples):
         self.start_samples = start_samples
         self.end_samples = end_samples
 
-    def predict_sample_order(self, sample_model):
+    def predict_sample_order(self, sample_model, model_path):
         source_values = self.__get_values_set(self.end_samples)
         target_values = self.__get_values_set(self.start_samples)
 
@@ -49,12 +49,15 @@ class MusicSampleLearningModel:
         model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
 
         callbacks_list = self.__get_callbacks()
-        model.fit([encoder_model_builder.encoder_input_data, decoder_model_builder.decoder_input_data],
-                  decoder_model_builder.decoder_target_data,
-                  batch_size=self.batch_size,
-                  epochs=self.epochs,
-                  validation_split=0.2,
-                  callbacks=[])
+        if model_path == '':
+            model.fit([encoder_model_builder.encoder_input_data, decoder_model_builder.decoder_input_data],
+                      decoder_model_builder.decoder_target_data,
+                      batch_size=self.batch_size,
+                      epochs=self.epochs,
+                      validation_split=0.2,
+                      callbacks=callbacks_list)
+        else:
+            model.load_weights(model_path)
 
         encoder_model = Model(encoder_inputs, encoder_states)
         decoder_model = decoder_model_builder.build_decoder_model(self.latent_dim, decoder_inputs)
@@ -67,7 +70,8 @@ class MusicSampleLearningModel:
         print(samples)
         return samples
 
-    def __get_values_set(self, samples):
+    @staticmethod
+    def __get_values_set(samples):
         result = set()
         for sample in samples:
             for value in sample:
@@ -75,7 +79,8 @@ class MusicSampleLearningModel:
                     result.add(value)
         return result
 
-    def __get_callbacks(self):
+    @staticmethod
+    def __get_callbacks():
         filepath = "model/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
         checkpoint = ModelCheckpoint(
             filepath, monitor='loss',
