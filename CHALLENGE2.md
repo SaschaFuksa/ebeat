@@ -11,7 +11,7 @@ anzutrainieren. Dieses besteht aus zwei wesentlichen Bestandteilen:
 
 -   Layer: Eine Sammlung von Neuronen. Dabei unterscheidet man zwischen Input-,
     Output, und Hiddenlayer. Verfügt das Netzwerk über mehr als ein Hiddenlayer,
-    spricht man von deep learning.
+    spricht man von Deep Learning.
 
 Das Erstellen eines neuronalen Netzwerks kann beispielweise mit TensorFlow und
 Keras erfolgen. TensorFlow ist ein Framework und Keras die Bibliothek, die eine
@@ -23,18 +23,18 @@ aufgebaut, mit dem ein Modell trainiert auf Basis von Piano MIDI Files.
 
 In einem anderen Anwendungsfall wird mit der LSTM Architektur und einem RNN ein
 Modell trainiert, welches Musik generieren kann. Für das Training wird ein
-Datensatz von tausenden Irischen Volkslieder verwendet, das in der ABC Notation
+Datensatz von tausenden Irischen Volksliedern verwendet, das in der ABC Notation
 vorliegt.
 
 Pydub wurde im Verlauf der Entwicklung für das Zerstückeln ausgewählt, damit ein
 stochastischer Ansatz implementiert werden konnte. Hierbei wird anhand von
-leisen stellen (definierbar) ein Teilen der Audio Datei vorgenommen. Pydub
-ermöglicht weitere Audio manipulationen in Form von Faden, Lautsärkeänderung
+leisen Stellen (definierbar) ein Teilen der Audio Datei vorgenommen. Pydub
+ermöglicht weitere Audio manipulationen in Form von Faden, Lautstärkeänderung
 etc.
 
 Für das aufteilen in gleich große Stücke wurde die SciPy Bibliothek verwendet.
 Der User kann Anhand einer Eingabe die fixe größe der Samples auswählen. SciPy
-basiert auf NumPy und wandelt die Audio Daten in ein zahlenbasiertes Format.
+basiert auf NumPy und wandelt die Audio Daten in ein zahlenbasiertes Format um.
 
 -   Die Verwaltung und Dokumentation der Arbeitsschritte finden über GitHub
     statt.
@@ -50,13 +50,13 @@ basiert auf NumPy und wandelt die Audio Daten in ein zahlenbasiertes Format.
 
 ### Tensoren :
 
-Tensoren sind die Datenstruktur, die von maschinellen Lernsystemen verwendet wird. Sie wird als eine Art Container von numerischen Daten angesehen. Ein Tensor hat drei typische **Eigenschaften** : range (Bereich), shape (Form), dtype (Datentyp).
+Tensoren sind die Datenstruktur, die von maschinellen Lernsystemen verwendet wird. Sie wird als eine Art Container von numerischen Daten angesehen. Ein Tensor hat drei typische ***Eigenschaften*** : range (Bereich), shape (Form), dtype (Datentyp).
 
-Die Form eines Tensors bezieht sich auf die Anzahl der Dimensionen entlang jeder Achse. Der Datentyp des Tensors ist durch die enthaltenen Datentypen definiert Bsp.: (float32, float64, uint8, int32, int64)
+Die Form eines Tensors bezieht sich auf die Anzahl der Dimensionen entlang jeder Achse. Der Datentyp des Tensors ist durch die enthaltenen Datentypen definiert Bsp.: (float32, float64, uint8, int32, int64) <br>
 
-![](Pictures/Tensoren.png)
+![](Pictures/Tensoren.png)<br>
 
-Aufbau eines Tensors:
+***Aufbau eines Tensors***:
 
 tensor.shape(3,4) -> enthält 3 Zeilen mit je 4 Werten
 
@@ -72,15 +72,9 @@ Quellen:
 
 [Easy TensorFlow - 2- Tensor Types (easy-tensorflow.com)](https://www.easy-tensorflow.com/tf-tutorials/basics/tensor-types)
 
-[TensorFlow Basics: Tensor, Shape, Type, Sessions &amp; Operators (guru99.com)](https://www.guru99.com/tensor-tensorflow.html#:~:text=A%20tensor%20is%20a%20vector,the%20result%20of%20a%20computation.)
+[TensorFlow Basics: Tensor, Shape, Type, Sessions &amp; Operators (guru99.com)](https://www.guru99.com/tensor-tensorflow.html#:~:text=A%20tensor%20is%20a%20vector,the%20result%20of%20a%20computation.)<br>
+<br>
 
-**Model:**
-
-**Normalization:**
-
-Quellen:
-
-[Different Types of Normalization in Tensorflow | by Vardan Agarwal | Towards Data Science](https://towardsdatascience.com/different-types-of-normalization-in-tensorflow-dac60396efb0)
 
 **Input Datentypen Tensorflow:**
 
@@ -88,17 +82,17 @@ Quellen:
 **Layer in einem künstlichen neuronalen Netzwerk (KNN):** 
 
 Verschiedene Layer führen unterschiedliche Transformationen an ihren Eingaben durch und einige Layer sind für bestimmte Aufgaben besser geeignet als andere. 
-So wird beispielsweise ein convolutional in der Regel in Modellen verwendet, die mit Bilddaten arbeiten. Recurrent Layer werden in Modellen verwendet, die mit Zeitreihendaten arbeiten und fully connected Layer verbinden jede Eingabe vollständig mit jeder Ausgabe innerhalb ihres Layers.
+So wird beispielsweise ein Convolutional Layer in der Regel in Modellen verwendet, die mit Bilddaten arbeiten. Recurrent Layer werden in Modellen verwendet, die mit Zeitreihendaten arbeiten und Fully Connected Layer verbinden jede Eingabe vollständig mit jeder Ausgabe innerhalb ihres Layers.
 
 Beispiel für ein Artificial Neural Network: 
 
-![](Pictures/ANN.png)
+![](Pictures/ANN.png)<br>
 
 Hier sieht man, dass der erste Layer, der Input Layer aus drei Knoten (auch Neuronen genannt) besteht. Daraus ergibt sich, dass das Sample aus unserem Datensatz aus drei Dimensionen besteht. Jeder der drei Neuronen in diesem Layer repräsentiert ein einzelnes Feature aus einem bestimmten Sample unseres Datensatzes.  
 Jeder der drei Input-Neuronen ist mit jedem Neuron im nächsten Layer verbunden. Jede Verbindung zwischen dem ersten Layer und dem zweiten Layer überträgt die Ausgabe des vorherigen Neurons an den Eingang des empfangenden Neurons (von links nach rechts). Die beiden Layer in der Mitte mit jeweils vier Neuronen sind Hidden Layer, weil sie zwischen dem Input und Output Layer angeordnet sind. 
 Die Information wird also durch die Input-Neuronen aufgenommen und durch die Output-Neuronen ausgegeben. Die Hidden-Neuronen liegen dazwischen und bilden innere Informationsmuster ab. Die Neuronen sind miteinander über sogenannte Kanten verbunden. Je stärker die Verbindung ist, desto größer die Einflussnahme auf das andere Neuron. 
 
-Input Layer: Der Input layer versorgt das neuronale Netz mit den notwendigen Informationen. Die Input-Neuronen verarbeiten die eingegebenen Daten und führen diese gewichtet an die nächste Schicht weiter.   
+Input Layer: Der Input Layer versorgt das neuronale Netz mit den notwendigen Informationen. Die Input-Neuronen verarbeiten die eingegebenen Daten und führen diese gewichtet an die nächste Schicht weiter.   
 
 Hidden Layer: Der Hidden Layer befindet sich wie bereits erwähnt zwischen dem Input Layer und dem Output Layer. Während der Input Layer und Output Layer lediglich aus einer Ebene bestehen, können beliebig viele Ebenen an Neuronen im Hidden Layer vorhanden sein. Hier werden die empfangenen Informationen erneut gewichtet und von Neuron zu Neuron bis zum Output Layer weitergereicht. Die Gewichtung findet in jeder Ebene des Hidden Layers statt. Die genaue Prozessierung der Informationen ist jedoch nicht sichtbar. Daher stammt auch der Name, Hidden Layer. Während im Input und Output Layer die eingehenden und ausgehenden Daten sichtbar sind, ist der innere Bereich des Neuronalen Netzes im Prinzip eine Black Box. 
 
@@ -119,11 +113,11 @@ Recurrent Neural Networks (RNN) fügen den KNN wiederkehrende Zellen hinzu, wodu
 **Convolutional Neural Networks (CNN):**
 
 Convolutional Neural Networks (CNN), sind Künstliche Neuronale Netzwerke, die besonders effizient mit 2D- oder 3D-Eingabedaten arbeiten können. Für die Objektdetektion in Bildern verwendet man insbesondere CNNs. 
-Der große Unterschied zu den klassischen Neuronalen Netzen besteht in der Architektur von CNNs und damit kann auch der Name „Convolution“ oder „Faltung“ erklärt werden. Der Hidden Layer basiert bei CNNs auf einer Abfolge von Convolution- und Poolingoperationen. Bei der Convolution wird ein so genanntes Kernel über die Daten geschoben und währenddessen eine Faltung gerechnet, was vergleichbar mit einer Multiplikation ist. Die Neuronen werden aktualisiert. Die anschließende Einführung eines Poolinglayers sorgt dafür, dass die Ergebnisse vereinfacht werden. Nur die wichtigen Informationen bleiben anschließend erhalten. Dies sorgt zudem dafür, dass die 2D- oder 3D-Eingangsdaten kleiner werden. Wird dies immer weiter fortgeführt, ergibt sich am Ende in der Ausgabeschicht ein Vektor, der „fully connected layer“. Dieser hat vor allem in der Klassifikation eine besondere Bedeutung, da er so viele Neuronen wie Klassen enthält und die entsprechende Zuordnung über eine Wahrscheinlichkeit bewertet. 
+Der große Unterschied zu den klassischen Neuronalen Netzen besteht in der Architektur von CNNs und damit kann auch der Name „Convolution“ oder „Faltung“ erklärt werden. Der Hidden Layer basiert bei CNNs auf einer Abfolge von Convolution- und Poolingoperationen. Beim Convolution wird ein so genanntes Kernel über die Daten geschoben und währenddessen eine Faltung gerechnet, was vergleichbar mit einer Multiplikation ist. Die Neuronen werden aktualisiert. Die anschließende Einführung eines Poolinglayers sorgt dafür, dass die Ergebnisse vereinfacht werden. Nur die wichtigen Informationen bleiben anschließend erhalten. Dies sorgt zudem dafür, dass die 2D- oder 3D-Eingangsdaten kleiner werden. Wird dies immer weiter fortgeführt, ergibt sich am Ende in der Ausgabeschicht ein Vektor, der „fully connected layer“. Dieser hat vor allem in der Klassifikation eine besondere Bedeutung, da er so viele Neuronen wie Klassen enthält und die entsprechende Zuordnung über eine Wahrscheinlichkeit bewertet. 
 
 Eine übliche Architektur für ein CNN besteht aus einem Stack von Convolutional- und Pooling-Schichten, gefolgt von Dense Layern. CNNs (Convolutional Neural Nets) sind eine Art von Deep-Learning-Algorithmus, der sich besonders gut zum Lernen von Bildern eignet. Mit Hilfe eines CNNs können große Mengen an Eingabedaten, die beispielsweise bei der Bilderkennung anfallen verarbeitet werden. Das Netzwerk erkennt Bildverzerrungen und andere optische Veränderungen und berücksichtigt diese bei der Verarbeitung. Durch die Pooling-Schichten werden Informationen zu den gescannten Features verdichtet. Somit werden jeweils die stärksten Features herausgefiltert und die schwachen verworfen.  
 
-Kann ein CNN auch für die Verarbeitung von Audio Daten verwenden werden? 
+***Kann ein CNN auch für die Verarbeitung von Audio Daten verwenden werden?*** 
 
 Auch bei der Verarbeitung von Audio Dateien (Samples) liegt eine große Datenmenge vor. Nach der Generierung der Samples in Challenge 1 sollte die Datenmenge deshalb durch ein CNN verdichtet werden. Das CNN soll dabei die Datenmenge reduzieren, damit die weitere Verarbeitung dadurch schneller vonstattengeht. Die Pooling-Schicht, auch Subsampling-Schicht genannt, verdichtet und reduziert die Auflösung der erkannten Merkmale. Hierfür verwendet die Schicht Methoden wie das Maximal-Pooling oder Mittelwert-Pooling. Das Pooling verwirft überflüssige Informationen und reduziert die Datenmenge. Dies war der erste Ansatz, der im Rahmen des Machine-Learnings verfolgt wurde und führte uns zum Ansatz der Klassifizierung mit Hilfe von Spektogrammen. Die Idee war deshalb, dass man die Features der Musikdaten extrahiert, diese in eine bildhafte Form bringt, und sie so zu transformieren, dass man sie in ein CNN einspeisen kann. Librosa liefert mehrere Anleitungen zum Extrahieren von Features wie z.B. Mel-Spektrogramm (MFCCs), spektrale Bandbreite, Spektrales Zentroid, Chromagramm (Chroma stft), Kurzzeit-Fourier-Transformation (stft). Durch die Faltung können die Speicheranforderungen drastisch reduziert werden. Außerdem wird somit die Trainingszeit des Modells verkürzt.  
 
@@ -143,7 +137,8 @@ https://deeplizard.com/learn/video/FK77zZxaBoI
 
 https://towardsdatascience.com/everything-you-need-to-know-about-neural-networks-and-backpropagation-machine-learning-made-easy-e5285bc2be3a
 
-https://datasolut.com/neuronale-netzwerke-einfuehrung/
+https://datasolut.com/neuronale-netzwerke-einfuehrung/ 
+<br>
 
 ### Spektrogramme
 
@@ -174,6 +169,7 @@ https://www.kaggle.com/code/dimitreoliveira/rainforest-audio-classification-tf-i
 https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn/notebook 
 
 https://medium.com/x8-the-ai-community/audio-classification-using-cnn-coding-example-f9cbd272269e 
+<br>
 
 ### Encoder-Decoder Modelle (LSTM)
 
@@ -219,10 +215,10 @@ Wird für Sequenzen verwendet wie Sätze, um eine Klasse vorherzusagen für jede
 
 **Encoder:**
 
-Der Encoder ist ein LSTM model, welcher die input Sequenz liest und die Informationen in einen internen Zustandsvektor/Kontextvektor zusammenfasst. Danach nur die internen Zustände aufbewahrt, die restlichen Informationen werden verworfen. Der Kontextvektor wird dazu verwendet alle Eingabeelemente zu kapseln, um den Decoder zu helfen eine genaue Vorhersage zu treffen.  
+Der Encoder ist ein LSTM model, welcher die Input Sequenz liest und die Informationen in einen internen Zustandsvektor/Kontextvektor zusammenfasst. Danach nur die internen Zustände aufbewahrt, die restlichen Informationen werden verworfen. Der Kontextvektor wird dazu verwendet alle Eingabeelemente zu kapseln, um den Decoder zu helfen eine genaue Vorhersage zu treffen.  
 ![](Pictures/Encoder.png)
 
-LSTM liest die Daten in 't' Zeitschritten. X1 = Eingabesequenz zum Zeitschritt 1. Das LSTM behält zwei Zustände bei (“h” für den verborgergenen Zustand und “c” für den Zellzustand). Beide zusammen bilden die internen Zustände des LSTM Netzwerkes ab zum jeweiligen Zeitschritt ab. 
+Das LSTM liest die Daten in 't' Zeitschritten. X1 = Eingabesequenz zum Zeitschritt 1. Das LSTM behält zwei Zustände bei (“h” für den verborgergenen Zustand und “c” für den Zellzustand). Beide zusammen bilden die internen Zustände des LSTM Netzwerkes ab zum jeweiligen Zeitschritt ab. 
 
 **Decoder:**
 
@@ -252,14 +248,28 @@ Schließlich wird der Verlust anhand der vorhergesagten Ausgänge aus jedem Zeit
 6. Wir unterbrechen die Schleife, wenn der Decoder das END-Token vorhersagt.<br>
 <br>
 
+**Vorteile** <br>
+
+Entkopplung von Ein- und Ausgabe <br>
+Encoder reduziert Tensor beliebiger Dimension auf Tensor fester Größe <br>
+Decoder kann beliebig oft nach weiterem Element der Ausgabesequenz gefragt werden <br>
+
+**Nachteile** <br>
+
+Hidden-State des Encoders → initialer Hidden-State des Decoder <br>
+Gesamte Eingabesequenz im Context-Tensor <br>
+Lange Sequenzen problematisch: Langzeitabhängigkeiten <br>
+Decoder hat nur Zugriff auf “Gesamtbedeutung” der Eingabesequenz, kein Fokus auf einzelne Elemente <br>
+<br>
+
 **Lösungsansatz**
 
-Um die Chllenge 2 zu lösen, wurde der Encoder/Decoder Ansatz weiterverfolgt.<br>
-Hierbei wurde der Anfang sowie das Ende des Songsamples genommen und durch den Encoder, welcher hier ein RNN Layer darstellt, enkodiert. Hier wird die Eingabe verarbeitet und der eigene internen Zustand zurückgegeben.<br>
-Die Ausgaben de Encoder-RNN werden daraufhin verworfen und nur der Zustand wiederhergestellt wird. Beachten Sie, dass wir die Ausgaben des Encoder-RNN verwerfen und nur den Zustandswert wiederherstellen. Dieser Zustandswert dient als "Kontext" oder "Konditionierung" für den Decoder.<br>
-Eine weitere RNN Schicht dient als Decoder. Diese Schicht wurde darauf trainiert die darauffolgenden Samples (Zielsequenzen) wiederzugeben, wenn die vorherigen Zeichen der Zielsequenz gegeben sind. Hierbei geht es primär darum, die Zielsequenzen in dieselbe Sequenzumzuwandeln, welche jedoch um einen Zeit Schritt in die Zkunft verschoben wurde. Diesen Trainingsprozess bezeichnet man auch als "teacher forcing". Der Encoder benutzt als Ausgangszustand die generierten Zustandsvektoren, wodurch der Decoder Informationen über den Erzeugungswert erhält.<br>
-Der Dekoder lernt also, Ziele[t+1...] bei gegebenen Zielen[...t] zu erzeugen, abhängig von der Eingabesequenz.
+Um Challenge 2 zu lösen, wurde der Encoder/Decoder Ansatz weiterverfolgt.<br>
+Hierbei wurde der Anfang sowie das Ende des Songsamples genommen und durch den Encoder, welcher hier ein RNN Layer darstellt, enkodiert. Hier wird die Eingabe verarbeitet und der eigene interne Zustand zurückgegeben.<br>
+Die Ausgaben des Encoder-RNN werden daraufhin verworfen und nur der Zustand wird wiederhergestellt. Dieser Zustandswert dient als "Kontext" oder "Konditionierung" für den Decoder.<br>
 
+Eine weitere RNN Schicht dient als Decoder. Diese Schicht wurde darauf trainiert die darauffolgenden Samples (Zielsequenzen) wiederzugeben, wenn die vorherigen Zeichen der Zielsequenz gegeben sind. Hierbei geht es primär darum, die Zielsequenzen in die selbe Sequenz umzuwandeln, welche jedoch um einen Zeit Schritt in die Zukunft verschoben wurde. Diesen Trainingsprozess bezeichnet man auch als "teacher forcing". Der Encoder benutzt als Ausgangszustand die generierten Zustandsvektoren, wodurch der Decoder Informationen über den Erzeugungswert erhält.<br>
+Der Dekoder lernt somit Ziele[t+1...] bei gegebenen Zielen[...t] zu erzeugen, abhängig von der Eingabesequenz.
 
 
 Quellen:
@@ -286,10 +296,11 @@ https://kuldeepsangwan.medium.com/journey-through-sequence-to-sequence-models-at
 
 ### Training-, Test- und Validierungsdaten
 Der Datensatz wird mit der load() oder get() function hineingeladen.<br> <br>
-Die Herausforderung bei der Entwicklung eines maschinellen Lernmodells liegt darin das Overfitting zu verhindern. Damit dies verhindert werden kann, sollten zwei wichtige Techniken berücksichtigt werden. Zum einem ein Resampling Verfahren zur Schätzung der Modellgenauigkeit und zum anderem das Bereithalten eines Validierungsdatensatzes. 
+Die Herausforderung bei der Entwicklung eines maschinellen Lernmodells liegt darin, das Overfitting zu verhindern. Damit dies verhindert werden kann, sollten zwei wichtige Techniken berücksichtigt werden. Zum einem ein Resampling Verfahren zur Schätzung der Modellgenauigkeit und zum anderem das Bereithalten eines Validierungsdatensatzes. 
 
-Testdaten, eine zufällige Partition des ursprünglichen Datensatz, welche nicht für das Training benutzt wurden, kommen zum Einsatz, um zu evaluieren wie sich das Model verhält. Trainingsdaten werden benutzt um das Model zu trainieren. Validierungsdaten hingegen werden eingesetzt, wenn mit verschiedenen Konfigurationen des Modells experimentiert werden  beispielsweise dem Optimieren der Verlustfunktion (Hyperparameter-Tuning). 
-Der Unterschied zwischen Validierungs- und Testdaten liegt darin, dass beim Ausprobieren von verschiedenen Modellkonfigurationen, um die optimale Validierungsmetriken zu erhalten, wird das Model gewissermaßen an den Validierungsdatensatz angepasst und die leistungsstärkste Parameterkombination aus diesen Datensatz ausgewählt. Außerdem werden Validierungssets oftmals während dem Training verwendet, um die Leistung zu einer bestimmten Epoche zu validieren. Dies wirkt sich auf den Trainingsprozess aus. 
+Testdaten, eine zufällige Partition des ursprünglichen Datensatz, welche nicht für das Training benutzt wurden, kommen zum Einsatz, um zu evaluieren wie sich das Model verhält. Trainingsdaten werden benutzt um das Model zu trainieren. Validierungsdaten hingegen werden eingesetzt, wenn mit verschiedenen Konfigurationen des Modells experimentiert werden beispielsweise dem Optimieren der Verlustfunktion (Hyperparameter-Tuning). 
+
+Der Unterschied zwischen Validierungs- und Testdaten liegt darin, dass beim Ausprobieren von verschiedenen Modellkonfigurationen, um die optimale Validierungsmetriken zu erhalten, das Model gewissermaßen an den Validierungsdatensatz angepasst und die leistungsstärkste Parameterkombination aus diesen Datensatz ausgewählt wird. Außerdem werden Validierungssets oftmals während dem Training verwendet, um die Leistung zu einer bestimmten Epoche zu validieren. Dies wirkt sich auf den Trainingsprozess aus. 
  
 
 **Splitgröße** 
@@ -297,13 +308,14 @@ Der Unterschied zwischen Validierungs- und Testdaten liegt darin, dass beim Ausp
 Bei der Splitgröße, dem Aufteilen des Datensatzes ist es gängig, die Validierungsmenge von ähnlicher Größe wie die Testmenge oder etwas kleiner zu haben. 80/10/10, 75/15/10, 70/20/10. 
 Beispiel: 
 
-def get_dataset_partitions_tf(ds, ds_size, train_split=0.8, val_split=0.1, test_split=0.1, shuffle=True, shuffle_size=10000): 
+def get_dataset_partitions_tf(ds, ds_size, train_split=0.8, val_split=0.1, test_split=0.1): 
 
 
 Quellen:<br>
 https://towardsdatascience.com/how-to-split-a-tensorflow-dataset-into-train-validation-and-test-sets-526c8dd29438 <br>
 
 https://stackabuse.com/split-train-test-and-validation-sets-with-tensorflow-datasets-tfds/ 
+
 
 ###  Training in Deep Learning 
 
@@ -319,14 +331,8 @@ Der Validierungsverlust ist eine Metrik, welche verwendet wird, um die Leistung 
 
 Unter Overfitting versteht man ein Modell, welches genau auf die Trainingsdaten passt. Wenn dies der Fall ist, kann der Algorithmus keine genauen Ergebnisse für unbekannte Daten liefern.  Bei der Entwicklung von Algorithmen für maschinelles Lernen wird ein Beispieldatensatz verwendet, um das Modell zu trainieren. Wenn das Modell jedoch zu lange auf Beispieldaten trainiert oder zu komplex ist, kann es beginnen, das "Rauschen" (noise) oder irrelevante Informationen im Datensatz zu lernen. Wenn sich das Modell das Rauschen merkt und sich zu sehr an den Trainingssatz anpasst, wird das Modell "überangepasst" und kann nicht effektiv auf neue Daten verallgemeinert werden. Wenn dies der Fall ist, ist das Model nicht in der Lage, die Klassifizierungs- oder Vorhersageaufgaben zu erfüllen, für die es gedacht war. 
 
-Beim Overfitting verringert sich der Train Loss, jedoch steigt der Validation loss. 
-
- ![](Pictures/overfitting.png)<br>
-
 Beim Underfitting hingegen hat das Modell “nicht genug” aus den Trainingsdaten gelernt. 
 Was zu einer geringen Generalisierung und unzuverlässigen Vorhersagen führt. 
-
- 
 
 Als Faustregel gilt: 
 
@@ -334,16 +340,13 @@ If validation loss >> training loss you can call it overfitting.<br>
 If validation loss  > training loss you can call it some overfitting.<br> 
 If validation loss  < training loss you can call it some underfitting. <br>
 If validation loss << training loss you can call it underfitting. <br>
-<br>
- 
 
 **Das perfekte Fitting** 
 
 loss == validation loss 
 
-Wenn beide Werte in etwa gleich sind und konvergieren (Darstellung des Verlusts über die Zeit), dann sind die Chancen sehr hoch, dass das Model richtig läuft. 
+Wenn beide Werte in etwa gleich sind und konvergieren (Darstellung des Verlusts über die Zeit), dann sind die Chancen sehr hoch, dass das Trainingsmodell richtig läuft. 
 
- 
 
 Quellen: 
 
