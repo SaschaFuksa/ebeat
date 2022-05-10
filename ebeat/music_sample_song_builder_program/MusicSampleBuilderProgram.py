@@ -12,6 +12,7 @@ def run():
     if MusicSampleConfiguration.input_directory == 'sf':
         MusicSampleConfiguration.input_directory = 'C:/Users/sasch/OneDrive/Dokumente/Studium/Technology Lab/Techno Titel/samples_in/'
         MusicSampleConfiguration.output_directory = 'C:/Users/sasch/OneDrive/Dokumente/Studium/Technology Lab/Techno Titel/music_out/'
+        MusicSampleConfiguration.model_path = ''
     else:
         print(
             'Please insert your output directory where your song should be saved ' +

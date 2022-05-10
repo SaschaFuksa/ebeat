@@ -15,5 +15,6 @@ class MusicSampleNextSamplePredictor:
     @staticmethod
     def create_new_music_file():
         end_samples, start_samples, sample_model = MusicSampleLoader.load_samples()
-        sample_order = MusicSampleLearningModel.predict_sample_order(end_samples, start_samples, sample_model)
+        learning_model = MusicSampleLearningModel()
+        sample_order = learning_model.predict_sample_order(end_samples, start_samples, sample_model)
         MusicSampleSongBuilder.save_song(sample_order)

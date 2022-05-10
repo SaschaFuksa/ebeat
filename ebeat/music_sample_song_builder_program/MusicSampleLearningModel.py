@@ -45,7 +45,9 @@ class MusicSampleLearningModel:
         model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
         model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
 
-        callbacks_list = self.__get_callbacks()
+        callbacks_list = []
+        if MusicSampleConfiguration.use_callback:
+            callbacks_list = self.__get_callbacks()
         if MusicSampleConfiguration.model_path == '':
             model.fit([encoder_model_builder.encoder_input_data, decoder_model_builder.decoder_input_data],
                       decoder_model_builder.decoder_target_data,

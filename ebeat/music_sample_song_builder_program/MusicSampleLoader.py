@@ -14,7 +14,8 @@ class MusicSampleLoader:
     def __init__(self):
         pass
 
-    def load_samples(self):
+    @staticmethod
+    def load_samples():
         start_samples = []
         end_samples = []
         files = os.listdir(MusicSampleConfiguration.input_directory)
