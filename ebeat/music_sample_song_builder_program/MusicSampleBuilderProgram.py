@@ -13,6 +13,13 @@ def run():
         MusicSampleConfiguration.input_directory = 'C:/Users/sasch/OneDrive/Dokumente/Studium/Technology Lab/Techno Titel/samples_in/'
         MusicSampleConfiguration.output_directory = 'C:/Users/sasch/OneDrive/Dokumente/Studium/Technology Lab/Techno Titel/music_out/'
         MusicSampleConfiguration.model_path = ''
+    elif MusicSampleConfiguration.input_directory == 'mh':
+        MusicSampleConfiguration.input_directory = 'C:/Users/hennm/Downloads/Output/'
+        MusicSampleConfiguration.output_directory = 'C:/Users/hennm/Downloads/OutputNew/'
+        MusicSampleConfiguration.model_path = 'C:/Users/hennm/Downloads/Model/weights-improvement-215-0.0084-bigger.hdf5'
+        MusicSampleConfiguration.edge_size = 70
+        MusicSampleConfiguration.batch_size = 5
+
     else:
         print(
             'Please insert your output directory where your song should be saved ' +
