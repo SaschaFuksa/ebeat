@@ -10,9 +10,11 @@ def run():
     print('Please insert your input directory of samples (like: C:/Users/Admin/Downloads/input/:).')
     MusicSampleConfiguration.input_directory = input()
     if MusicSampleConfiguration.input_directory == 'sf':
-        MusicSampleConfiguration.input_directory = 'C:/Users/sasch/OneDrive/Dokumente/Studium/Technology Lab/Techno Titel/samples_in/'
-        MusicSampleConfiguration.output_directory = 'C:/Users/sasch/OneDrive/Dokumente/Studium/Technology Lab/Techno Titel/music_out/'
-        MusicSampleConfiguration.model_path = ''
+        MusicSampleConfiguration.input_directory = 'C:/Users/sasch/Downloads/samples/'
+        MusicSampleConfiguration.output_directory = 'C:/Users/sasch/Downloads/'
+        MusicSampleConfiguration.model_path = 'C:/Users/sasch/Downloads/model/weights-improvement-215-0.0084-bigger.hdf5'
+        MusicSampleConfiguration.batch_size = 5
+        MusicSampleConfiguration.edge_size = 70
     elif MusicSampleConfiguration.input_directory == 'mh':
         MusicSampleConfiguration.input_directory = 'C:/Users/hennm/Downloads/Output/'
         MusicSampleConfiguration.output_directory = 'C:/Users/hennm/Downloads/OutputNew/'
