@@ -7,3 +7,6 @@
 *.iml
 *.iml
 *.xml
+*.h5
+*.tsv
+*.hdf5
