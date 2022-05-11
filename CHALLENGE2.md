@@ -284,7 +284,7 @@ https://kuldeepsangwan.medium.com/journey-through-sequence-to-sequence-models-at
 
 
 
-###Training-, Test- und Validierungsdaten
+### Training-, Test- und Validierungsdaten
 Der Datensatz wird mit der load() oder get() function hineingeladen.<br> <br>
 Die Herausforderung bei der Entwicklung eines maschinellen Lernmodells liegt darin das Overfitting zu verhindern. Damit dies verhindert werden kann, sollten zwei wichtige Techniken berücksichtigt werden. Zum einem ein Resampling Verfahren zur Schätzung der Modellgenauigkeit und zum anderem das Bereithalten eines Validierungsdatensatzes. 
 
@@ -305,7 +305,7 @@ https://towardsdatascience.com/how-to-split-a-tensorflow-dataset-into-train-vali
 
 https://stackabuse.com/split-train-test-and-validation-sets-with-tensorflow-datasets-tfds/ 
 
-###Training in Deep Learning 
+###  Training in Deep Learning 
 
 **Training Loss** 
 

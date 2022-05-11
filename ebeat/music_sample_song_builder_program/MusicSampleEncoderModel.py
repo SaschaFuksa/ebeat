@@ -5,6 +5,8 @@ import numpy
 from keras import Input
 from keras.layers import LSTM
 
+from ebeat.music_sample_song_builder_program.MusicSampleConfiguration import MusicSampleConfiguration
+
 
 class MusicSampleEncoderModel:
 
@@ -15,9 +17,9 @@ class MusicSampleEncoderModel:
             (len(end_samples), self.max_encoder_seq_length, self.num_encoder_tokens),
             dtype='float32')
 
-    def get_encoder_data(self, latent_dim: int):
+    def get_encoder_data(self):
         encoder_inputs = Input(shape=(None, self.num_encoder_tokens))
-        encoder = LSTM(latent_dim, return_state=True)
+        encoder = LSTM(MusicSampleConfiguration.latent_dim, return_state=True)
         encoder_outputs, state_h, state_c = encoder(encoder_inputs)
         encoder_states = [state_h, state_c]
         return encoder_inputs, encoder_states

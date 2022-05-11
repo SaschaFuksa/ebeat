@@ -32,5 +32,6 @@ class MusicSampleSimilarityPredictor:
         if ratio == 0.0:
             print('No further sample found after ' + str(len(self.already_used_samples)) + ' samples.')
         elif self.counter < self.max_length:
-            new_index = self.end_samples.index(next_end)
-            self.predict_next_samples_recursive(new_index)
+            if next_end in self.end_samples:
+                new_index = self.end_samples.index(next_end)
+                self.predict_next_samples_recursive(new_index)
