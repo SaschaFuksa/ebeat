@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers
+from keras import layers
 
 model = keras.Sequential()
 model.add(layers.LSTM(64, input_shape=(None, 28)))
