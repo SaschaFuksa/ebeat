@@ -54,8 +54,18 @@ print(reshaped_x.shape)
 
 from matplotlib import pyplot as plt
 
+examp_samp = scaled_x[-1]
+
 plt.figure(1)
-plt.plot(scaled_x[-1])
+plt.plot(examp_samp)
+plt.show()
+
+from scipy import signal
+
+resampled_part = signal.resample(examp_samp, 882)
+
+plt.figure(1)
+plt.plot(resampled_part)
 plt.show()
 
 train_x = reshaped_x[:190]
@@ -63,3 +73,5 @@ print((train_x.shape))
 test_x = reshaped_x[190:]
 print((test_x.shape))
 
+#from sklearn.model_selection import train_test_split
+#sentences_train, sentences_test, y_train, y_test = train_test_split(sentences, y, test_size=0.25, random_state=1000)
