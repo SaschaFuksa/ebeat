@@ -274,6 +274,10 @@ already_used = set()
 already_used.add(sampleModel[0].name)
 already_used.add(sampleModel[53].name)
 
+already_used = set()
+already_used.add(sampleModel[0].name)
+already_used.add(sampleModel[53].name)
+
 
 def predict_next_sample(index, actual):
     input_seq = encoder_input_data[index: index + 1]
