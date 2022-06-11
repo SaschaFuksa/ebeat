@@ -1,5 +1,5 @@
 from pydub import AudioSegment
-from pydub.silence import split_on_silence
+from pydub.silence import split_on_silence, detect_silence
 
 from ebeat.music_sample_cutter_program.MusicSampleCutter import MusicSampleCutter
 
@@ -18,5 +18,11 @@ The silence threshold is used to set a value on which decibel the silence detect
     # Function to cut the music files into pieces based on silence_detection
     def cut_music_file(self, music_file_path: str) -> []:
         song = AudioSegment.from_wav(music_file_path)
-        samples = split_on_silence(song, self.min_silence_length, self.silence_threshold)
+        #samples = split_on_silence(song, min_silence_len=self.min_silence_length, silence_thresh=self.silence_threshold, keep_silence=200)
+        samples = []
+        silences = detect_silence(song, min_silence_len=self.min_silence_length, silence_thresh=self.silence_threshold)
+        last_cut = 0
+        for silence in silences:
+            samples.append(song[last_cut:silence[1]])
+            last_cut = silence[1]
         return samples
