@@ -1,7 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
-
+import tensorflow as tf
+import numpy as np
+import os
+import time
+import regex as re
+import subprocess
+import urllib
+import functools
+from IPython import display as ipythondisplay
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+import Paths
+import librosa
 
 #read the data my_song.abc
 with open('my_song.abc', 'r') as f:
