@@ -1,0 +1,6 @@
+OUT_DIRECTORY = 'C:/Users/hennm/Dropbox/Studium/Master/Semester 2/Tec Lab/Music/OutputOrder/'
+IN_DIRECTORY = 'C:/Users/hennm/Dropbox/Studium/Master/Semester 2/Tec Lab/Music/Samples/'
+IN_SINGLE_SAMPLE_DIRECTORY = 'C:/Users/hennm/Dropbox/Studium/Master/Semester 2/Tec Lab/Music/one_sample/'
+IN_SINGLE_FILE_NAME = 'Tea K Pea - nauticals_10.wav'
+IN_TRAINING = ''
+IN_VALIDATION = ''
