@@ -6,8 +6,8 @@ def run():
     print('Please insert your input directory (like: C:/Users/Admin/Downloads/input/:).')
     input_directory = input()
     if input_directory == 'sf':
-        input_directory = 'C:/Users/Admin/Downloads/Technology Lab/sampling/music-pool/'
-        output_directory = 'C:/Users/Admin/Downloads/Technology Lab/sampling/music-pool-stochastic/'
+        input_directory = 'C:/Users/Admin/Downloads/Technology Lab/techno/'
+        output_directory = 'C:/Users/Admin/OneDrive/Dokumente/Studium/Technology Lab/Technology Lab Team 4/Techno Titel/train-stochastic/samples/'
         amount_of_samples = 0
         min_silence_length = 200
         silence_threshold = -20
