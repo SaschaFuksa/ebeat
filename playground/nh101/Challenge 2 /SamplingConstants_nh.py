@@ -1,8 +1,0 @@
-OUT_DIRECTORY = '/Users/nicolahaller/Documents/WI Master/Semester 2/Technology Lab/Output/'
-IN_DIRECTORY = '/Users/nicolahaller/Documents/WI Master/Semester 2/Technology Lab/Samples_20/'
-IN_SINGLE_SAMPLE_DIRECTORY = 'C:/Users/Admin/Downloads/Technology Lab/sampling/single/'
-IN_SINGLE_FILE_NAME = 'Tea K Pea - nauticals_12.wav'
-IN_SINGLE_PIC_FILE_NAME = 'Tea K Pea - nauticals_12.png'
-IN_CLASSIFICATION = 'C:/Users/Admin/Downloads/Technology Lab/sampling/classification/'
-IN_TRAINING = 'C:/Users/Admin/Downloads/Technology Lab/sampling/trainings_data/'
-IN_VALIDATION = 'C:/Users/Admin/Downloads/Technology Lab/sampling/compare_next_data/'
