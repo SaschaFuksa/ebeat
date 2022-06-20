@@ -1,0 +1,208 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(44100, 2)\n",
+      "tf.Tensor(\n",
+      "[[0.         0.        ]\n",
+      " [0.         0.        ]\n",
+      " [0.         0.        ]\n",
+      " ...\n",
+      " [0.02478027 0.01925659]\n",
+      " [0.0246582  0.01849365]\n",
+      " [0.02456665 0.0178833 ]], shape=(44100, 2), dtype=float32)\n"
+     ]
+    }
+   ],
+   "source": [
+    "import tensorflow as tf\n",
+    "from tensorflow.keras import datasets, layers, models\n",
+    "import matplotlib.pyplot as plt\n",
+    "import os\n",
+    "import pathlib\n",
+    "\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np\n",
+    "import seaborn as sns\n",
+    "import tensorflow as tf\n",
+    "\n",
+    "from tensorflow.keras import layers\n",
+    "from tensorflow.keras import models\n",
+    "from IPython import display\n",
+    "\n",
+    "file_path = '/Users/nicolahaller/Documents/WI Master/Semester 2/Technology Lab/Samples/Tea K Pea - nauticals_1.wav'\n",
+    "\n",
+    "\n",
+    "\n",
+    "Sample_File = tf.io.read_file('/Users/nicolahaller/Documents/WI Master/Semester 2/Technology Lab/Samples/Tea K Pea - nauticals_1.wav')\n",
+    "Sample_File, _ = tf.audio.decode_wav(contents=Sample_File)\n",
+    "print(Sample_File.shape)\n",
+    "print(Sample_File)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Training set size 6400\n",
+      "Validation set size 800\n",
+      "Test set size 800\n",
+      "tf.Tensor(\n",
+      "[[ 0.          0.        ]\n",
+      " [ 0.          0.        ]\n",
+      " [ 0.          0.        ]\n",
+      " ...\n",
+      " [ 0.00125122 -0.00015259]\n",
+      " [ 0.00128174 -0.00024414]\n",
+      " [ 0.00128174 -0.00030518]], shape=(6400, 2), dtype=float32)\n"
+     ]
+    }
+   ],
+   "source": [
+    "train_files = Sample_File[:6400]\n",
+    "val_files = Sample_File[6400: 6400 + 800]\n",
+    "test_files = Sample_File[-800:]\n",
+    "\n",
+    "print('Training set size', len(train_files))\n",
+    "print('Validation set size', len(val_files))\n",
+    "print('Test set size', len(test_files))\n",
+    "\n",
+    "print(train_files)\n"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "outputs": [],
+   "source": [
+    "def decode_audio(audio_binary):\n",
+    "  audio, _ = tf.audio.decode_wav(contents=audio_binary)\n",
+    "  return tf.squeeze(audio, axis=-1)\n",
+    "\n",
+    "\n",
+    "def get_label(file_path):\n",
+    "  parts = tf.strings.split(\n",
+    "      input=file_path,\n",
+    "      sep=os.path.sep)\n",
+    "  return parts[-2]\n",
+    "\n",
+    "def get_waveform_and_label(file_path):\n",
+    "  label = get_label(file_path)\n",
+    "  audio_binary = tf.io.read_file(file_path)\n",
+    "  waveform = decode_audio(audio_binary)\n",
+    "  return waveform, label\n",
+    "\n",
+    "def get_waveform_and_label(file_path):\n",
+    "  label = get_label(file_path)\n",
+    "  audio_binary = tf.io.read_file(file_path)\n",
+    "  waveform = decode_audio(audio_binary)\n",
+    "  return waveform, label"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "outputs": [
+    {
+     "ename": "ValueError",
+     "evalue": "in user code:\n\n    File \"/var/folders/3h/ldnz04h942q1lm50q2zvd68m0000gn/T/ipykernel_17358/2406947272.py\", line 19, in get_waveform_and_label  *\n        label = get_label(file_path)\n    File \"/var/folders/3h/ldnz04h942q1lm50q2zvd68m0000gn/T/ipykernel_17358/1787238814.py\", line 7, in get_label  *\n        parts = tf.strings.split(\n\n    ValueError: Tensor conversion requested dtype string for Tensor with dtype float32: <tf.Tensor 'args_0:0' shape=(2,) dtype=float32>\n",
+     "output_type": "error",
+     "traceback": [
+      "\u001B[0;31m---------------------------------------------------------------------------\u001B[0m",
+      "\u001B[0;31mValueError\u001B[0m                                Traceback (most recent call last)",
+      "Input \u001B[0;32mIn [41]\u001B[0m, in \u001B[0;36m<cell line: 5>\u001B[0;34m()\u001B[0m\n\u001B[1;32m      1\u001B[0m AUTOTUNE \u001B[38;5;241m=\u001B[39m tf\u001B[38;5;241m.\u001B[39mdata\u001B[38;5;241m.\u001B[39mAUTOTUNE\n\u001B[1;32m      3\u001B[0m files_ds \u001B[38;5;241m=\u001B[39m tf\u001B[38;5;241m.\u001B[39mdata\u001B[38;5;241m.\u001B[39mDataset\u001B[38;5;241m.\u001B[39mfrom_tensor_slices(train_files)\n\u001B[0;32m----> 5\u001B[0m waveform_ds \u001B[38;5;241m=\u001B[39m \u001B[43mfiles_ds\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mmap\u001B[49m\u001B[43m(\u001B[49m\n\u001B[1;32m      6\u001B[0m \u001B[43m    \u001B[49m\u001B[43mmap_func\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[43mget_waveform_and_label\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m      7\u001B[0m \u001B[43m    \u001B[49m\u001B[43mnum_parallel_calls\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[43mAUTOTUNE\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m      9\u001B[0m rows \u001B[38;5;241m=\u001B[39m \u001B[38;5;241m3\u001B[39m\n\u001B[1;32m     10\u001B[0m cols \u001B[38;5;241m=\u001B[39m \u001B[38;5;241m3\u001B[39m\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/data/ops/dataset_ops.py:2018\u001B[0m, in \u001B[0;36mDatasetV2.map\u001B[0;34m(self, map_func, num_parallel_calls, deterministic, name)\u001B[0m\n\u001B[1;32m   2016\u001B[0m   \u001B[38;5;28;01mreturn\u001B[39;00m MapDataset(\u001B[38;5;28mself\u001B[39m, map_func, preserve_cardinality\u001B[38;5;241m=\u001B[39m\u001B[38;5;28;01mTrue\u001B[39;00m, name\u001B[38;5;241m=\u001B[39mname)\n\u001B[1;32m   2017\u001B[0m \u001B[38;5;28;01melse\u001B[39;00m:\n\u001B[0;32m-> 2018\u001B[0m   \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[43mParallelMapDataset\u001B[49m\u001B[43m(\u001B[49m\n\u001B[1;32m   2019\u001B[0m \u001B[43m      \u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[43m,\u001B[49m\n\u001B[1;32m   2020\u001B[0m \u001B[43m      \u001B[49m\u001B[43mmap_func\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   2021\u001B[0m \u001B[43m      \u001B[49m\u001B[43mnum_parallel_calls\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   2022\u001B[0m \u001B[43m      \u001B[49m\u001B[43mdeterministic\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   2023\u001B[0m \u001B[43m      \u001B[49m\u001B[43mpreserve_cardinality\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[38;5;28;43;01mTrue\u001B[39;49;00m\u001B[43m,\u001B[49m\n\u001B[1;32m   2024\u001B[0m \u001B[43m      \u001B[49m\u001B[43mname\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[43mname\u001B[49m\u001B[43m)\u001B[49m\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/data/ops/dataset_ops.py:5234\u001B[0m, in \u001B[0;36mParallelMapDataset.__init__\u001B[0;34m(self, input_dataset, map_func, num_parallel_calls, deterministic, use_inter_op_parallelism, preserve_cardinality, use_legacy_function, name)\u001B[0m\n\u001B[1;32m   5232\u001B[0m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_input_dataset \u001B[38;5;241m=\u001B[39m input_dataset\n\u001B[1;32m   5233\u001B[0m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_use_inter_op_parallelism \u001B[38;5;241m=\u001B[39m use_inter_op_parallelism\n\u001B[0;32m-> 5234\u001B[0m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_map_func \u001B[38;5;241m=\u001B[39m \u001B[43mstructured_function\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mStructuredFunctionWrapper\u001B[49m\u001B[43m(\u001B[49m\n\u001B[1;32m   5235\u001B[0m \u001B[43m    \u001B[49m\u001B[43mmap_func\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   5236\u001B[0m \u001B[43m    \u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_transformation_name\u001B[49m\u001B[43m(\u001B[49m\u001B[43m)\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   5237\u001B[0m \u001B[43m    \u001B[49m\u001B[43mdataset\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[43minput_dataset\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   5238\u001B[0m \u001B[43m    \u001B[49m\u001B[43muse_legacy_function\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[43muse_legacy_function\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m   5239\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m deterministic \u001B[38;5;129;01mis\u001B[39;00m \u001B[38;5;28;01mNone\u001B[39;00m:\n\u001B[1;32m   5240\u001B[0m   \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_deterministic \u001B[38;5;241m=\u001B[39m \u001B[38;5;124m\"\u001B[39m\u001B[38;5;124mdefault\u001B[39m\u001B[38;5;124m\"\u001B[39m\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/data/ops/structured_function.py:271\u001B[0m, in \u001B[0;36mStructuredFunctionWrapper.__init__\u001B[0;34m(self, func, transformation_name, dataset, input_classes, input_shapes, input_types, input_structure, add_to_graph, use_legacy_function, defun_kwargs)\u001B[0m\n\u001B[1;32m    264\u001B[0m       warnings\u001B[38;5;241m.\u001B[39mwarn(\n\u001B[1;32m    265\u001B[0m           \u001B[38;5;124m\"\u001B[39m\u001B[38;5;124mEven though the `tf.config.experimental_run_functions_eagerly` \u001B[39m\u001B[38;5;124m\"\u001B[39m\n\u001B[1;32m    266\u001B[0m           \u001B[38;5;124m\"\u001B[39m\u001B[38;5;124moption is set, this option does not apply to tf.data functions. \u001B[39m\u001B[38;5;124m\"\u001B[39m\n\u001B[1;32m    267\u001B[0m           \u001B[38;5;124m\"\u001B[39m\u001B[38;5;124mTo force eager execution of tf.data functions, please use \u001B[39m\u001B[38;5;124m\"\u001B[39m\n\u001B[1;32m    268\u001B[0m           \u001B[38;5;124m\"\u001B[39m\u001B[38;5;124m`tf.data.experimental.enable_debug_mode()`.\u001B[39m\u001B[38;5;124m\"\u001B[39m)\n\u001B[1;32m    269\u001B[0m     fn_factory \u001B[38;5;241m=\u001B[39m trace_tf_function(defun_kwargs)\n\u001B[0;32m--> 271\u001B[0m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_function \u001B[38;5;241m=\u001B[39m \u001B[43mfn_factory\u001B[49m\u001B[43m(\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    272\u001B[0m \u001B[38;5;66;03m# There is no graph to add in eager mode.\u001B[39;00m\n\u001B[1;32m    273\u001B[0m add_to_graph \u001B[38;5;241m&\u001B[39m\u001B[38;5;241m=\u001B[39m \u001B[38;5;129;01mnot\u001B[39;00m context\u001B[38;5;241m.\u001B[39mexecuting_eagerly()\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/eager/function.py:3070\u001B[0m, in \u001B[0;36mFunction.get_concrete_function\u001B[0;34m(self, *args, **kwargs)\u001B[0m\n\u001B[1;32m   3061\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21mget_concrete_function\u001B[39m(\u001B[38;5;28mself\u001B[39m, \u001B[38;5;241m*\u001B[39margs, \u001B[38;5;241m*\u001B[39m\u001B[38;5;241m*\u001B[39mkwargs):\n\u001B[1;32m   3062\u001B[0m   \u001B[38;5;124;03m\"\"\"Returns a `ConcreteFunction` specialized to inputs and execution context.\u001B[39;00m\n\u001B[1;32m   3063\u001B[0m \n\u001B[1;32m   3064\u001B[0m \u001B[38;5;124;03m  Args:\u001B[39;00m\n\u001B[0;32m   (...)\u001B[0m\n\u001B[1;32m   3068\u001B[0m \u001B[38;5;124;03m       or `tf.Tensor` or `tf.TensorSpec`.\u001B[39;00m\n\u001B[1;32m   3069\u001B[0m \u001B[38;5;124;03m  \"\"\"\u001B[39;00m\n\u001B[0;32m-> 3070\u001B[0m   graph_function \u001B[38;5;241m=\u001B[39m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_get_concrete_function_garbage_collected\u001B[49m\u001B[43m(\u001B[49m\n\u001B[1;32m   3071\u001B[0m \u001B[43m      \u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43margs\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43mkwargs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m   3072\u001B[0m   graph_function\u001B[38;5;241m.\u001B[39m_garbage_collector\u001B[38;5;241m.\u001B[39mrelease()  \u001B[38;5;66;03m# pylint: disable=protected-access\u001B[39;00m\n\u001B[1;32m   3073\u001B[0m   \u001B[38;5;28;01mreturn\u001B[39;00m graph_function\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/eager/function.py:3036\u001B[0m, in \u001B[0;36mFunction._get_concrete_function_garbage_collected\u001B[0;34m(self, *args, **kwargs)\u001B[0m\n\u001B[1;32m   3034\u001B[0m   args, kwargs \u001B[38;5;241m=\u001B[39m \u001B[38;5;28;01mNone\u001B[39;00m, \u001B[38;5;28;01mNone\u001B[39;00m\n\u001B[1;32m   3035\u001B[0m \u001B[38;5;28;01mwith\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_lock:\n\u001B[0;32m-> 3036\u001B[0m   graph_function, _ \u001B[38;5;241m=\u001B[39m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_maybe_define_function\u001B[49m\u001B[43m(\u001B[49m\u001B[43margs\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mkwargs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m   3037\u001B[0m   seen_names \u001B[38;5;241m=\u001B[39m \u001B[38;5;28mset\u001B[39m()\n\u001B[1;32m   3038\u001B[0m   captured \u001B[38;5;241m=\u001B[39m object_identity\u001B[38;5;241m.\u001B[39mObjectIdentitySet(\n\u001B[1;32m   3039\u001B[0m       graph_function\u001B[38;5;241m.\u001B[39mgraph\u001B[38;5;241m.\u001B[39minternal_captures)\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/eager/function.py:3292\u001B[0m, in \u001B[0;36mFunction._maybe_define_function\u001B[0;34m(self, args, kwargs)\u001B[0m\n\u001B[1;32m   3288\u001B[0m   \u001B[38;5;28;01mreturn\u001B[39;00m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_define_function_with_shape_relaxation(\n\u001B[1;32m   3289\u001B[0m       args, kwargs, flat_args, filtered_flat_args)\n\u001B[1;32m   3291\u001B[0m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_function_cache\u001B[38;5;241m.\u001B[39madd_call_context(cache_key\u001B[38;5;241m.\u001B[39mcall_context)\n\u001B[0;32m-> 3292\u001B[0m graph_function \u001B[38;5;241m=\u001B[39m \u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_create_graph_function\u001B[49m\u001B[43m(\u001B[49m\u001B[43margs\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mkwargs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m   3293\u001B[0m \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_function_cache\u001B[38;5;241m.\u001B[39madd(cache_key, cache_key_deletion_observer,\n\u001B[1;32m   3294\u001B[0m                          graph_function)\n\u001B[1;32m   3296\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m graph_function, filtered_flat_args\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/eager/function.py:3130\u001B[0m, in \u001B[0;36mFunction._create_graph_function\u001B[0;34m(self, args, kwargs, override_flat_arg_shapes)\u001B[0m\n\u001B[1;32m   3125\u001B[0m missing_arg_names \u001B[38;5;241m=\u001B[39m [\n\u001B[1;32m   3126\u001B[0m     \u001B[38;5;124m\"\u001B[39m\u001B[38;5;132;01m%s\u001B[39;00m\u001B[38;5;124m_\u001B[39m\u001B[38;5;132;01m%d\u001B[39;00m\u001B[38;5;124m\"\u001B[39m \u001B[38;5;241m%\u001B[39m (arg, i) \u001B[38;5;28;01mfor\u001B[39;00m i, arg \u001B[38;5;129;01min\u001B[39;00m \u001B[38;5;28menumerate\u001B[39m(missing_arg_names)\n\u001B[1;32m   3127\u001B[0m ]\n\u001B[1;32m   3128\u001B[0m arg_names \u001B[38;5;241m=\u001B[39m base_arg_names \u001B[38;5;241m+\u001B[39m missing_arg_names\n\u001B[1;32m   3129\u001B[0m graph_function \u001B[38;5;241m=\u001B[39m ConcreteFunction(\n\u001B[0;32m-> 3130\u001B[0m     \u001B[43mfunc_graph_module\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mfunc_graph_from_py_func\u001B[49m\u001B[43m(\u001B[49m\n\u001B[1;32m   3131\u001B[0m \u001B[43m        \u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_name\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3132\u001B[0m \u001B[43m        \u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_python_function\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3133\u001B[0m \u001B[43m        \u001B[49m\u001B[43margs\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3134\u001B[0m \u001B[43m        \u001B[49m\u001B[43mkwargs\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3135\u001B[0m \u001B[43m        \u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43minput_signature\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3136\u001B[0m \u001B[43m        \u001B[49m\u001B[43mautograph\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_autograph\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3137\u001B[0m \u001B[43m        \u001B[49m\u001B[43mautograph_options\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_autograph_options\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3138\u001B[0m \u001B[43m        \u001B[49m\u001B[43marg_names\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[43marg_names\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3139\u001B[0m \u001B[43m        \u001B[49m\u001B[43moverride_flat_arg_shapes\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[43moverride_flat_arg_shapes\u001B[49m\u001B[43m,\u001B[49m\n\u001B[1;32m   3140\u001B[0m \u001B[43m        \u001B[49m\u001B[43mcapture_by_value\u001B[49m\u001B[38;5;241;43m=\u001B[39;49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_capture_by_value\u001B[49m\u001B[43m)\u001B[49m,\n\u001B[1;32m   3141\u001B[0m     \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_function_attributes,\n\u001B[1;32m   3142\u001B[0m     function_spec\u001B[38;5;241m=\u001B[39m\u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39mfunction_spec,\n\u001B[1;32m   3143\u001B[0m     \u001B[38;5;66;03m# Tell the ConcreteFunction to clean up its graph once it goes out of\u001B[39;00m\n\u001B[1;32m   3144\u001B[0m     \u001B[38;5;66;03m# scope. This is not the default behavior since it gets used in some\u001B[39;00m\n\u001B[1;32m   3145\u001B[0m     \u001B[38;5;66;03m# places (like Keras) where the FuncGraph lives longer than the\u001B[39;00m\n\u001B[1;32m   3146\u001B[0m     \u001B[38;5;66;03m# ConcreteFunction.\u001B[39;00m\n\u001B[1;32m   3147\u001B[0m     shared_func_graph\u001B[38;5;241m=\u001B[39m\u001B[38;5;28;01mFalse\u001B[39;00m)\n\u001B[1;32m   3148\u001B[0m \u001B[38;5;28;01mreturn\u001B[39;00m graph_function\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/framework/func_graph.py:1161\u001B[0m, in \u001B[0;36mfunc_graph_from_py_func\u001B[0;34m(name, python_func, args, kwargs, signature, func_graph, autograph, autograph_options, add_control_dependencies, arg_names, op_return_value, collections, capture_by_value, override_flat_arg_shapes, acd_record_initial_resource_uses)\u001B[0m\n\u001B[1;32m   1158\u001B[0m \u001B[38;5;28;01melse\u001B[39;00m:\n\u001B[1;32m   1159\u001B[0m   _, original_func \u001B[38;5;241m=\u001B[39m tf_decorator\u001B[38;5;241m.\u001B[39munwrap(python_func)\n\u001B[0;32m-> 1161\u001B[0m func_outputs \u001B[38;5;241m=\u001B[39m \u001B[43mpython_func\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43mfunc_args\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43mfunc_kwargs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m   1163\u001B[0m \u001B[38;5;66;03m# invariant: `func_outputs` contains only Tensors, CompositeTensors,\u001B[39;00m\n\u001B[1;32m   1164\u001B[0m \u001B[38;5;66;03m# TensorArrays and `None`s.\u001B[39;00m\n\u001B[1;32m   1165\u001B[0m func_outputs \u001B[38;5;241m=\u001B[39m nest\u001B[38;5;241m.\u001B[39mmap_structure(convert, func_outputs,\n\u001B[1;32m   1166\u001B[0m                                   expand_composites\u001B[38;5;241m=\u001B[39m\u001B[38;5;28;01mTrue\u001B[39;00m)\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/data/ops/structured_function.py:248\u001B[0m, in \u001B[0;36mStructuredFunctionWrapper.__init__.<locals>.trace_tf_function.<locals>.wrapped_fn\u001B[0;34m(*args)\u001B[0m\n\u001B[1;32m    242\u001B[0m \u001B[38;5;129m@eager_function\u001B[39m\u001B[38;5;241m.\u001B[39mdefun_with_attributes(\n\u001B[1;32m    243\u001B[0m     input_signature\u001B[38;5;241m=\u001B[39mstructure\u001B[38;5;241m.\u001B[39mget_flat_tensor_specs(\n\u001B[1;32m    244\u001B[0m         \u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_input_structure),\n\u001B[1;32m    245\u001B[0m     autograph\u001B[38;5;241m=\u001B[39m\u001B[38;5;28;01mFalse\u001B[39;00m,\n\u001B[1;32m    246\u001B[0m     attributes\u001B[38;5;241m=\u001B[39mdefun_kwargs)\n\u001B[1;32m    247\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21mwrapped_fn\u001B[39m(\u001B[38;5;241m*\u001B[39margs):  \u001B[38;5;66;03m# pylint: disable=missing-docstring\u001B[39;00m\n\u001B[0;32m--> 248\u001B[0m   ret \u001B[38;5;241m=\u001B[39m \u001B[43mwrapper_helper\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43margs\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    249\u001B[0m   ret \u001B[38;5;241m=\u001B[39m structure\u001B[38;5;241m.\u001B[39mto_tensor_list(\u001B[38;5;28mself\u001B[39m\u001B[38;5;241m.\u001B[39m_output_structure, ret)\n\u001B[1;32m    250\u001B[0m   \u001B[38;5;28;01mreturn\u001B[39;00m [ops\u001B[38;5;241m.\u001B[39mconvert_to_tensor(t) \u001B[38;5;28;01mfor\u001B[39;00m t \u001B[38;5;129;01min\u001B[39;00m ret]\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/data/ops/structured_function.py:177\u001B[0m, in \u001B[0;36mStructuredFunctionWrapper.__init__.<locals>.wrapper_helper\u001B[0;34m(*args)\u001B[0m\n\u001B[1;32m    175\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;129;01mnot\u001B[39;00m _should_unpack(nested_args):\n\u001B[1;32m    176\u001B[0m   nested_args \u001B[38;5;241m=\u001B[39m (nested_args,)\n\u001B[0;32m--> 177\u001B[0m ret \u001B[38;5;241m=\u001B[39m \u001B[43mautograph\u001B[49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43mtf_convert\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;28;43mself\u001B[39;49m\u001B[38;5;241;43m.\u001B[39;49m\u001B[43m_func\u001B[49m\u001B[43m,\u001B[49m\u001B[43m \u001B[49m\u001B[43mag_ctx\u001B[49m\u001B[43m)\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m*\u001B[39;49m\u001B[43mnested_args\u001B[49m\u001B[43m)\u001B[49m\n\u001B[1;32m    178\u001B[0m \u001B[38;5;28;01mif\u001B[39;00m _should_pack(ret):\n\u001B[1;32m    179\u001B[0m   ret \u001B[38;5;241m=\u001B[39m \u001B[38;5;28mtuple\u001B[39m(ret)\n",
+      "File \u001B[0;32m/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/tensorflow/python/autograph/impl/api.py:692\u001B[0m, in \u001B[0;36mconvert.<locals>.decorator.<locals>.wrapper\u001B[0;34m(*args, **kwargs)\u001B[0m\n\u001B[1;32m    690\u001B[0m \u001B[38;5;28;01mexcept\u001B[39;00m \u001B[38;5;167;01mException\u001B[39;00m \u001B[38;5;28;01mas\u001B[39;00m e:  \u001B[38;5;66;03m# pylint:disable=broad-except\u001B[39;00m\n\u001B[1;32m    691\u001B[0m   \u001B[38;5;28;01mif\u001B[39;00m \u001B[38;5;28mhasattr\u001B[39m(e, \u001B[38;5;124m'\u001B[39m\u001B[38;5;124mag_error_metadata\u001B[39m\u001B[38;5;124m'\u001B[39m):\n\u001B[0;32m--> 692\u001B[0m     \u001B[38;5;28;01mraise\u001B[39;00m e\u001B[38;5;241m.\u001B[39mag_error_metadata\u001B[38;5;241m.\u001B[39mto_exception(e)\n\u001B[1;32m    693\u001B[0m   \u001B[38;5;28;01melse\u001B[39;00m:\n\u001B[1;32m    694\u001B[0m     \u001B[38;5;28;01mraise\u001B[39;00m\n",
+      "\u001B[0;31mValueError\u001B[0m: in user code:\n\n    File \"/var/folders/3h/ldnz04h942q1lm50q2zvd68m0000gn/T/ipykernel_17358/2406947272.py\", line 19, in get_waveform_and_label  *\n        label = get_label(file_path)\n    File \"/var/folders/3h/ldnz04h942q1lm50q2zvd68m0000gn/T/ipykernel_17358/1787238814.py\", line 7, in get_label  *\n        parts = tf.strings.split(\n\n    ValueError: Tensor conversion requested dtype string for Tensor with dtype float32: <tf.Tensor 'args_0:0' shape=(2,) dtype=float32>\n"
+     ]
+    }
+   ],
+   "source": [
+    "AUTOTUNE = tf.data.AUTOTUNE\n",
+    "\n",
+    "files_ds = tf.data.Dataset.from_tensor_slices(train_files)\n",
+    "\n",
+    "waveform_ds = files_ds.map(\n",
+    "    map_func=get_waveform_and_label,\n",
+    "    num_parallel_calls=AUTOTUNE)\n",
+    "\n",
+    "rows = 3\n",
+    "cols = 3\n",
+    "n = rows * cols\n",
+    "fig, axes = plt.subplots(rows, cols, figsize=(10, 12))\n",
+    "\n",
+    "for i, (audio, label) in enumerate(waveform_ds.take(n)):\n",
+    "  r = i // cols\n",
+    "  c = i % cols\n",
+    "  ax = axes[r][c]\n",
+    "  ax.plot(audio.numpy())\n",
+    "  ax.set_yticks(np.arange(-1.2, 1.2, 0.2))\n",
+    "  label = label.numpy().decode('utf-8')\n",
+    "  ax.set_title(label)\n",
+    "\n",
+    "plt.show()"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
