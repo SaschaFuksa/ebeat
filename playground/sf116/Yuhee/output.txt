@@ -1,0 +1,151 @@
+Predicted Brylie Christopher Oxley - City view from Torni_128 at class 0 as best sample with score 0.99999976
+Predicted Maarten Schellekens - Lounge It_28 at class 1 as best sample with score 3.9959865e-05
+Predicted Baners - Use It_2 at class 2 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_107 at class 3 as best sample with score 1.0
+Predicted Baners - Use It_3 at class 4 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_127 at class 5 as best sample with score 1.0
+Predicted Baners - Use It_4 at class 6 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_87 at class 7 as best sample with score 3.8711593e-07
+Predicted Baners - Use It_5 at class 8 as best sample with score 1.0
+Predicted Baners - Use It_6 at class 9 as best sample with score 0.9829258
+Predicted Baners - Use It_7 at class 10 as best sample with score 1.0
+Predicted Blue Sky Moon- Smallest Things In The Forest_1 at class 11 as best sample with score 1.0
+Predicted Blue Sky Moon- Smallest Things In The Forest_4 at class 12 as best sample with score 1.0
+Predicted Dee Yan-Key-Yuletide_4 at class 13 as best sample with score 0.99999523
+Predicted Blue Sky Moon- Smallest Things In The Forest_6 at class 14 as best sample with score 0.9840658
+Predicted Blue Sky Moon- Smallest Things In The Forest_7 at class 15 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_100 at class 16 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_101 at class 17 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_105 at class 18 as best sample with score 0.9999995
+Predicted Brylie Christopher Oxley - City view from Torni_104 at class 19 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_106 at class 20 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_132 at class 21 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_11 at class 22 as best sample with score 1.0
+Predicted Holizna - Keeping Cool_10 at class 23 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_111 at class 24 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_106 at class 25 as best sample with score 1.3781958e-07
+Predicted Tea K Pea - nauticals_28 at class 26 as best sample with score 0.9999852
+Predicted Brylie Christopher Oxley - City view from Torni_112 at class 27 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_135 at class 28 as best sample with score 0.9999913
+Predicted Brylie Christopher Oxley - City view from Torni_113 at class 29 as best sample with score 0.98262346
+Predicted Dee Yan-Key-Yuletide_37 at class 30 as best sample with score 0.9986924
+Predicted Brylie Christopher Oxley - City view from Torni_116 at class 31 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_26 at class 32 as best sample with score 1.0
+Predicted Holizna - Keeping Cool_1 at class 33 as best sample with score 1.0
+Predicted Independent Music Licensing Collective - New Launch_52 at class 34 as best sample with score 0.99892664
+Predicted Brylie Christopher Oxley - City view from Torni_114 at class 35 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_123 at class 36 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_117 at class 37 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_135 at class 38 as best sample with score 1.0
+Predicted Holizna - Laundry On The Wire_46 at class 39 as best sample with score 0.98301315
+Predicted Holizna - Laundry On The Wire_112 at class 40 as best sample with score 0.9996089
+Predicted Tea K Pea - nauticals_39 at class 41 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_120 at class 42 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_102 at class 43 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_118 at class 44 as best sample with score 0.99990445
+Predicted Tea K Pea - nauticals_47 at class 45 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_119 at class 46 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_136 at class 47 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_132 at class 48 as best sample with score 0.9999957
+Predicted Tea K Pea - nauticals_103 at class 49 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_123 at class 50 as best sample with score 0.9999994
+Predicted Tea K Pea - nauticals_110 at class 51 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_89 at class 52 as best sample with score 0.20676413
+Predicted Holizna - Poor But Happy_33 at class 53 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_151 at class 54 as best sample with score 0.9999997
+Predicted Holizna - Laundry On The Wire_113 at class 55 as best sample with score 0.9977287
+Predicted Tea K Pea - nauticals_101 at class 56 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_124 at class 57 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_57 at class 58 as best sample with score 0.9981108
+Predicted Tea K Pea - notchpeak v2_9 at class 59 as best sample with score 0.32521886
+Predicted Brylie Christopher Oxley - City view from Torni_140 at class 60 as best sample with score 0.96266186
+Predicted Brylie Christopher Oxley - City view from Torni_129 at class 61 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_30 at class 62 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_126 at class 63 as best sample with score 1.0
+Predicted Dee Yan-Key-Yuletide_50 at class 64 as best sample with score 0.99998546
+Predicted Brylie Christopher Oxley - City view from Torni_13 at class 65 as best sample with score 0.99999976
+Predicted Brylie Christopher Oxley - City view from Torni_24 at class 66 as best sample with score 0.9567122
+Predicted Holizna - Laundry On The Wire_12 at class 67 as best sample with score 0.9877416
+Predicted Tea K Pea - nauticals_140 at class 68 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_131 at class 69 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_134 at class 70 as best sample with score 0.999951
+Predicted Brylie Christopher Oxley - City view from Torni_137 at class 71 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_56 at class 72 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_138 at class 73 as best sample with score 1.0
+Predicted Tea K Pea - notchpeak v2_12 at class 74 as best sample with score 4.9922046e-19
+Predicted HoliznaCC0 - Poor, But Happy_33 at class 75 as best sample with score 0.99963903
+Predicted Brylie Christopher Oxley - City view from Torni_144 at class 76 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_21 at class 77 as best sample with score 0.9994402
+Predicted Brylie Christopher Oxley - City view from Torni_39 at class 78 as best sample with score 0.9999378
+Predicted Independent Music Licensing Collective - Schellekens_79 at class 79 as best sample with score 0.9995781
+Predicted Brylie Christopher Oxley - City view from Torni_147 at class 80 as best sample with score 1.0
+Predicted Maarten Schellekens - Tuesday Night Radio Edit_3 at class 81 as best sample with score 0.99920845
+Predicted Holizna - Laundry On The Wire_101 at class 82 as best sample with score 0.9999975
+Predicted Makaih Beats - Dangerous_122 at class 83 as best sample with score 0.95623267
+Predicted Julia Felix - Sentience Council of Seers_38 at class 84 as best sample with score 0.99968076
+Predicted Dee Yan-Key-Yuletide_24 at class 85 as best sample with score 0.99983084
+Predicted Brylie Christopher Oxley - City view from Torni_55 at class 86 as best sample with score 0.9755598
+Predicted Tea K Pea - nauticals_41 at class 87 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_14 at class 88 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_26 at class 89 as best sample with score 0.9999994
+Predicted Julia Felix - Sentience Council of Seers_66 at class 90 as best sample with score 0.9999434
+Predicted Brylie Christopher Oxley - City view from Torni_141 at class 91 as best sample with score 1.0
+Predicted Tea K Pea - kingtop_81 at class 92 as best sample with score 0.9999825
+Predicted Brylie Christopher Oxley - City view from Torni_142 at class 93 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_143 at class 94 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_152 at class 95 as best sample with score 0.9999505
+Predicted Tea K Pea - nauticals_98 at class 96 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_148 at class 97 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_149 at class 98 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_58 at class 99 as best sample with score 1.7373493e-11
+Predicted Tea K Pea - nauticals_114 at class 100 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_157 at class 101 as best sample with score 0.98662996
+Predicted Tea K Pea - nauticals_104 at class 102 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_150 at class 103 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_139 at class 104 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_154 at class 105 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_108 at class 106 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_155 at class 107 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_118 at class 108 as best sample with score 0.99944866
+Predicted Tea K Pea - nauticals_107 at class 109 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_156 at class 110 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_95 at class 111 as best sample with score 0.9999982
+Predicted Brylie Christopher Oxley - City view from Torni_20 at class 112 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_23 at class 113 as best sample with score 0.99834573
+Predicted Lobo Loco - Swinging Boss_29 at class 114 as best sample with score 0.9999409
+Predicted Brylie Christopher Oxley - City view from Torni_76 at class 115 as best sample with score 1.0
+Predicted Tea K Pea - kingtop_16 at class 116 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_66 at class 117 as best sample with score 0.9993994
+Predicted Holizna - PATREON VHS_4 at class 118 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_16 at class 119 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_84 at class 120 as best sample with score 0.9999516
+Predicted Tea K Pea - nauticals_124 at class 121 as best sample with score 0.99927515
+Predicted Tea K Pea - nauticals_105 at class 122 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_18 at class 123 as best sample with score 1.0
+Predicted Dee Yan-Key-Yuletide_18 at class 124 as best sample with score 0.9912951
+Predicted Brylie Christopher Oxley - City view from Torni_28 at class 125 as best sample with score 0.9936426
+Predicted Julia Felix - Sentience Council of Seers_44 at class 126 as best sample with score 0.99999964
+Predicted Brylie Christopher Oxley - City view from Torni_19 at class 127 as best sample with score 0.9999368
+Predicted Brylie Christopher Oxley - City view from Torni_45 at class 128 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_131 at class 129 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_2 at class 130 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_9 at class 131 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_3 at class 132 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_64 at class 133 as best sample with score 1.544966e-29
+Predicted Brylie Christopher Oxley - City view from Torni_34 at class 134 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_46 at class 135 as best sample with score 0.9947188
+Predicted Brylie Christopher Oxley - City view from Torni_35 at class 136 as best sample with score 0.99999213
+Predicted Tea K Pea - nauticals_143 at class 137 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_32 at class 138 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_141 at class 139 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_38 at class 140 as best sample with score 0.99996847
+Predicted Tea K Pea - nauticals_69 at class 141 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_36 at class 142 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_145 at class 143 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_4 at class 144 as best sample with score 1.0
+Predicted Tea K Pea - nauticals_147 at class 145 as best sample with score 3.2121667e-24
+Predicted Brylie Christopher Oxley - City view from Torni_48 at class 146 as best sample with score 1.0
+Predicted Holizna - Laundry On The Wire_2 at class 147 as best sample with score 0.99987066
+Predicted Dee Yan-Key-Yuletide_19 at class 148 as best sample with score 0.9933204
+Predicted Brylie Christopher Oxley - City view from Torni_49 at class 149 as best sample with score 1.0
+Predicted Brylie Christopher Oxley - City view from Torni_5 at class 150 as best sample with score 1.0
