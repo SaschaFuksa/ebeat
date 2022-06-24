@@ -3,6 +3,9 @@ from ebeat.music_sample_stream_creator_program.MusicSampleStreamCreator import M
 
 
 def run():
+    """
+    Runs program and at first, insert relevant inputs like directories.
+    """
     print('Please insert your input directory of train samples (like: C:/Users/Admin/Downloads/input/:).')
     MusicSampleConfiguration.train_sample_path = input()
     if MusicSampleConfiguration.train_sample_path == 'sf':
@@ -25,8 +28,18 @@ def run():
             'Please insert your output directory where your song should be saved ' +
             '(like: C:/Users/Admin/Downloads/output/:).')
         MusicSampleConfiguration.output_directory = input()
-
-    MusicSampleStreamCreator.create_new_music_file()
+        print('Do you want to use existing model? (y/n).')
+        use_model = input()
+        if use_model == 'y':
+            MusicSampleConfiguration.use_model = True
+            print('Please insert your model (.hdf5) directory ' +
+            '(like: C:/Users/Admin/Downloads/model/:).')
+            MusicSampleConfiguration.model_path = input()
+        print('Please insert name of new song (if left blank: Karacho)')
+        new_name = input()
+        if new_name != '':
+            MusicSampleConfiguration.new_song_name = new_name
+    MusicSampleStreamCreator.create_sample_stream()
 
 
 if __name__ == "__main__":
