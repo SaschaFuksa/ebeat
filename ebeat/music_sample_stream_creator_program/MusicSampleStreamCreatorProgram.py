@@ -15,7 +15,7 @@ def run():
         MusicSampleConfiguration.batch_size = 5
         epochs = 100
         use_callback = False
-
+        stream_length = 100
     else:
         print(
             'Please insert your input directory of sample pool ' +
