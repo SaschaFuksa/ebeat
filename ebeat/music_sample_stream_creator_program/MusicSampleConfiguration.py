@@ -4,17 +4,22 @@ class MusicSampleConfiguration:
     Attributes:
         train_sample_path           Path to training samples to use for model training in str.
         sample_pool_path            Path to sample pool to create song stream in str.
+        output_directory            Path to save new song stream in str.
+        model_path                  Path to already existing model in str.
+        use_model                   True if use model, False if don't use model and build new
         edge_size                   Size of end and start edges of samples in int.
         batch_size                  Size of batches in int.
         epochs                      Amount of epochs to train model in int.
         use_callback                Flag to use callbacks (True)
-        model_path                  Path to already existing model in str.
+        stream_length               "Length" of stream. It's amount of samples to add to each other at the end
     """
-    input_directory = ''
+    train_sample_path = ''
+    sample_pool_path = ''
     output_directory = ''
     model_path = ''
+    use_model = False
     edge_size = 50
     batch_size = 2
-    latent_dim = 1000
     epochs = 100
     use_callback = False
+    stream_length = 150

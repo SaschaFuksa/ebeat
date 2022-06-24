@@ -6,11 +6,11 @@ def run():
     print('Please insert your input directory (like: C:/Users/Admin/Downloads/input/:).')
     input_directory = input()
     if input_directory == 'sf':
-        input_directory = 'C:/Users/Admin/Downloads/Technology Lab/techno/'
-        output_directory = 'C:/Users/Admin/OneDrive/Dokumente/Studium/Technology Lab/Technology Lab Team 4/Techno Titel/train-stochastic/samples/'
+        input_directory = 'C:/Users/Admin/OneDrive/Dokumente/Studium/Technology Lab/Technology Lab Team 4/Techno Titel/train/full-song/'
+        output_directory = 'C:/Users/Admin/OneDrive/Dokumente/Studium/Technology Lab/Technology Lab Team 4/Techno Titel/train/samples-stochastic/'
         amount_of_samples = 0
-        min_silence_length = 200
-        silence_threshold = -20
+        min_silence_length = 300
+        silence_threshold = -16
         music_sample_creator = MusicSampleCreator.stochastic_cutting_data(input_directory, output_directory,
                                                                           amount_of_samples,
                                                                           min_silence_length, silence_threshold)
@@ -39,7 +39,8 @@ def run():
                                                                               amount_of_samples,
                                                                               min_silence_length, silence_threshold)
         else:
-            music_sample_creator = MusicSampleCreator.equal_cutting_data(input_directory, output_directory, sample_length)
+            music_sample_creator = MusicSampleCreator.equal_cutting_data(input_directory, output_directory,
+                                                                         sample_length)
     music_sample_creator.create_samples()
 
 
