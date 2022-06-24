@@ -13,9 +13,9 @@ def run():
         MusicSampleConfiguration.use_model = False
         MusicSampleConfiguration.edge_size = 70
         MusicSampleConfiguration.batch_size = 5
-        epochs = 100
-        use_callback = False
-        stream_length = 100
+        MusicSampleConfiguration.epochs = 100
+        MusicSampleConfiguration.use_callback = False
+        MusicSampleConfiguration.stream_length = 100
     else:
         print(
             'Please insert your input directory of sample pool ' +
