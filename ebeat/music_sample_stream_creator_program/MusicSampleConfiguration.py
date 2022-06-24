@@ -11,6 +11,7 @@ class MusicSampleConfiguration:
         batch_size                  Size of batches in int.
         epochs                      Amount of epochs to train model in int.
         use_callback                Flag to use callbacks (True)
+        stream_length               "Length" of stream. It's amount of samples to add to each other at the end
     """
     train_sample_path = ''
     sample_pool_path = ''
@@ -21,3 +22,4 @@ class MusicSampleConfiguration:
     batch_size = 2
     epochs = 100
     use_callback = False
+    stream_length = 150
