@@ -19,7 +19,7 @@ class MusicSampleStreamCreator:
         Create train data, model, predict new song structure and save song
         """
         samples, samples_sec_canal = MusicSampleLoader.load_training_samples_fixed_resample_rate(
-            MusicSampleConfiguration.train_sample_path)
+            MusicSampleConfiguration.train_sample_path, 35)
         edge_size = min(map(len, samples))
         x_train, y_train, x_val, y_val = MusicSampleDataPreparer.prepare_data(samples, samples_sec_canal, edge_size)
         x_train = np.array(x_train)
@@ -31,5 +31,5 @@ class MusicSampleStreamCreator:
             model.load_weights(MusicSampleConfiguration.model_path)
         else:
             model.fit(x_train, y_train, epochs=750, batch_size=64)
-        selected_samples = MusicSampleStreamPredictor.predict_classification_stream(model)
+        selected_samples = MusicSampleStreamPredictor.predict_classification_stream(samples[0], model, edge_size)
         MusicSampleStreamBuilder.save_song(selected_samples)

@@ -57,10 +57,10 @@ class MusicSampleLoader:
             sample = AudioSegment.from_mp3(file_name)
             mono_samples = sample.split_to_mono()
             normalized_sample = MusicSampleLoader.__normalize_sample(mono_samples[0])[0]
-            resampled_sample = signal.resample(normalized_sample, int(len(normalized_sample) / resample_rate))
+            resampled_sample = signal.resample(normalized_sample, resample_rate)
             samples.append(resampled_sample)
             normalized_sample_sec_canal = MusicSampleLoader.__normalize_sample(mono_samples[1])[0]
-            resampled_sample_sec_canal = signal.resample(normalized_sample_sec_canal, int(len(normalized_sample) / resample_rate))
+            resampled_sample_sec_canal = signal.resample(normalized_sample_sec_canal, resample_rate)
             samples_sec_canal.append(resampled_sample_sec_canal)
 
         return samples, samples_sec_canal
@@ -94,16 +94,37 @@ class MusicSampleLoader:
         full_songs.extend(song_tuesday_night)
         full_songs.extend(song_kingtop)
 
-        loaded_samples = {}
+        samples = []
+        samples_sec_canal = []
         for file_name in full_songs:
             sample = AudioSegment.from_mp3(file_name)
             mono_samples = sample.split_to_mono()
-            normalized_sample_first_canal = MusicSampleLoader.__normalize_sample(mono_samples[0])[0]
-            resampled_sample_first_canal = signal.resample(normalized_sample_first_canal,
-                                                           int(len(normalized_sample_first_canal) / reduction_rate))
+            normalized_sample = MusicSampleLoader.__normalize_sample(mono_samples[0])[0]
+            resampled_sample = signal.resample(normalized_sample, int(len(normalized_sample) / reduction_rate))
+            samples.append(resampled_sample)
             normalized_sample_sec_canal = MusicSampleLoader.__normalize_sample(mono_samples[1])[0]
-            resampled_sample_sec_canal = signal.resample(normalized_sample_sec_canal,
-                                                         int(len(normalized_sample_sec_canal) / reduction_rate))
-            file_name = Path(file_name).stem
-            loaded_samples[file_name] = [resampled_sample_first_canal, resampled_sample_sec_canal]
+            resampled_sample_sec_canal = signal.resample(normalized_sample_sec_canal, int(len(normalized_sample) / reduction_rate))
+            samples_sec_canal.append(resampled_sample_sec_canal)
+        return samples, samples_sec_canal
+
+
+    @staticmethod
+    def load_sample_pool_fixed_resample_rate(sample_path: str, reduction_rate: 35, edge_size):
+        """
+        Load all samples of sample pool as dic
+        :param sample_path: Path to sample pool
+        :param reduction_rate: rate to reduce
+        :param edge_size: end and start edge size
+        :return: samples as dic, key = title, value = array
+        """
+        sample_files = librosa.util.find_files(sample_path, ext=['mp3'])
+        loaded_samples = {}
+        for file_path in sample_files:
+            loaded_audio_file = AudioSegment.from_mp3(file_path)
+            mono_samples = loaded_audio_file.split_to_mono()
+            normalized_sample = MusicSampleLoader.__normalize_sample(mono_samples[0])[0]
+            resampled_part = signal.resample(normalized_sample, int(len(normalized_sample) / reduction_rate))
+            if len(resampled_part) >= edge_size:
+                file_name = Path(file_path).stem
+                loaded_samples[file_name] = resampled_part
         return loaded_samples

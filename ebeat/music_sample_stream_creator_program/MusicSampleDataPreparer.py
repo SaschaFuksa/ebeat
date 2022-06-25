@@ -19,7 +19,7 @@ class MusicSampleDataPreparer:
         if (x != current_index + 1) and (x != current_index + 2):
             return list(samples[x][:edge_size])
         else:
-            return MusicSampleDataPreparer.get_strange_end_part(samples, current_index, max_len)
+            return MusicSampleDataPreparer.get_strange_end_part(samples, current_index, max_len, edge_size)
 
     @staticmethod
     def prepare_valid_data(samples, edge_size):
@@ -77,8 +77,8 @@ class MusicSampleDataPreparer:
         x_train_false, y_train_false = MusicSampleDataPreparer.prepare_invalid_data(samples, edge_size)
         x_val_false, y_val_false = MusicSampleDataPreparer.prepare_invalid_data(samples_sec_canal, edge_size)
 
-        x_train = x_train.extend(x_train_false)
-        y_train = y_train.extend(y_train_false)
-        x_val = x_val.extend(x_val_false)
-        y_val = y_val.extend(y_val_false)
+        x_train.extend(x_train_false)
+        y_train.extend(y_train_false)
+        x_val.extend(x_val_false)
+        y_val.extend(y_val_false)
         return x_train, y_train, x_val, y_val

@@ -14,11 +14,7 @@ def run():
         MusicSampleConfiguration.output_directory = 'C:/Users/Admin/OneDrive/Dokumente/Studium/Technology Lab/Technology Lab Team 4/Techno Titel/music_out/'
         MusicSampleConfiguration.model_path = 'C:/Users/sasch/Downloads/model/weights-improvement-215-0.0084-bigger.hdf5'
         MusicSampleConfiguration.use_model = False
-        MusicSampleConfiguration.edge_size = 70
-        MusicSampleConfiguration.batch_size = 5
-        MusicSampleConfiguration.epochs = 100
-        MusicSampleConfiguration.use_callback = False
-        MusicSampleConfiguration.stream_length = 100
+        MusicSampleConfiguration.new_song_name = 'Tester'
     else:
         print(
             'Please insert your input directory of sample pool ' +
