@@ -1,4 +1,4 @@
-from keras.layers import Conv1D, LSTM, Dense, Flatten, MaxPool1D
+from keras.layers import Conv1D, LSTM, Dense, Flatten, MaxPool1D, Dropout
 from keras.models import Sequential
 
 
@@ -20,6 +20,7 @@ class MusicSampleModel:
         model.add(MaxPool1D(pool_size=2, strides=2))
         model.add(LSTM(256, return_sequences=True))
         model.add(Dense(256))
+        model.add(Dropout(0.25))
         model.add(Flatten())
         model.add(Dense(1, activation='sigmoid'))
 
