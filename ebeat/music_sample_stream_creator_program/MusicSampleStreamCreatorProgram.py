@@ -15,6 +15,12 @@ def run():
         MusicSampleConfiguration.model_path = 'C:/Users/sasch/Downloads/model/weights-improvement-215-0.0084-bigger.hdf5'
         MusicSampleConfiguration.use_model = False
         MusicSampleConfiguration.new_song_name = 'Tester'
+    elif MusicSampleConfiguration.input_directory == 'mh':
+        MusicSampleConfiguration.input_directory = 'C:/Users/hennm/OneDrive/Technology Lab/Techno Titel/train/samples-stochastic/'
+        MusicSampleConfiguration.output_directory = 'C:/Users/hennm/OneDrive/Technology Lab/Techno Titel/music-pool/samples/all_samples/'
+        MusicSampleConfiguration.model_path = 'C:/Users/hennm/PycharmProjects/ebeat/playground/mh361/Challenge 3/Final Model/Final Model 300 Epochs 6691 Accuracy.h5'
+        MusicSampleConfiguration.use_model = True
+        MusicSampleConfiguration.new_song_name = 'Final'
     else:
         print(
             'Please insert your input directory of sample pool ' +
