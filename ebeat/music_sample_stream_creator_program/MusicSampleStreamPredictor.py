@@ -11,12 +11,6 @@ class MusicSampleStreamPredictor:
 
     @staticmethod
     def predict_classification_stream(reference_part, model, edge_size):
-        """
-        Predicts all samples for stream
-        :param reference_part: Sample (samples) reference to start with
-        :param model: Trained model
-        :return: List of song names to build music file
-        """
         music_pool = MusicSampleLoader.load_sample_pool_fixed_resample_rate(
             MusicSampleConfiguration.sample_pool_path, 35, edge_size)
         i = 0
