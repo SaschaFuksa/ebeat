@@ -14,6 +14,15 @@ def run():
         music_sample_creator = MusicSampleCreator.stochastic_cutting_data(input_directory, output_directory,
                                                                           amount_of_samples,
                                                                           min_silence_length, silence_threshold)
+    elif input_directory == 'mh':
+        input_directory = 'C:/Users/hennm/Desktop/Input/'
+        output_directory = 'C:/Users/hennm/Desktop/Outi/'
+        amount_of_samples = 0
+        min_silence_length = 300
+        silence_threshold = -16
+        music_sample_creator = MusicSampleCreator.stochastic_cutting_data(input_directory, output_directory,
+                                                                          amount_of_samples,
+                                                                          min_silence_length, silence_threshold)
     else:
         print('Please insert your output directory (like: C:/Users/Admin/Downloads/output/:).')
         output_directory = input()
