@@ -19,4 +19,4 @@ class MusicSampleStreamBuilder:
             sample = AudioSegment.from_mp3(complete_path)
             new_song += sample
         new_song.export(MusicSampleConfiguration.output_directory + MusicSampleConfiguration.new_song_name + '.mp3',
-                        format='.mp3')
+                        format='mp3')
