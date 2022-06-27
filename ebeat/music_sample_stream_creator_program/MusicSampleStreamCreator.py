@@ -30,6 +30,6 @@ class MusicSampleStreamCreator:
         if MusicSampleConfiguration.use_model:
             model.load_weights(MusicSampleConfiguration.model_path)
         else:
-            model.fit(x_train, y_train, epochs=300, batch_size=64)
+            model.fit(x_train, y_train, epochs=600, batch_size=64)
         selected_samples = MusicSampleStreamPredictor.predict_classification_stream(samples[0], model, edge_size)
         MusicSampleStreamBuilder.save_song(selected_samples)
