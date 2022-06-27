@@ -227,7 +227,7 @@ Schritt 4 (Output Gate):
 
 Im Output Filter Ot wird die Output Matrix generiert. Auch bei dieser wird wieder die Sigmoid Funktion angewendet, die bereits in Step 1 und Step 2 vorkam (siehe Abbildung 12 –Step 2. input and candidate gate – 1. Formel). H t ist der Hidden State für den jetzigen Zeitschritt, sowie dem Output. Um h t zu generieren wird ot mit dem Zellstatus, durchlaufen von tanH, tanH(Ct) multipliziert. TanH fungiert hier nicht als Layer, sondern ist nur die Funktion an sich. TanH wird verwendet, da auch diese Funktion die Werte zwischen - 1 und 1 prestt. H t wird als Hidden State für den jetzigen Zeitschritt verwendet und als Dense Layer für die Vorhersage verwendet.
 
-![](Pictures/Abbildung12.png)
+![](Pictures/Abbilddung12.png)
 
 *Abbildung 12 - LSTM Zelle (Vishwas & Patel, 2020. S.212*
 
@@ -288,7 +288,7 @@ TanH (Tangens-Hyperbolicus Funktion)
 
 Die TanH Funktion ist an den Bereich der Ausgabewerte [-1,1] gebunden. Bei diesem Modell können stark negative, neutrale und stark positive Werte verarbeiten werden. Diese ähnelt der Sigmoid Aktivierungsfunktion mit Ausnahme des Bereichs. Zudem sind die Ausgabewerte null-zentriert (Oppermann, 2022).
 
-![](Pictures/Abbildung16.png)
+![](Pictures/Abildung16.png)
 
 *Abbildung 16 - TanH Aktivierungsfunktion (Vishwas & Patel,2020, S.192)*
 
