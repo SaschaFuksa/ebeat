@@ -1,40 +1,40 @@
 # Inhaltsverzeichnis:
 
-[**Forschungsfragen**](#inhaltsverzeichnis) **1**
+[**Forschungsfragen**](#inhaltsverzeichnis) 
 
-[**Theoretische Grundlagen**](#theoretische-grundlagen) **4**
+[**Theoretische Grundlagen**](#theoretische-grundlagen) 
 
-[1.1. Convolutional Neural Networks (CNN)](#11-convolutional-neural-networks-cnn) 4
+[1.1. Convolutional Neural Networks (CNN)](#11-convolutional-neural-networks-cnn) 
 
-[1.2. LSTM](#12-lstm) 8
+[1.2. LSTM](#12-lstm) 
 
-[1.3. Layers](#13-layers) 11
+[1.3. Layers](#13-layers) 
 
-[1.4. Aktivierungsfunktionen](#14-aktivierungsfunktionen) 12
+[1.4. Aktivierungsfunktionen](#14-aktivierungsfunktionen) 
 
-[1.5. Klassifizierung](#15-klassifizierung) 15
+[1.5. Klassifizierung](#15-klassifizierung) 
 
-[1.5.1. Cross Entropy](#151-cross-entropy) 16
+[1.5.1. Cross Entropy](#151-cross-entropy) 
 
-[1.5.2. Binary Cross Entropy loss](#152-binary-cross-entropy-loss) 17
+[1.5.2. Binary Cross Entropy loss](#152-binary-cross-entropy-loss) 
 
-[1.5.3. Categorical Cross Entropy loss](#153-categorical-cross-entropy-loss) 17
+[1.5.3. Categorical Cross Entropy loss](#153-categorical-cross-entropy-loss) 
 
-[1.6 Optimizer](#16-optimizer) 18
+[1.6 Optimizer](#16-optimizer) 
 
-[**Umsetzung der Challenge 3**](#umsetzung-der-challenge-3) **19**
+[**Umsetzung der Challenge 3**](#umsetzung-der-challenge-3) 
 
-[2.1. Trainings- und Testdaten](#21-trainings--und-testdaten) 19
+[2.1. Trainings- und Testdaten](#21-trainings--und-testdaten) 
 
-[2.2. LSTM & CNN Binary Cross Entropy Ansatz (Präsentierter Ansatz)](#22-lstm--cnn-binary-crossentropy-ansatz-präsentierter-ansatz) 20
+[2.2. LSTM & CNN Binary Cross Entropy Ansatz (Präsentierter Ansatz)](#22-lstm--cnn-binary-crossentropy-ansatz-präsentierter-ansatz) 
 
-[2.3. Forecasting mit CNN-LSTM](#23-forecasting-mit-cnn--lstm) 25
+[2.3. Forecasting mit CNN-LSTM](#23-forecasting-mit-cnn--lstm) 
 
-[2.4. Categorical CNN-LSTM](#24-categorical-cnn--lstm) 27
+[2.4. Categorical CNN-LSTM](#24-categorical-cnn--lstm) 
 
-[2.5. Klassifizierung von Start- und Endstücken (Cross Entropy for classification)](#25-klassifizierung-von-start--und-endstücken-cross-entropy-for-classification) 29
+[2.5. Klassifizierung von Start- und Endstücken (Cross Entropy for classification)](#25-klassifizierung-von-start--und-endstücken-cross-entropy-for-classification) 
 
-[2.5. Klassendiagramm Ansatz LSTM & CNN Binary Cross Entropy)](#25-klassifizierung-von-start--und-endstücken-cross-entropy-for-classification) 32
+[2.5. Klassendiagramm Ansatz LSTM & CNN Binary Cross Entropy)](#25-klassifizierung-von-start--und-endstücken-cross-entropy-for-classification) 
 
 # 
 
@@ -102,7 +102,7 @@ Beim Schneiden wurde die Lautstärke eines Songs mit einbezogen. Lieder wurden a
 
 Unter einem Convolutional neural Network (CNN) versteht man ein spezielles Feed-Forward-Netz. Mithilfe eines CNNs können große Mengen an Eingabedaten, die beispielsweise bei der Bilderkennung anfallen, verarbeitet werden. Hierbei werden Daten verwendet, welche in einer Gitterstruktur abgebildet werden. Gitterstrukturen findet man in Bildern sowie Zeitreihen. Unter einer Faltung (engl. Convolution) versteht man eine lineare Operation, welche anstatt der sonst üblichen Matrix-Vektor-Multiplikation für CNNs verwendet wird. Sobald diese mathematische Operation in mindestens einem Layer vorhanden ist, liegt ein Convolutional neural Network vor. Die typische Architektur eines CNNs besteht aus einem Stack von Convolutional- und Pooling-Schichten, gefolgt von Dense Layern. Netzwerk erkennt Bildverzerrungen und andere optische Veränderungen und berücksichtigt diese bei der Verarbeitung. Durch die Pooling-Schichten werden Informationen zu den gescannten Features verdichtet. Das Flattening (Glätten) wandelt die Daten wieder in einen Vektor um. Somit werden jeweils die stärksten Features herausgefiltert und die schwachen verworfen (Frochte, 2020).
 
-**Convolution (Faltung)**
+### Convolution (Faltung)
 
 Im Zentrum einer Convolution steht der Kernel. Dieser wird auf den Input angewendet. Der Kernel ist ein Gewichtsgitter, welcher üblicherweise bei der Bildverarbeitung verwendet wird. Ein Kernel, sprich ein Filter, ist ein Merkmals Detektor (feature detector). Beim Trainieren eines CNN werden die Werte eines Kernels vom Netzwerk trainiert, um Merkmale zu erkennen und zu extrahieren. In Abbildung 7 wird ein 3 x 3 Kernel mit den Gewichten (W) dargestellt (Raghav P.,2020).
 
@@ -120,7 +120,7 @@ Das Resultat aus dieser Convolution ist ein Output (Abbildung 9). Dieser Output 
 
 Das Ergebnis wird anhand des Skalarprodukts folgendermaßen berechnet:
 
-= 5\*1+2\*0+3\*0+…+0\*-1= 18
+![](Pictures/Formel.PNG)= 5\*1+2\*0+3\*0+…+0\*-1= 18
 
 Das Ergebnis 18 ist nun der Output aus Kernel und Image. Daraufhin wird der Kernel bei einer Stride von 1 eine Spalte nach rechts verschoben. Das Ergebnis des Skalarprodukts des nach rechts verschobenen Kernels ergibt 10. Dies wird so lange weitergeführt, bis alle Outputergebnisse ausgefüllt sind.
 
@@ -130,31 +130,31 @@ Damit das Zentrum des Kernels auch auf die Pixel passt, die am Rande des Images 
 
 *Abbildung 9 - Output aus Bild (Image) und Kernel (Eigene Darstellung)*
 
-**Spezifikationen CNN**
+### Spezifikationen CNN
 
-Grid size (Gittergröße/Rastergröße)
+#### Grid size (Gittergröße/Rastergröße)
 
 Die Gittergröße stellt die Anzahl der Pixel für Höhe und Breite dar. In der Abbildung 7 wird ein 3 by 3 Kernel dargestellt, da hier 3 Werte für die Breite und 3 Werte für die Höhe angezeigt werden. Bei der Zahlenangabe der Gittergröße eines Kernels müssen ungerade Zahlen verwendet werden (Raghav P.,2020).
 
-Stride
+#### Stride
 
 Unter der Stride versteht man einen Parameter des Filters (Kernels) des neuronalen Netzes, der das Ausmaß der Bewegung über das Bild oder Video modifiziert. Beispiel: Bei einem Stride von 1 würde sich der über das Bild gelegte Kernel immer um 1 Pixel verschieben. Somit würde der Kernel nicht in der Spalte 5,2,5 (rot markiert) beginnen, sondern bei 2,4,1 (Abbildung 9) (Raghav P.,2020).
 
-Depth (Tiefe)
+##### Depth (Tiefe)
 
 Bei einem RGB (adaptiver Farbraum von Grün, Blau, Rot) Bild benutzt man ein drei dimensionales Array als Kernel. Die erste Dimension ist die Höhe, die zweite Dimension die Breite und die dritte Dimension stellt die Tiefe, sprich den Channel des Bildes dar.
 
-Anzahl der Kernel
+#### Anzahl der Kernel
 
 Die Anzahl der Kernel bezieht sich auf die Convolutional Schicht. Diese Schicht besteht meist aus mehreren Kernels, wobei jeder einzelne Kernel einen zweidimensionalen Array ausgibt. Somit hat eine Convolutional Schicht so viele Outputs (zweidimensionale Arrays) wie Anzahl von Kernel (Raghav P.,2020).
 
-Pooling
+#### Pooling
 
 Mit Pooling werden Merkmale in Teilbereiche der feature Map (Merkmalskarte) zusammengefasst (down sampling). Zwei gängige Pooling-Methoden sind das Average Pooling und das Max Pooling, die das durchschnittliche Auftreten eines Merkmals bzw. das am stärksten aktivierte Vorkommen eines Merkmals zusammenfassen. Pooling in CNN ist somit eine Technik zur Verallgemeinerung von Merkmalen, die durch Faltungsfilter extrahiert werden, und hilft dem Netz, Merkmale unabhängig von ihrer Position im Bild zu erkennen.
 
 Das grundlegende Verfahren des Poolings ist dem Convolutional sehr ähnlich. Der Poolingfilter schiebt sich über die Ausgabe-Merkmalskarte (Output feature Map) der vorangegangenen Faltungsschicht. Die am häufigsten verwendete Filtergröße ist 2×2 und wird mit einer Schrittweite von 2 über die Eingabe geschoben. Auf der Grundlage der gewählten Pooling-Operation berechnet der Pooling-Filter eine Ausgabe auf dem rezeptiven Feld (Teil der Merkmalskarte unter dem Filter) (Raghav P.,2020).
 
-Convolutional Neural Network Architektur
+### Convolutional Neural Network Architektur
 
 In Abbildung 10 wird eine typische CNN Architektur dargestellt.
 
@@ -174,7 +174,7 @@ In der Klassifikation werden die Resultate in Matrixform durch einen Flatten-Lay
 
 Das LSTM ist eine bestimmte Art eines rekurrenten neuronalen Netzes. Eines der Hauptprobleme eines RNN’s ist, dass dieses nur die Informationen über den vorherigen Zustand speichert, was einen verschwindenden Gradienten verursacht. Das Long short-term-memory (LSTM) behandelt dieses Problem des verschwindenden Gradienten.
 
-![](Pictures/Abbildung11.PNG)
+![](Pictures/LSTMvsRNN.PNG)
 
 *Abbildung 11 - RNN versus LSTM (Vishwas & Patel, 2020, S. 211)*
 
@@ -187,13 +187,13 @@ Das LSTM hat im Gegensatz zu einem herkömmlichen RNN folgende zusätzliche Eige
 -   Hidden state
 -   Memory Cell (Zellstatus)
 
-**Schritt für Schritt Erläuterung einer LSTM Zelle:**
+### Schritt für Schritt Erläuterung einer LSTM Zelle:
 
 Ht-1 ist der Hidden State Vektor der LSTM- Zelle zum vorherigen Zeitpunkt t-1. Ht ist der generierte Hidden State der aktuellen Zelle (LSTM-Zelle zum aktuellen Zeitpunkt).
 
 Ct-1 repräsentiert den Zellstatus der vorherigen Zelle (Zelltstatus zum Zeitpunkz t-1). C ist für das Langzeitgedächtnis, sprich dem Speichern von langfristigen Abhängigkeiten und Mustern, verantwortlich..
 
-Step 1 (Forget gate):
+#### Step 1 (Forget gate):
 
 Im ersten Schritt wird das forget gate betrachtet. Hierbei (siehe Abbildung 12 – Step 1. Forget Gate: Formel) steht ft für die Forget Matrix für t. Diese Matrix stellt die Lösung für das forget gate dar. Zuerst wird der Input xt im aktuellen Zeitschritt mit h t-1 verkettet []. Auf diese Verkettung wird die Sigmoid Funktion angewandt. Daraufhin wird bf (Bias) addiert. Zuletzt wird Wf angewendet, welches die Weight Matrix dieses Dense Layers darstellt. Sobald diese Formel ausgeführt wurde, wird eine Forget Matrix erzeugt, welche als Filter fungiert, um bestimmte Informationen zu vergessen. Die Sigmoid Funktion wird verwendet, da sie einen großen Eingaberaum in einen kleinen Eingaberaum zwischen 0 und 1 presst. Dies ist vorteilhaft als Filter, da die Werte in dieses Intervall gedrängt werden. Die Indizes die näher am Wert 0 stehen, sind die relativen Indizes welche im Zellstatus vergessen (forget) werden. Indizes welche einen Wert nahe 1 haben werden behalten. Somit werden Werte die in einer Matrix mit 0 multipliziert werden verworfen.
 
@@ -209,7 +209,7 @@ Cft = [1,2,4] \*[1,0,1] = [1,0,4]
 
 Der erste Index und der dritte Index werden behalten und der mittlere Index da = 0 wird verworfen.
 
-Step 2 (Input and Candidate gate):
+#### Step 2 (Input and Candidate gate):
 
 Im zweiten Schritt wird das Input-, sowie das Candidate gate miteinander multipliziert. Das Ergebnis dieser Multiplikation wird dann mit der Information (Ergebnis) aus Schritt 1.2 addiert.
 
@@ -221,11 +221,11 @@ Die beiden Ergebnisse des Candidate Gate und des Input Gates werden anschließen
 
 Cit = Ćt \*it
 
-Schritt 3 (Zellstatus):
+#### Schritt 3 (Zellstatus):
 
 Der Zellstatus Ct des aktuellen Zeitschritts setzt sich somit aus Ct= Cft + Cit zusammen. Cft zeigt an welche Informationen aus dem vorherigen Zellstatus vergessen werden sollen und Cit fügt den neuen aktuellen Input hinzu.
 
-Schritt 4 (Output Gate):
+#### Schritt 4 (Output Gate):
 
 Im Output Filter Ot wird die Output Matrix generiert. Auch bei dieser wird wieder die Sigmoid Funktion angewendet, die bereits in Step 1 und Step 2 vorkam (siehe Abbildung 12 –Step 2. input and candidate gate – 1. Formel). H t ist der Hidden State für den jetzigen Zeitschritt, sowie dem Output. Um h t zu generieren wird ot mit dem Zellstatus, durchlaufen von tanH, tanH(Ct) multipliziert. TanH fungiert hier nicht als Layer, sondern ist nur die Funktion an sich. TanH wird verwendet, da auch diese Funktion die Werte zwischen - 1 und 1 prestt. H t wird als Hidden State für den jetzigen Zeitschritt verwendet und als Dense Layer für die Vorhersage verwendet.
 
@@ -237,15 +237,15 @@ Im Output Filter Ot wird die Output Matrix generiert. Auch bei dieser wird wiede
 
 Im Folgenden werden unterschiedliche Schichten in einem Neuronalen Netz erläutert und kurz vorgestellt.
 
-Convolutional Layer
+#### Convolutional Layer
 
 Diese erste Schicht analysiert die eingegebenen Informationen und erkennt das Vorhandensein einer Reihe von Merkmalen. Der Convolutional Layer erzeugt eine Faltung über eine einzige räumliche oder zeitliche Dimension. Der Input Shape beschränkt sich auf die Anzahl der Elemente innerhalb einer Dimension (siehe Convolutional Neural Networks).
 
-LSTM-Layer
+#### LSTM-Layer
 
 Eine LSTM-Schicht lernt Langzeit Abhängigkeiten zwischen Zeitschritten in Zeitreihen und Sequenzdaten. Die Schicht führt additive Interaktionen durch, die dazu beitragen können, den Gradientenfluss über lange Sequenzen während des Trainings zu verbessern (siehe LSTM).
 
-Dropout Layer
+#### Dropout Layer
 
 Ein Fully Connected Layer beansprucht die meisten Parameter, so dass die Neuronen während des Trainings eine gegenseitige Abhängigkeit entwickeln, was die individuelle Leistung der einzelnen Neuronen einschränkt und zu einer Überanpassung der Trainingsdaten führt.   
 Dropout-Layer sind eine Regulasierungstechnik, die darin besteht, bei jeder Aktualisierung während des Trainings einen Teil der Input Unit auf 0 zu setzen. Dadurch wird Overfitting verringert und Generalisierungsfehler in neuronalen Netzen verbessert. Dieser Anteil der Input Units, die auf 0 gesetzt werden sollen, wird durch einen Parameter bestimmt.
@@ -254,11 +254,11 @@ Dropout-Layer sind eine Regulasierungstechnik, die darin besteht, bei jeder Aktu
 
 *Abbildung 13 - Droput Layer (Srivastava, Nitish, et al. “Droput: a simple way to prevent neural networks from overfitting”)*
 
-Max Pooling Layer
+#### Max Pooling Layer
 
 Das Max Pooling ist ein Beispiel-basierter Diskretisierungsprozess. Hierbei wird die Eingabe abgetastet, um die Dimensionalität zu reduzieren. Somit werden die zu erlernenden Parameter, sowie der Rechenaufwand reduziert (siehe Pooling in Convolutional Neural Network).
 
-Dense Layer / Fully Connected Layer
+#### Dense Layer / Fully Connected Layer
 
 Das Dense Layer, auch Fully Connected Layer genannt, ist eine Schicht, die in der letzten Phase des Neuronales Netzwerks verwendet wird. Diese Schicht ermöglicht es, die Dimensionalität der Ausgabe der vorangegangenen Schicht zu ändern, so dass das Modell die Beziehung zwischen den Werten der Daten, mit denen es arbeitet, leicht definieren kann. Die Neuronen des Dense Layers in einem Modell erhalten die Ausgaben aller Neuronen der vorhergehenden Schicht, wobei die Neuronen des Dense Layers eine Matrix-Vektor-Multiplikation durchführen. Die Matrix-Vektor-Multiplikation ist ein Verfahren, bei dem der Zeilenvektor der Ausgabe der vorangegangenen Schichten gleich dem Spaltenvektor der Dense Schicht ist. Die allgemeine Regel der Matrix-Vektor-Multiplikation lautet, dass der Zeilenvektor genauso viele Spalten haben muss wie der Spaltenvektor (Skúli, 2018).
 
@@ -278,7 +278,7 @@ Es gibt folgende Arten von nichtlinearen Aktivierungsfunktionen:
 
 Im Folgenden werden auf einzelne dieser nicht linearen Aktivierungsfunktionen eingegangen:
 
-Sigmoid
+#### Sigmoid
 
 Die Sigmoid Funktion ist an den Bereich der Ausgabewerte [0,1] gebunden. Somit normalisiert diese Funktion die Ausgangswerte jeder Schicht. Sie hat einen gleichmäßigen Gradienten und kann nicht mit dem Problem des verschwindenden Gradienten umgehen, wenn die Eingabewerte hoch oder niedrig sind. Dies liegt daran, dass diese einen großen Eingaberaum in einen kleinen Eingaberaum zwischen 0 und 1 presst. Deswegen bewirkt eine große Änderung der Eingabe der Sigmoid Funktion eine kleine Änderung der Ausgabe. Folglich wird die Ableitung kleiner. Je mehr Schichten mit bestimmten Aktivierungsfunktionen zu neuronalen Netzen hinzugefügt werden, desto mehr nähert sich der Gradient der Verlustfunktion dem Wert Null, wodurch das Netz schwer zu trainieren ist. Somit sollte für den vanishing gradient eine andere Funktion verwendet werden (Vishwas & Patel, 2020).
 
@@ -286,7 +286,7 @@ Die Sigmoid Funktion ist an den Bereich der Ausgabewerte [0,1] gebunden. Somit n
 
 *Abbildung 15 - Sigmoid Aktivierungsfunktion (Vishwas & Patel,2020, S.191)*
 
-TanH (Tangens-Hyperbolicus Funktion)
+#### TanH (Tangens-Hyperbolicus Funktion)
 
 Die TanH Funktion ist an den Bereich der Ausgabewerte [-1,1] gebunden. Bei diesem Modell können stark negative, neutrale und stark positive Werte verarbeiten werden. Diese ähnelt der Sigmoid Aktivierungsfunktion mit Ausnahme des Bereichs. Zudem sind die Ausgabewerte null-zentriert (Oppermann, 2022).
 
@@ -294,7 +294,7 @@ Die TanH Funktion ist an den Bereich der Ausgabewerte [-1,1] gebunden. Bei diese
 
 *Abbildung 16 - TanH Aktivierungsfunktion (Vishwas & Patel,2020, S.192)*
 
-RelU (Rectified Linear Unit)
+#### RelU (Rectified Linear Unit)
 
 Die RelU Funktion (dt. Gleichgerichtete Lineareinheit) ist eine Funktion, welche in der Lage ist Berechnungen durchzuführen, die einer linearen Aktivierungsfunktion ähneln, jedoch Backpropagation ermöglicht.  
 Sobald der Eingabewert unter 0 liegt oder negativ ist die Funktion nicht in der Lage Backpropagation durchzuführen und hört auf zu lernen. Auch bekannt als sterbendes RelU Problem. Unter der Backpropagation versteht man den Prozess der Fehlerweitergabe, welcher von der verborgenen Schicht zurück zur Eingabeschicht geht, um die Gewichte zu regulieren (Vishwas & Patel, 2020).
@@ -305,7 +305,7 @@ Im Gegensatz zu den vorherigen genannten Funktionen hat RelU keine rechenaufwän
 
 *Abbildung 17 - RelU Aktivierungsfunktion (Vishwas & Patel,2020, S.192)*
 
-Leaky RelU
+#### Leaky RelU
 
 Der Vorteil dieser Funktion liegt darin, dass es das sterbende RelU Problem löst. Hierbei wird durch eine Funktion, die horizontale Linie Werte unter Null durch eine nicht-horizontale, lineare Linie ersetzt. Somit werden null-Gradienten vermieden Vishwas & Patel, 2020).
 
@@ -313,7 +313,7 @@ Der Vorteil dieser Funktion liegt darin, dass es das sterbende RelU Problem lös
 
 *Abbildung 18 - Leaky RelU Aktivierungsfunktion (Vishwas & Patel,2020, S.193)*
 
-SoftMax
+#### SoftMax
 
 Die SoftMax Aktivierungsfunktion wird nur in der letzten Schicht angewandt und auch nur um dem neuronalen Netz bei Klassifizierungsaufgaben, Wahrscheinlichkeitswerte vorhersagen zu lassen. Sprich die SoftMax-Aktivierungsfunktion zwingt die Werte der Ausgangsneuronen dazu, Werte zwischen 0 und 1 anzunehmen, damit die Wahrscheinlichkeitswerte im Intervall [0,1] dargestellt werden. Außerdem werden bei der Klassifizierung von Eingabemerkmalen in verschiedenen Klassen, diese Klassen gegenseitig ausgeschlossen. Jeder Merkmalsvektor x gehört nur einer Klasse an (Oppermann, 2022).
 
@@ -321,7 +321,7 @@ Die SoftMax Aktivierungsfunktion wird nur in der letzten Schicht angewandt und a
 
 *Abbildung 19 – SoftMax Aktivierungsfunktion (Vishwas & Patel, 2020, S. 194)*
 
-Schlussfolgerungen zu den Aktivierungsfunktionen:
+### Schlussfolgerungen zu den Aktivierungsfunktionen:
 
 -   ReLU sollte in den Hidden Layers verwendet werden.
 -   Bei Klassifizierungsaufgaben sollte in der Ausgabeschicht die SoftMax Aktivierung verwendet werden.
@@ -332,13 +332,13 @@ Schlussfolgerungen zu den Aktivierungsfunktionen:
 
 Klassifizierungsverfahren teilen Objekte nach ihren Merkmalen mit Hilfe eines Klassifikators in vordefinierte Kategorien ein. Im Machine Learning gibt es diverse Klassifikationsverfahren. Zum einem die Multi Class Klassifikation und zum anderen die Multi Label Klassifikation. Bei der Multi Class Klassifikation schließen sich die Klassen gegenseitig aus. Beispielsweise wird davon ausgegangen, dass jeder Chunk nur einem einzigen Merkmal zugeordnet werden kann: Ein Gemüse kann entweder eine Tomate oder eine Gurke sein, aber nicht beides gleichzeitig. Bei der Multi Label Klassifikation kann ein Chunk mehrere Merkmale aus der Anzahl der verfügbaren Klassen erhalten. Beispielsweise kann ein Film dem Genre Komödie, Abenteuer sowie Science-Fiction angehören. Bei der binären Klassifikation nimmt ein Chunk nur ein Merkmal aus zwei Klassen an (bspw. True or false, 0/1) (Goyal, 2021).
 
-3 Arten von Klassifizierungen
+#### 3 Arten von Klassifizierungen
 
 1.  Binäre Klassifizierung: zwei exklusive Klassen
 2.  Multi Class Klassifikation: mehr als zwei exklusive Klassen
 3.  Multi-Label-Klassifikation: nur nicht-exklusive Klassen
 
-Zugehörige Cross Entropy Ansätze
+#### Zugehörige Cross Entropy Ansätze
 
 -   Im Fall 1 wird das binary cross entropy verwendet
 -   Im Fall 2 wird die categorical cross entropy verwendet.
@@ -376,7 +376,7 @@ Die Categorical Cross Entropy wird verwendet, wenn Merkmale mit true durch1-aus-
 
 Optimzer (Optimierer) sind Algorithmen oder Methoden, die zur Minimierung einer Fehlerfunktion (Verlustfunktion) oder zur Maximierung der Effizienz der Produktion eingesetzt werden. Optimierer sind mathematische Funktionen, die von den erlernbaren Parametern des Modells abhängen, das heißt von den Gewichten und Verzerrungen. Optimierer ermöglichen es, die Gewichte und die Lernrate des neuronalen Netzes zu ändern, um die Verluste zu reduzieren(Mustafa, 2022).
 
-RMSprop (Root Mean Square Propagation)
+#### RMSprop (Root Mean Square Propagation)
 
 RMS-Prop ist eine spezielle Version von Adagrad, bei der die Lernrate ein exponentieller Durchschnitt der Gradienten ist und nicht die kumulative Summe der quadrierten Gradienten.
 
@@ -384,7 +384,7 @@ Vorteile: Bei RMS-Prop wird die Lernrate automatisch angepasst, und es wird für
 
 Nachteile: Langsames Lernen.
 
-SGD (Stochastic Gradient Descent)
+#### SGD (Stochastic Gradient Descent)
 
 SGD ist eine Variante des Gradientenabstiegs. Es aktualisiert die Modellparameter nacheinander. Wenn das Modell 10K Datensätze hat, aktualisiert SGD die Modellparameter 10k Mal( Mustafa, 2022).
 
@@ -392,7 +392,7 @@ Vorteile: Häufige Aktualisierungen der Modellparameter, benötigt weniger Speic
 
 Nachteile: Die häufigen Aktualisierungen können auch zu verrauschten Gradienten führen, die den Fehler vergrößern, anstatt ihn zu verringern. Häufige Aktualisierungen sind außerdem rechenaufwendig.
 
-Adam (Adaptive Moment Estimation)
+#### Adam (Adaptive Moment Estimation)
 
 Der Adam-Optimizer ist einer der beliebtesten und bekanntesten Gradientenabstiegs-Optimierungsalgorithmen. Es handelt sich um eine Methode, die adaptive Lernraten für jeden Parameter berechnet. Er speichert sowohl den abklingenden Durchschnitt der vergangenen Gradienten, als auch den abklingenden Durchschnitt der vergangenen quadrierten Gradienten, ähnlich wie RMS-Prop (Mustafa, 2022).
 
@@ -406,15 +406,15 @@ Für die Trainings und Testdaten wurde ein Musikpool von 3 Songs des Genres Hous
 
 Für das Schneiden der Songs wurden zwei Varianten, das stochastische Scheiden und das Schneiden in gleich lange Chunks, festgelegt, welche im Folgenden näher erläutert werden.
 
-Stochastisch (Silence)
+#### Stochastisch (Silence)
 
 Bei der stochastischen Schnittweise, wurden die Musikdateien an einer Stelle mit vordefinierter Dezibel Zahl geschnitten. Hier wurde ein Schwellwert von -16dB gewählt, welches einer etwas ruhigeren Stelle entspricht. Zudem wird die (silence_duration) in Millisekunden definiert. Diese wurde auf 300 Millisekunden festgelegt. Somit soll der Song an Stellen, die den Schwellwert -16dB unterschreiten und diesen für eine bestimmte Millisekunde halten, geschnitten werden. Es wurde mit verschiedenen Schwellwerten getestet, -16dB hat sich hierbei als beste Variante vom hörbaren Erlebnis herausgestellt.
 
-Gleiche Chunk-Länge
+#### Gleiche Chunk-Länge
 
 Bei der zweiten Schnittweise wurden die Musikdateien in gleich große Chunks geschnitten und im MP3 Format abgespeichert. Die Berechnung wird anhand der Länge des Songs in Millisekunden umgerechnet und basierend auf dem Eingabeparameter des Users geschnitten. Gibt der User beispielsweise 3 Sekunden in das Terminal ein, schneidet das Programm den Song alle 3000 Millisekunden. Somit entstehen gleich lange Chunks eines Songs.
 
-MP3 vs Wav
+#### MP3 vs Wav
 
 Aufgrund des Forschungsansatzes wurden die Songs zuerst im WAV-Audioformat heruntergeladen. Hierbei war der Gedanke, dass durch WAV-Dateien mehr Informationen an das Modell übergeben werden können. Durch das Testen im Modell wurde jedoch schnell klar, dass das künstliche neuronale Netz durch die hohe Anzahl an Datenpunkten einen enormen Zeitaufwand zum Trainieren benötigt.
 
@@ -422,13 +422,13 @@ Aufgrund der langen Trainingsdauer wurden die Songs im nächsten Schritt als MP3
 
 ## 2.2. LSTM & CNN Binary Crossentropy Ansatz (Präsentierter Ansatz)
 
-Finales Modell: Kombination von CNN und LSTM
+### Finales Modell: Kombination von CNN und LSTM
 
 Im finalen Ansatz werden LSTM- und CNN Layer kombiniert, um die Zusammenhänge zwischen den verschiedenen Daten der Zeitreihe besser zu verstehen und sequentielle Abhängigkeiten in einer Zeitreihe zu berücksichtigen (Zhang et al., 2020). Auf diese Weise kann die LSTM-Schicht die sequenziellen Abhängigkeiten in der Zeitreihe berücksichtigen, während die CNN-Schicht diesen Prozess durch den Einsatz von dilatierten Faltungen weiter unterstützt. Der CNN Layer sucht innerhalb der Daten anhand von Feature Maps markante Punkte. Nachdem die markanten Punkte gefunden wurden, wird durch einen Max Pooling Layer eine weitere Reduktion der Daten vorgenommen (Purwins et al., 2019). Die Ergebnisse werden danach in das LSTM Netzwerk weitergegeben. Dieser Schritt ist notwendig, um das Gedächtnis des Netzwerkes abzubilden und Patterns (Muster) in den Daten zu identifizieren. Hierbei werden Datenpunkte je Zeitschritt bewertet und die Zellzustände sowie versteckte Zustände an die nächste LSTM-Zelle weitergereicht.
 
 Es werden stochastisch geschnittene Chunks als Trainingsdaten verwendet. Im Kapitel Trainings- und Testdaten wird der für die Chunks verwendete Silence Cut näher erläutert.
 
-Vorgehensweise:
+### Vorgehensweise:
 
 Zunächst werden die Chunks von Trainingssongs in Listen geladen und in die richtige Reihenfolge sortiert. Anschließend werden die Chunks in eine Liste geladen und werden auf 2 Kanäle aufgeteilt. Ein Audiosignal ist zumeist Stereo, was bedeutet er hat einen linken und einen rechten Kanal je Lautsprecher. Diese können sich teils in den Daten unterscheiden, da unterschiedliche Musikinhalte je Kanal gespeichert werden kann. Die Daten für beide Kanäle liegen anschließend in zwei Listen vor (samples, samples_sec_canal). Da nur noch jeweils ein Kanal betrachtet wird, dient dieser Schritt der Datenreduktion. Anschließend wird eine Normalisierung der Daten zwischen -1 und 1 und ein Resampling mit einer Reduktionsgröße von 35 vorgenommen. Durch das Resampling wird die Datenmenge weiter reduziert, um das Training des Modells schneller durchführen zu können. Für die Erstellung der Trainingsdaten x_train und y_train werden die Chunks aus dem ersten Kanal verwendet (samples). Zudem werden Validierungsdaten x_val und y_val erstellt. Hierfür werden die Chunks aus dem zweiten Kanal verwendet (samples_sec_canal).
 
@@ -448,11 +448,11 @@ Die invaliden Daten/Übergänge werden folgendermaßen gebildet: Bei X_train_fal
 
 Damit die Trainingsdaten als Input in das Modell gegeben werden können, wird ein Reshape der Daten vorgenommen. Dies ist notwendig damit die Daten als Input verwendet werden können. Das Modell enthält die folgenden Layer und Parameter:
 
-CNN/LSTM Modell:
+### CNN/LSTM Modell:
 
 Das Modell wird in Abbildung 24 dargestellt.
 
-**Conv1DLayer**
+#### Conv1DLayer
 
 Diese erste Schicht dient der Generierung der nötigen Merkmale, auf deren Basis dann eine Regression oder Klassifikation durchgeführt werden kann. Die Faltungen im Conv1DLayer verändern die ursprünglichen Signale so, dass jeder Kernel bzw. Filter unterschiedliche Eigenschaften des Signals betont. Der Input Shape beschränkt sich auf die Anzahl der Elemente innerhalb einer Dimension.
 
@@ -460,35 +460,35 @@ Diese erste Schicht dient der Generierung der nötigen Merkmale, auf deren Basis
 -   Kernel_size: Gibt die Größe des Fensters an​
 -   Input_shape: Form des Arrays, der in das Modell gegeben wird​
 
-**MaxPooling1D**
+#### MaxPooling1D
 
 Durch den Conv1DLayer kann der Featurespace recht groß werden, weshalb das Pooling zum Einsatz kommt. Dabei dient es als Informationsverdichtung bzw. Verallgemeinerung und reduziert das Ergebnis der Conv1D Schicht in jede Richtung um den Faktor X. In diesem Modell wird das MaxPooling verwendet.
 
 -   Pool_size: Mit der Poolsize von 2 reduzieren wir die Daten um die Hälfte​
 -   Strides: bedeutet, dass der Filter bei der Vorhersage zukünftiger Werte jeweils um x Zeitschritt nach vorne gleitet.​ Es wurde die Zahl 2 festgelegt, so dass die Ausgabesequenz etwa halb so lang wie die Eingabesequenz ist.​
 
-**LSTM Layer**
+#### LSTM Layer
 
 Die LSTM-Schicht soll langfristige Abhängigkeiten zwischen Zeitschritten in den Sequenzdaten lernen. Dies basiert darauf, dass für jeden Zeitschritt innerhalb der Sequenz die Werte des vorangehenden Zeitschrittes miteinbezogen werden.
 
 -   Units: Anzahl der Neuronen 266​
 -   Return_Sequences: True
 
-**Dense Layer**
+#### Dense Layer
 
 Der Dense Layer verbindet alle Neuronen der Vorgängerschicht mit allen Neuronen der nachfolgenden Schicht​.
 
-**DropoutLayer**
+#### DropoutLayer
 
 Der Dropout Layer reduziert die Anzahl der Neuronen bis zur nachfolgenden Schicht, so dass einem Overfitting des Modells entgegen gewirkt werden kann. Mit 25 % Datenreduktion wurde das beste Ergebnis erzielt​ (25 % der Daten werden auf 0 gesetzt.)
 
-**FlattenLayer**
+#### FlattenLayer
 
 Durch den Flatten Layer werden alle verbleibenden Einträge in einen Vektor angeordnet und dienen dann quasi als Input in ein dichtes neuronales Netz, welches die Klassifikation durchführt.
 
 Nachdem wir der Ansicht sind, dass wir genug Merkmale generiert haben, setzen wir das Flattening ein, so dass die Klassifikation durchgeführt werden kann.​
 
-**Output Layer**
+#### Output Layer
 
 Der letzte Dense Layer stellt die Output Schicht dar. Alle Neuronen sind mit allen Inputs und Outputs verbunden. Enthält die 2 Klassen True und False.
 
@@ -500,11 +500,11 @@ Neural Network Konfiguration:
 
 *Abbildung 24 - Neural Network Konfiguration (Eigene Darstellung)*
 
-**Optimizer**
+#### Optimizer
 
 Für dieses Modell wurde der Optimizer RMSprop verwendet, denn dieser liefert die besten Ergebnisse. Es wurden RMSprop, Adam und SGD (mit Learning_rate =0,01) getestet.
 
-**Loss-Function**
+#### Loss-Function
 
 Da wir unsere Chunks nach True und False bzw. 1 und 0 klassifizieren, nutzen wir die Binary Cross-Entropy Loss function​.
 
@@ -512,11 +512,11 @@ Training:
 
 Für das Training werden folgende Parameter verwendet.
 
-**Batch_Size**
+#### Batch_Size
 
 Die Wahl der Batch Size ist eine wichtige Entscheidung, da sie einen starken Einfluss auf die Leistung, bspw. Die Prediction Accuracy nimmt. In den meisten Fällen ist die optimale Batch Size 64. Sie kann aber auch 32 oder 128 betragen und muss in allen Fällen durch 8 teilbar sein (Kilinc, 2021). In diesem Modell hat sich die Batch_size = 64 als beste Wahl herausgestellt.
 
-**Epochen**
+#### Epochen
 
 Beim Training mit 600 Epochen werden mit dem aktuellen Modell die besten Ergebnisse erzielt (siehe Abbildung 25). Dadurch konnte eine Accuracy von 95 % und ein Loss von 12 % erreicht werden.
 
@@ -544,7 +544,7 @@ In der nachfolgenden Abbildung kann die Vorgehensweise der einzelnen Schritte be
 
 Jede Zeile steht für einen Durchgang einer Vorhersage. In diesem Beispiel wird exemplarisch eine Vorhersage eines Wertes am Ende vorgenommen. Auf die Eingabesequenz (1-7) folgt durch die Berechnung des Netzwerkes die Zahl (8). Dieses Verhalten ist dadurch zu erreichen, indem man dem Netzwerk zum Training verschiedene Reihenfolgen gibt. Das Netzwerk erkennt durch das Convolutional Netzwerk wiederum Markante Punkte. Nachdem diese erkannt werden, kann der LSTM-Layer Vorgänger Sequenzen weiterhin betrachten ohne diese direkt zu vergessen. Zur Nachberechnung innerhalb des LSTM-Layers kann durch Backpropagation eine Rückantwort erfolgen um somit die Gewichte anzupassen. Ebenfalls ist in jeder LSTM-Zelle ein Forget-Gate vorhanden, welches bestimmte Vergangenheitswerte wieder vergessen lässt. Dies kann in der obenstehenden Abbildung durch die orangenen Zeitschritte entnommen werden. Dieser Schritt ist notwendig, da ansonsten ein auswendig lernen der gesamten Sequenz erfolgen würde (Oh et al., 2018). Dies hätte zur Folge, dass das Netzwerk immer wieder den Original Song oder die Original Sequenz wiedergibt.
 
-Verwendetes Modell:
+#### Verwendetes Modell:
 
 ![](Pictures/Abbildung27.PNG)
 
@@ -552,7 +552,7 @@ Verwendetes Modell:
 
 Ein weiteres anpassen und testen mit Layern wurde aus Zeitgründen nicht mehr verfolgt.
 
-Predicted Datapoints:
+#### Predicted Datapoints:
 
 ![](Pictures/Abbildung28.PNG)
 
@@ -566,13 +566,13 @@ Anders wie der Binary CNN-LSTM Ansatz, ermöglicht dieser Ansatz mehrere Klassen
 
 Der Gedanke dabei ist es, Klassen auf Basis eines (oder mehrerer) Referenzsongs zu bilden. Dabei wird versucht die Zusammenhänge (Übergänge) einzelner Chunks zu betrachten, d.h. Chunk 1 und Chunk 2 bilden die erste Klasse, Chunks 2 und Chunk 3 bilden die zweite Klasse usw. Somit werden je nach Anzahl der Chunks viele Klassen gebildet, die eine Reihenfolge und den Aufbau eines Songs abbilden können. Ist das Modell einmal trainiert sollen anschließend diverse unbekannte Chunks den verschiedenen Klassen zugeordnet werden und dadurch “Buckets” entstehen die die Chunks in eine passende Reihenfolge bringen. Ein Song kann danach wie folgt erstellt werden.Es wird mit einem Sample aus Bucket 1 gestartet. Danach wird ein Chunk aus Bucket 2 angefügt. Darauf folgt das geeignetste Sample aus Bucket 3. Dieser Prozess wird immer weiter durchlaufen von Klasse “Start” bis Klasse “Ende” und danach wieder von vorne.
 
-Technische Durchführung - Data Preparation:
+### Technische Durchführung - Data Preparation:
 
 Um die theoretische Überlegung ins praktische zu überführen werden einzelne Chunks, die auf Basis der Silence Cutting Methode geschnitten wurden geladen. Danach wird durch *split_to_mono* eine Aufteilung der Stereo Kanäle erzielt. Für das Training wird lediglich der erste Kanal verwendet. Anschließend werden die Daten mit Hilfe der Funktion *normalize_sample* auf den Wertebereich [-1, 1] normalisiert. Dieser Schritt ist notwendig damit die Aktivierungsfunktionen wie tanH eine genaue Berechnung des Wertebereiches durchführen kann. Im nächsten Schritt werden zwei Listen erstellt, die das Modell benötigt. Basierend auf diesen werden Zusammenhänge erlernt. In die Liste X_train werden immer zwei aufeinanderfolgende Chunks zusammengefügt, damit passende Übergänge abgebildet werden können. In die Liste Y_train wird an der gleichen Stelle von dem ersten zusammengefügten Chunk beispielsweise 0 (stellt Klasse 0 dar) eingetragen. Diese Klasse bildet den ersten Übergang. Für das nächste wird Klasse 1, danach Klasse 2 etc. erstellt. Ist die Schleife am Ende angekommen wird der letzte Chunk wieder mit dem ersten Chunk verbunden, damit es ebenfalls lernt was am Ende eines Songs für ein Chunk folgen könnte. Anschließend werden noch falsche Daten generiert in dem mit der Funktion *get_strange_end_part* random Chunks zusammengeführt werden. Diese werden in der Liste *X_train_false* abgespeichert. Nachdem alle notwendigen Listen erstellt wurden, können diese in ein Numpy Array umgewandelt und das Y_train der Funktion to_categorical übergeben werden. Dadurch werden die einzelnen Klassen erstellt.
 
-Technische Durchführung - RNN
+### Technische Durchführung - RNN
 
-**Conv1DLayer**
+#### Conv1DLayer
 
 Diese erste Schicht dient der Analyse der Trainingsdaten und der Generierung der nötigen Merkmale. Der Input Shape beschränkt sich auf die Anzahl der Elemente innerhalb einer Dimension.
 
@@ -582,7 +582,7 @@ Parameter:
 -   Kernel_size = 1
 -   Input_shape = (2000,1)
 
-**LSTM Layer**
+#### LSTM Layer
 
 Die LSTM-Schicht soll langfristige Abhängigkeiten zwischen Zeitschritten in den Sequenzdaten lernen.
 
@@ -599,11 +599,11 @@ Parameter:
 
 -   Units = 100
 
-**FlattenLayer**
+#### FlattenLayer
 
 Durch den Flatten Layer werden alle verbleibenden Einträge in einen Vektor angeordnet und dienen dann quasi als Input in ein dichtes neuronales Netz, welches die Klassifikation durchführt.
 
-**DenseLayer**
+#### DenseLayer
 
 Der letzte Dense Layer stellt die Output Schicht dar. Alle Neuronen sind mit allen Inputs und Outputs verbunden.
 
@@ -630,7 +630,7 @@ Eine manuelles erzeugen von Klassen und einsortieren der Chunks in diese Klassen
 
 Ein weiterer Ansatz, der aus Zeitgründen code-technisch nicht weiter verfolgt werden konnte, ist die Klassifizierung von Start und Endstücken anhand einer Cross-entropy loss-Funktion für eine Multiklassen-Klassifizierung. Cross-entropy ist eine häufig verwendete Loss-Funktion für Klassifizierungs Aufgaben. Die Prediction bei einer Multi-class-classification ist ein Wahrscheinlichkeitsvektor. Dieser stellt die Wahrscheinlichkeiten über alle Klassen hinweg dar, die sich insgesamt zu 1 aufsummieren. Es sollen also mehrere Klassen auf Basis der Samples gebildet werden und von einem Modell erlernt werden, damit im Anschluss das passende Folge Chunk auf Basis dieser Klassen predicted werden kann (Martinek, 2022).
 
-Die Idee beruhte auf folgenden Annahmen:
+#### Die Idee beruhte auf folgenden Annahmen:
 
 -   Wenn wir aus einem Song das Ende von einem Sample 1 und den Anfang von einem Sample 2 nehmen, müssen diese aufgrund der Reihenfolge aus dem Ursprungssong zusammenpassen.
 -   Dementsprechend sollen alle Anfangsstücke und alle Endstücke der Samples in verschiedene Klassen zugeordnet werden. Es sollten also auch die entsprechende Klasse von Endstück Sample 1 (Ke1) und die Klasse (Ks1) das Start Stück von Sample 2 in einem Bezug zueinander stehen. Dies beruht darauf, dass im Ursprungssong der Übergang zwischen den beiden Samples gut klingt.
@@ -655,7 +655,7 @@ Bei der Durchführung und Implementierung dieses Ansatzes hat sich jedoch gezeig
 *Abbildung 32 - Systemarchitektur CNN & LSTM Binary Ansatz (Eigene Darstellung)*
 
 
-**Quellen:**
+## Quellen:
 
 Bailke, P. A., & Patil, S. T. (2019). Distributed algorithms for improved associative multilabel document classification considering reoccurrence of features and handling minority classes. Int. J. Bus. Intell. Data Min., 14(3), 299-321.
 
