@@ -26,13 +26,15 @@
 
 [2.1. Trainings- und Testdaten](#21-trainings--und-testdaten) 19
 
-[2.2. LSTM & CNN Binary Crossentropy Ansatz (Präsentierter Ansatz)](#22-lstm--cnn-binary-crossentropy-ansatz-präsentierter-ansatz) 20
+[2.2. LSTM & CNN Binary Cross Entropy Ansatz (Präsentierter Ansatz)](#22-lstm--cnn-binary-crossentropy-ansatz-präsentierter-ansatz) 20
 
 [2.3. Forecasting mit CNN-LSTM](#23-forecasting-mit-cnn--lstm) 25
 
 [2.4. Categorical CNN-LSTM](#24-categorical-cnn--lstm) 27
 
-[2.5. Klassifizierung von Start- und Endstücken (Cross-entropy for classification)](#25-klassifizierung-von-start--und-endstücken-cross-entropy-for-classification) 29
+[2.5. Klassifizierung von Start- und Endstücken (Cross Entropy for classification)](#25-klassifizierung-von-start--und-endstücken-cross-entropy-for-classification) 29
+
+[2.5. Klassendiagramm Ansatz LSTM & CNN Binary Cross Entropy)](#25-klassifizierung-von-start--und-endstücken-cross-entropy-for-classification) 32
 
 # 
 
@@ -646,6 +648,12 @@ Die Idee beruhte auf folgenden Annahmen:
 *Abbildung 31 - Vorgehensweise Klassifizierung von Start und Endstücken (Eigene Darstellung)*
 
 Bei der Durchführung und Implementierung dieses Ansatzes hat sich jedoch gezeigt, dass zu viele Klassen erstellt werden. Hierbei müsste ein erheblich manueller Aufwand betrieben werden um vorab die Klassen von Hand zu erstellen um Chunks mit hoher Ähnlichkeit zu klassifizieren. Dieser Ansatz könnte in weiteren Forschungen mit händisch erstellten Klassen erneut geprüft werden um die tauglichkeit zu prüfen.
+
+## 2.6. Klassendiagramm Ansatz CNN & LSTM Binary Cross Entropy
+
+![](Pictures/Klassendiagramm_Challenge3.PNG)
+*Abbildung 32 - Systemarchitektur CNN & LSTM Binary Ansatz (Eigene Darstellung)*
+
 
 **Quellen:**
 
