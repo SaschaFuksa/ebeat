@@ -48,7 +48,7 @@ Das Stochastische Sampling basierend auf der cut_on_silence Methode erzielte die
 
 Ergebnis von cut-on-silence Methode mit 16dB:
 
-![](Pictures/Abbildung1.png)
+![](Pictures/Abbildung1.PNG)
 
 *Abbildung 1 - Modellergebnis Chunk mit Silence Cut Methode bei 16 db (Eigene Darstellung)*
 
@@ -58,19 +58,19 @@ Das beste Ergebnis bei den gleich lang geschnittenen Chunks lieferte die Chunkl�
 
 Ergebnis von 5 Sekunden
 
-![](Pictures/Abbildung2.png)
+![](Pictures/Abbildung2.PNG)
 
 *Abbildung 2 - Modellergebnis Chunklänge von 5 Sekunden (Eigene Darstellung)*
 
 Ergebnis von 3 Sekunden
 
-![Bild wird eingefügt...](Pictures/Abbildung3.png)
+![Bild wird eingefügt...](Pictures/Abbildung3.PNG)
 
 *Abbildung 3 - Modellergebnis Chunklänge von 3 Sekunden (Eigene Darstellung)*
 
 Ergebnis von 1 Sekunde
 
-![](Pictures/Abbildung4.png)
+![](Pictures/Abbildung4.PNG)
 
 *Abbildung 4 - Modellergebnis Chunklänge von 1 Sekunde (Eigene Darstellung)*
 
@@ -78,13 +78,13 @@ Ergebnis von 1 Sekunde
 
 Es wurden sowohl mit unterschiedliche Genre und Stimmungen verwendet gearbeitet als auch mit Trainings Songs, welche sich von der Stimmung und dem Genre ähneln. Die Songs, welche sich ähneln lieferten hierbei ein besseres Ergebnis bei der Prediction. Ein hoher Wert nahe 1 steht hierbei für die Klasse True und ein niedriger welcher gegen 0 geht für die Klasse False.
 
-![](Pictures/Abbildung5.png)
+![](Pictures/Abbildung5.PNG)
 
 *Abbildung 5 - Modellergebnis von Songs aus ähnlichen Genres (Eigene Darstellung)*
 
 Die Songs, welche aus unterschiedlichen Genres stammen lieferten eine schlechtere Vorhersage der Werte bei gleichbleibenden Werten im Modell und den Epochen.
 
-![](Pictures/Abbildung6.png)
+![](Pictures/Abbildung6.PNG)
 
 *Abbildung 6 - Modellergebnis von Songs aus unterschiedlichen Genres (Eigene Darstellung)*
 
@@ -104,13 +104,13 @@ Unter einem Convolutional neural Network (CNN) versteht man ein spezielles Feed-
 
 Im Zentrum einer Convolution steht der Kernel. Dieser wird auf den Input angewendet. Der Kernel ist ein Gewichtsgitter, welcher üblicherweise bei der Bildverarbeitung verwendet wird. Ein Kernel, sprich ein Filter, ist ein Merkmals Detektor (feature detector). Beim Trainieren eines CNN werden die Werte eines Kernels vom Netzwerk trainiert, um Merkmale zu erkennen und zu extrahieren. In Abbildung 7 wird ein 3 x 3 Kernel mit den Gewichten (W) dargestellt (Raghav P.,2020).
 
-![](Pictures/Abbildung7.png)
+![](Pictures/Abbildung7.PNG)
 
 *Abbildung 7 - 3 x 3 Kernel (Eigene Darstellung)*
 
 Um diesen Kernel anwenden zu können, muss vorab ein Bild in ein Gitter von Pixeln umgewandelt werden. Jeder Wert in diesem Gitter stellt somit einen Pixel dar (Raghav P.,2020).
 
-![](Pictures/Abbildung8.png)
+![](Pictures/Abbildung8.PNG)
 
 *Abbildung 8 - Bild in Pixelformat (Eigene Darstellung)*
 
@@ -124,7 +124,7 @@ Das Ergebnis 18 ist nun der Output aus Kernel und Image. Daraufhin wird der Kern
 
 Damit das Zentrum des Kernels auch auf die Pixel passt, die am Rande des Images stehen, wie die Zahl 5 im linken oberen Rand, wird das Null Padding angewandt. Hierbei werden Zeilen und Spalten mit Nullen auf jeder Seite der Eingabe-Merkmalskarten hinzugefügt. In diesem Fall hat die Ausgabe die gleiche Dimension wie die Eingabe (Raghav P.,2020).
 
-![](Pictures/Abbildung9.png)
+![](Pictures/Abbildung9.PNG)
 
 *Abbildung 9 - Output aus Bild (Image) und Kernel (Eigene Darstellung)*
 
@@ -164,7 +164,7 @@ Die Convolutional Schicht, als erster Layer extrahiert die Merkmale des Bilds. D
 
 In der Klassifikation werden die Resultate in Matrixform durch einen Flatten-Layer in Vektoren umgewandelt. In der Fully Connected Schicht werden die Merkmale in Vektor Form kombiniert, um das KI Modell zu erstellen. Schließlich wird anhand einer Aktivierungsfunktion wie SoftMax oder Sigmoid die Ausgabe (Output) klassifiziert und den verschiedenen Kategorien wie Car, Truck, Van, Bicycle hinzugefügt (Raghav P.,2020).
 
-![](Pictures/Abbildung10.png)
+![](Pictures/Abbildung10.PNG)
 
 *Abbildung 10 - Convolutional Neural Network Architektur (Raghav P. 2020)*
 
@@ -172,7 +172,7 @@ In der Klassifikation werden die Resultate in Matrixform durch einen Flatten-Lay
 
 Das LSTM ist eine bestimmte Art eines rekurrenten neuronalen Netzes. Eines der Hauptprobleme eines RNN’s ist, dass dieses nur die Informationen über den vorherigen Zustand speichert, was einen verschwindenden Gradienten verursacht. Das Long short-term-memory (LSTM) behandelt dieses Problem des verschwindenden Gradienten.
 
-![](Pictures/Abbildung11.png)
+![](Pictures/Abbildung11.PNG)
 
 *Abbildung 11 - RNN versus LSTM (Vishwas & Patel, 2020, S. 211)*
 
@@ -227,7 +227,7 @@ Schritt 4 (Output Gate):
 
 Im Output Filter Ot wird die Output Matrix generiert. Auch bei dieser wird wieder die Sigmoid Funktion angewendet, die bereits in Step 1 und Step 2 vorkam (siehe Abbildung 12 –Step 2. input and candidate gate – 1. Formel). H t ist der Hidden State für den jetzigen Zeitschritt, sowie dem Output. Um h t zu generieren wird ot mit dem Zellstatus, durchlaufen von tanH, tanH(Ct) multipliziert. TanH fungiert hier nicht als Layer, sondern ist nur die Funktion an sich. TanH wird verwendet, da auch diese Funktion die Werte zwischen - 1 und 1 prestt. H t wird als Hidden State für den jetzigen Zeitschritt verwendet und als Dense Layer für die Vorhersage verwendet.
 
-![](Pictures/Abbilddung12.png)
+![](Pictures/Abbilddung12.PNG)
 
 *Abbildung 12 - LSTM Zelle (Vishwas & Patel, 2020. S.212*
 
@@ -248,7 +248,7 @@ Dropout Layer
 Ein Fully Connected Layer beansprucht die meisten Parameter, so dass die Neuronen während des Trainings eine gegenseitige Abhängigkeit entwickeln, was die individuelle Leistung der einzelnen Neuronen einschränkt und zu einer Überanpassung der Trainingsdaten führt.   
 Dropout-Layer sind eine Regulasierungstechnik, die darin besteht, bei jeder Aktualisierung während des Trainings einen Teil der Input Unit auf 0 zu setzen. Dadurch wird Overfitting verringert und Generalisierungsfehler in neuronalen Netzen verbessert. Dieser Anteil der Input Units, die auf 0 gesetzt werden sollen, wird durch einen Parameter bestimmt.
 
-![](Pictures/Abbildung13.png)
+![](Pictures/Abbildung13.PNG)
 
 *Abbildung 13 - Droput Layer (Srivastava, Nitish, et al. “Droput: a simple way to prevent neural networks from overfitting”)*
 
@@ -280,7 +280,7 @@ Sigmoid
 
 Die Sigmoid Funktion ist an den Bereich der Ausgabewerte [0,1] gebunden. Somit normalisiert diese Funktion die Ausgangswerte jeder Schicht. Sie hat einen gleichmäßigen Gradienten und kann nicht mit dem Problem des verschwindenden Gradienten umgehen, wenn die Eingabewerte hoch oder niedrig sind. Dies liegt daran, dass diese einen großen Eingaberaum in einen kleinen Eingaberaum zwischen 0 und 1 presst. Deswegen bewirkt eine große Änderung der Eingabe der Sigmoid Funktion eine kleine Änderung der Ausgabe. Folglich wird die Ableitung kleiner. Je mehr Schichten mit bestimmten Aktivierungsfunktionen zu neuronalen Netzen hinzugefügt werden, desto mehr nähert sich der Gradient der Verlustfunktion dem Wert Null, wodurch das Netz schwer zu trainieren ist. Somit sollte für den vanishing gradient eine andere Funktion verwendet werden (Vishwas & Patel, 2020).
 
-![](Pictures/Abbildung15.png)
+![](Pictures/Abbildung15.PNG)
 
 *Abbildung 15 - Sigmoid Aktivierungsfunktion (Vishwas & Patel,2020, S.191)*
 
@@ -288,7 +288,7 @@ TanH (Tangens-Hyperbolicus Funktion)
 
 Die TanH Funktion ist an den Bereich der Ausgabewerte [-1,1] gebunden. Bei diesem Modell können stark negative, neutrale und stark positive Werte verarbeiten werden. Diese ähnelt der Sigmoid Aktivierungsfunktion mit Ausnahme des Bereichs. Zudem sind die Ausgabewerte null-zentriert (Oppermann, 2022).
 
-![](Pictures/Abildung16.png)
+![](Pictures/Abildung16.PNG)
 
 *Abbildung 16 - TanH Aktivierungsfunktion (Vishwas & Patel,2020, S.192)*
 
@@ -299,7 +299,7 @@ Sobald der Eingabewert unter 0 liegt oder negativ ist die Funktion nicht in der 
 
 Im Gegensatz zu den vorherigen genannten Funktionen hat RelU keine rechenaufwändigen Operationen wie beispielsweise Exponenten. RelU kann durch die Bildung eines Schwellenwerts eines Wertevektors bei Null implementiert werden (Oppermann, 2022).
 
-![](Pictures/Abbildung17.png)
+![](Pictures/Abbildung17.PNG)
 
 *Abbildung 17 - RelU Aktivierungsfunktion (Vishwas & Patel,2020, S.192)*
 
@@ -307,7 +307,7 @@ Leaky RelU
 
 Der Vorteil dieser Funktion liegt darin, dass es das sterbende RelU Problem löst. Hierbei wird durch eine Funktion, die horizontale Linie Werte unter Null durch eine nicht-horizontale, lineare Linie ersetzt. Somit werden null-Gradienten vermieden Vishwas & Patel, 2020).
 
-![](Pictures/Abbildung18.png)
+![](Pictures/Abbildung18.PNG)
 
 *Abbildung 18 - Leaky RelU Aktivierungsfunktion (Vishwas & Patel,2020, S.193)*
 
@@ -315,7 +315,7 @@ SoftMax
 
 Die SoftMax Aktivierungsfunktion wird nur in der letzten Schicht angewandt und auch nur um dem neuronalen Netz bei Klassifizierungsaufgaben, Wahrscheinlichkeitswerte vorhersagen zu lassen. Sprich die SoftMax-Aktivierungsfunktion zwingt die Werte der Ausgangsneuronen dazu, Werte zwischen 0 und 1 anzunehmen, damit die Wahrscheinlichkeitswerte im Intervall [0,1] dargestellt werden. Außerdem werden bei der Klassifizierung von Eingabemerkmalen in verschiedenen Klassen, diese Klassen gegenseitig ausgeschlossen. Jeder Merkmalsvektor x gehört nur einer Klasse an (Oppermann, 2022).
 
-![](Pictures/Abbildung19.png)
+![](Pictures/Abbildung19.PNG)
 
 *Abbildung 19 – SoftMax Aktivierungsfunktion (Vishwas & Patel, 2020, S. 194)*
 
@@ -344,7 +344,7 @@ Zugehörige Cross Entropy Ansätze
 
 In der folgenden Abbildung 20 werden zu diversen Klassifizierungen die Loss function sowie weitere zugehörige Spezifikationen abgebildet.
 
-![](Pictures/Abbildung20.png)
+![](Pictures/Abbildung20.PNG)
 
 *Abbildung 20 - Loss Function Zuordnung*
 
@@ -356,7 +356,7 @@ Cross Entropy (Kreuzentropie) bezeichnet ein Maß für die Qualität eines Model
 
 Die binary cross entropy (binäre Kreuzentropie) wird häufig als durchschnittliche Kreuzentropie für alle Datenbeispiele genannt. Bei der binären Klassifikation werden zwei exklusive Klassen verwendet (in verwendeten Fall true (1) and false (0)), welchen Informationen zugeordnet werden. Die Ausgabeschicht muss mit einem einzigen Knoten und einer "sigmoiden" Aktivierung konfiguriert werden, um die Wahrscheinlichkeit für Klasse 1 vorherzusagen. Daher kann man für die binäre Klassifikation die binäre Kreuzentropie verwenden. Beim binary cross entropy kann Multi Label Klassifikation oder die Binäre Klassifikation verwendet werden. (Koech, 2021).
 
-![](Pictures/Abbildung21.png)
+![](Pictures/Abbildung21.PNG)
 
 *Abbildung 21 - Binary Cross Entropy (Brownlee, 2020)*
 
@@ -364,7 +364,7 @@ Die binary cross entropy (binäre Kreuzentropie) wird häufig als durchschnittli
 
 Die Categorical Cross Entropy wird verwendet, wenn Merkmale mit true durch1-aus-n (One- Hot-Kodierung) gekennzeichnet wurden. Beispielsweise bei folgenden true Werten in einem drei Klassen Klassifizierungsproblem [1,0,0],[0,1,0] und [0,0,1]. Die Ausgabeschicht ist mit n Knoten (einem für jede Klasse) konfiguriert und einer "Softmax"-Aktivierung, um die Wahrscheinlichkeit für jede Klasse vorherzusagen. Hierbei wird die Multi Class Klassifikation angewandt, da es mehr als zwei Klassen gibt (Koech, 2021).
 
-![](Pictures/Abbildung22.png)
+![](Pictures/Abbildung22.PNG)
 
 *Abbildung 22 - Categorical Cross Entropy (Brownlee, 2020)*
 
@@ -440,7 +440,7 @@ Danach wird der kürzeste Chunk gesucht, um einen einheitlichen Input für das N
 
 Die invaliden Daten/Übergänge werden folgendermaßen gebildet: Bei X_train_false wird zweimal ein falscher Nachfolger an einen Chunk angeklebt und mit einem"False"-Wert versehen. Um einen Chunk mit einem falschen Übergang zu finden, wird mit Hilfe der randint-Methode ein random Integer generiert und zum Index x. Das Sample an diesem Index x wird somit der Nachfolger und definiert einen falschen Übergang (y_false). Damit nicht zufällig der richtige Nachfolger durch die random.randit Methode gewählt wird, werden diese Indizes durch eine If-Abfrage ausgeschlossen. Die Abbildung 23 stellt das soeben beschriebene Vorgehen zur Erstellung der Trainingsdaten dar.
 
-![](Pictures/Abbildung23.png)
+![](Pictures/Abbildung23.PNG)
 
 *Abbildung 23- Trainingsdaten (Eigene Darstellung)*
 
@@ -494,7 +494,7 @@ Für einen Fully connected Layer haben wir nochmal zum Schluss einen Dense Layer
 
 Neural Network Konfiguration:
 
-![](Pictures/Abbildung24.png)
+![](Pictures/Abbildung24.PNG)
 
 *Abbildung 24 - Neural Network Konfiguration (Eigene Darstellung)*
 
@@ -518,7 +518,7 @@ Die Wahl der Batch Size ist eine wichtige Entscheidung, da sie einen starken Ein
 
 Beim Training mit 600 Epochen werden mit dem aktuellen Modell die besten Ergebnisse erzielt (siehe Abbildung 25). Dadurch konnte eine Accuracy von 95 % und ein Loss von 12 % erreicht werden.
 
-![](Pictures/Abbildung25.png)
+![](Pictures/Abbildung25.PNG)
 
 *Abbildung 25 - Darlegung der Anzahl der Epochen (Eigene Darstellung)*
 
@@ -536,7 +536,7 @@ Der Unterschied zu einer Klassifizierung liegt hierbei darin, dass einzelne Date
 
 In der nachfolgenden Abbildung kann die Vorgehensweise der einzelnen Schritte betrachtet werden.
 
-![](Pictures/Abbildung26.png)
+![](Pictures/Abbildung26.PNG)
 
 *Abbildung 26 - Vorgehensweise Forecasting (Eigene Darstellung)*
 
@@ -544,7 +544,7 @@ Jede Zeile steht für einen Durchgang einer Vorhersage. In diesem Beispiel wird 
 
 Verwendetes Modell:
 
-![](Pictures/Abbildung27.png)
+![](Pictures/Abbildung27.PNG)
 
 *Abbildung 27 - Modell (Eigene Darstellung)*
 
@@ -552,7 +552,7 @@ Ein weiteres anpassen und testen mit Layern wurde aus Zeitgründen nicht mehr ve
 
 Predicted Datapoints:
 
-![](Pictures/Abbildung28.png)
+![](Pictures/Abbildung28.PNG)
 
 *Abbildung 28 - Predicted Data Points (Eigene Darstellung)*
 
@@ -616,7 +616,7 @@ Das Ergebnis des Kategorischen Ansatzes war durch zu viele Klassen leider nicht 
 
 Es wurden im Falle von den drei verwendeten Songs 242 Klassen erstellt und die Chunks in diese einsortiert. Hierbei ist wiederum ersichtlich, dass es sich um zu viele Klassen handelt, da manche Klassen sehr wenige Beziehungsweise gar keine Chunks beinhaltet.
 
-![](Pictures/Abbildung29.png)
+![](Pictures/Abbildung29.PNG)
 
 *Abbildung 29 - Erzeugte Klassen Categorical (Eigene Darstellung)*
 
@@ -637,11 +637,11 @@ Die Idee beruhte auf folgenden Annahmen:
 -   Bei der Vorhersage wird nun immer das Ende eines Referenzsamples angesehen und dieses klassifiziert. Da nun die Folgeklasse bekannt ist wird jedes mögliche weitere Sample durch einen Wahrscheinlichkeitsvektor zwischen 0 und 1 geprüft, inwiefern dessen Startstück der gewünschten Folgeklasse entspricht. Das Sample mit dem höchsten Wert wird genommen und an das Referenzsample angeklebt. Der nachfolgende Chunk wird zum neuen Referenzsample und dessen Ende wiederum klassifiziert, damit wieder das passende Startstück gefunden werden kann. Dies
 -   Da bei diesem Ansatz für jeden Übergang eine Klasse gebildet wird, gibt es am Ende n-1 Klassen. Dies kann kritisch bewertet werden, da bei der Klassifizierung ähnliche Objekte zu Klassen zusammengefasst werden sollen. Zu viele Klassen widersprechen dieser Logik. Sinnvoller wäre es die Klassen auf Basis einer Ähnlichkeit zwischen den Samples zusammenzufassen. Dazu wurden die Samples geplottet und nach ähnlichen Samples geschaut. Aus Zeitgründen und da man sich aufgrund der Empfehlung der Dozenten auf einen anderen Ansatz konzentrierte, konnte dieser Ansatz nicht mehr weiterverfolgt werden.
 
-![](Pictures/Abbildung30.png)
+![](Pictures/Abbildung30.PNG)
 
 *Abbildung 30 - Übergang der End und Startstücke (Eigene Darstellung)*
 
-![](Pictures/Abbildung31.png)
+![](Pictures/Abbildung31.PNG)
 
 *Abbildung 31 - Vorgehensweise Klassifizierung von Start und Endstücken (Eigene Darstellung)*
 
